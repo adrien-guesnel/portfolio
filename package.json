@@ -1,0 +1,45 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6007",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "daisyui": "4.4.20",
+    "lottie-react": "2.4.0",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "7.6.5",
+    "@storybook/addon-interactions": "7.6.5",
+    "@storybook/addon-links": "7.6.5",
+    "@storybook/blocks": "7.6.5",
+    "@storybook/nextjs": "7.6.5",
+    "@storybook/react": "7.6.5",
+    "@storybook/test": "7.6.5",
+    "@trivago/prettier-plugin-sort-imports": "4.3.0",
+    "@types/node": "20.10.5",
+    "@types/react": "18.2.45",
+    "@types/react-dom": "18.2.18",
+    "autoprefixer": "10.0.1",
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.0.4",
+    "eslint-plugin-storybook": "0.6.15",
+    "postcss": "^8",
+    "prettier": "3.1.1",
+    "storybook": "7.6.5",
+    "tailwindcss": "3.3.7",
+    "typescript": "5.3.3"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  }
+}
