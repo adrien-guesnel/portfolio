@@ -33,7 +33,6 @@ RUN apt-get update && apt-get install -y openssl ca-certificates
 
 WORKDIR /usr/app
 
-COPY ./public .
 COPY package.json ./
 COPY --from=deps_prod /usr/app/node_modules ./node_modules
 COPY --from=builder /usr/app/.next ./.next
