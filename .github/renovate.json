@@ -1,0 +1,27 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "labels": ["renovate"],
+  "prConcurrentLimit": 3,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch"],
+      "groupName": "Patch Updates",
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "groupName": "Minor Updates",
+      "automerge": false
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "matchUpdateTypes": ["pin"],
+      "groupName": "Pin Updates",
+      "automerge": false
+    }
+  ]
+}
