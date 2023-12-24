@@ -1,5 +1,4 @@
 import type { Preview } from "@storybook/react"
-import { NextIntlClientProvider } from "next-intl"
 import React from "react"
 
 // @ts-ignore
