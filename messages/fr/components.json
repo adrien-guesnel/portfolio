@@ -1,0 +1,8 @@
+{
+  "Hero": {
+    "cta": "Voir mon LinkedIn",
+    "description": "Je suis un ingénieur logiciel français et je travaille actuellement chez <component></component> en tant que tech lead.",
+    "subtitle": "Je suis <primary>Tech lead</primary> spécialisé en <primary>React.js / Node.js</primary>",
+    "title": "Bonjour, je m'appelle Adrien Guesnel"
+  }
+}

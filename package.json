@@ -14,6 +14,7 @@
     "daisyui": "4.4.20",
     "lottie-react": "2.4.0",
     "next": "14.0.4",
+    "next-intl": "3.4.0",
     "react": "^18",
     "react-dom": "^18"
   },
