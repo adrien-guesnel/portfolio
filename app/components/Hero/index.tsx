@@ -2,7 +2,6 @@
 
 import Lottie from "lottie-react"
 import { useTranslations } from "next-intl"
-import { use } from "react"
 
 import computerAnimation from "./computer_animation.json"
 
