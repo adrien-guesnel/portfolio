@@ -10,6 +10,11 @@
     "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,scss,json}": [
+      "prettier --check"
+    ]
+  },
   "dependencies": {
     "daisyui": "4.4.20",
     "lottie-react": "2.4.0",
@@ -34,6 +39,9 @@
     "eslint": "8.56.0",
     "eslint-config-next": "14.0.4",
     "eslint-plugin-storybook": "0.6.15",
+    "eslint-plugin-unused-imports": "3.0.0",
+    "husky": "8.0.3",
+    "lint-staged": "15.2.0",
     "postcss": "^8",
     "prettier": "3.1.1",
     "storybook": "7.6.5",

@@ -23,5 +23,6 @@
       "groupName": "Pin Updates",
       "automerge": false
     }
-  ]
+  ],
+  "ignoreDeps": ["jackspeak"]
 }
