@@ -2,12 +2,12 @@ import type { Preview } from "@storybook/react"
 import { NextIntlClientProvider } from "next-intl"
 import React from "react"
 
-import "../app/globals.css"
-// @ts-ignore
-import messages from "../messages/en/components.json"
 // @ts-ignore
 import NextIntlProvider from "@/app/lib/NextIntlProvider"
 
+import "../app/globals.css"
+// @ts-ignore
+import messages from "../messages/en/components.json"
 
 const preview: Preview = {
   parameters: {
