@@ -16,7 +16,7 @@
     ]
   },
   "dependencies": {
-    "daisyui": "4.4.24",
+    "daisyui": "4.5.0",
     "lottie-react": "2.4.0",
     "next": "14.0.4",
     "next-intl": "3.4.0",
