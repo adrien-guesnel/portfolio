@@ -1,28 +1,19 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": ["config:best-practices"],
   "labels": ["renovate"],
-  "prConcurrentLimit": 3,
+  "prConcurrentLimit": 10,
   "packageRules": [
     {
       "matchUpdateTypes": ["patch"],
-      "groupName": "Patch Updates",
-      "automerge": true
+      "automerge": true,
+      "groupSlug": "upgrade-patch-dependencies"
     },
     {
+      "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["minor"],
-      "groupName": "Minor Updates",
-      "automerge": false
-    },
-    {
-      "matchUpdateTypes": ["major"],
-      "automerge": false
-    },
-    {
-      "matchUpdateTypes": ["pin"],
-      "groupName": "Pin Updates",
-      "automerge": false
+      "automerge": false,
+      "groupSlug": "upgrade-minor-dependencies"
     }
-  ],
-  "ignoreDeps": ["jackspeak"]
+  ]
 }
