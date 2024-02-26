@@ -16,19 +16,19 @@ jobs:
 
     steps:
       - name: ⬇ Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: 📖 Read .nvmrc
         run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
         id: nvm
 
       - name: 🔧 Use Node.js ${{ steps.nvm.outputs.NODE_VERSION }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
 
       - name: 🔎 Check node_modules in cache
-        uses: actions/cache@v3
+        uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3
         id: cache-node-modules
         env:
           cache-name: cache-node-modules
