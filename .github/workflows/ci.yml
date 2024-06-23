@@ -49,3 +49,6 @@ jobs:
 
       - name: 🕵️‍♂️ Verify prettier
         run: pnpm prettier --check ./
+
+      - name: 🕵️‍♂️ Verify next.js build
+        run: pnpm build

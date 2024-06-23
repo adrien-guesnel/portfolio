@@ -3,6 +3,7 @@
   "extends": ["config:best-practices", ":pinDigestsDisabled"],
   "labels": ["renovate"],
   "rebaseWhen": "conflicted",
+  "prConcurrentLimit": 3,
   "packageRules": [
     {
       "matchUpdateTypes": ["patch"],
