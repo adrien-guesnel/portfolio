@@ -4,5 +4,12 @@
     "description": "I'm a french software engineer, currently working at <component></component> as a tech lead.",
     "subtitle": "I'm a <primary>Tech lead</primary> specialist in <primary>React.js / Node.js</primary>",
     "title": "Hi, I'm Adrien Guesnel"
+  },
+  "navigationBar": {
+    "contact": "Contact",
+    "homepage": "Homepage",
+    "introduction": "Introduction",
+    "projects": "Projects",
+    "references": "References"
   }
 }
