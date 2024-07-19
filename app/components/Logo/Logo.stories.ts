@@ -13,6 +13,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    themeMode: "bright",
+    themeMode: "light",
   },
 }

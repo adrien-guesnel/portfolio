@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { faStar } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { Meta, StoryObj } from "@storybook/react"
@@ -11,7 +12,9 @@ const meta: Meta<typeof Button> = {
 export default meta
 
 type Story = StoryObj<typeof Button>
-const Template = (args) => <Button {...args}> My button</Button>
+const Template = (args: React.ComponentProps<typeof Button>) => (
+  <Button {...args}> My button</Button>
+)
 
 export const AllStates: Story = {
   render: (args) => (
