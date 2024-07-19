@@ -9,7 +9,7 @@ export default function Hero() {
   const t = useTranslations("Hero")
 
   return (
-    <div className="container p-5 flex flex-col lg:flex-row min-h-screen justify-center items-center gap-16 mx-auto">
+    <div className="container p-5 flex flex-col lg:flex-row min-h-screen justify-center items-center gap-16 mx-auto text-black dark:text-lightBrown">
       <div className="max-w-sm">
         <h1 className="text-3xl">{t("title")}</h1>
         <h2 className="text-3xl">{t.rich("subtitle")}</h2>
@@ -22,12 +22,6 @@ export default function Hero() {
             ),
           })}
         </p>
-        <a
-          className="btn btn-primary mt-5"
-          href="https://www.linkedin.com/in/adrien-guesnel/"
-        >
-          {t("cta")}
-        </a>
       </div>
       <div>
         <Lottie

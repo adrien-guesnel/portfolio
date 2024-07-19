@@ -1,0 +1,92 @@
+div {
+  @apply transition-[background-color] duration-1000;
+}
+
+/*** typography ***/
+.body-small {
+  @apply text-sm font-medium leading-[1.44rem];
+}
+
+.body-medium {
+  @apply text-base font-medium leading-[1.44rem];
+}
+
+.body-large {
+  @apply text-lg font-medium leading-[1.39rem];
+}
+
+/*** button ***/
+.button {
+  @apply flex cursor-pointer flex-row items-center justify-center gap-2 rounded-full border-2 border-solid border-transparent bg-transparent px-6 py-2 font-medium text-black no-underline transition-colors duration-300;
+  font-family: var(--font-inter);
+
+  &:hover {
+    @apply border-gray-300 bg-gray-300;
+  }
+
+  &:active {
+    @apply border-gray-200 bg-primary text-white;
+  }
+
+  &:disabled {
+    @apply cursor-not-allowed border-gray-200 bg-gray-200 text-gray-400;
+  }
+}
+
+.button-outlined {
+  @apply border-primary text-primary;
+
+  &:hover {
+    @apply border-gray-500 text-black;
+  }
+
+  &:active {
+    @apply border-primary;
+  }
+
+  &:disabled {
+    @apply cursor-not-allowed border-gray-500;
+  }
+}
+
+.button-contained {
+  @apply border-primary bg-primary text-white;
+
+  &:hover {
+    @apply text-black;
+  }
+
+  &:active {
+    @apply text-white;
+  }
+
+  &:disabled {
+    @apply text-gray-400;
+  }
+}
+
+.underline-animation {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.underline-animation::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.underline-animation:hover::before {
+  transform: translateX(0);
+}
+
+.vertical-separator {
+  @apply bg-black dark:bg-white w-[2px];
+}
