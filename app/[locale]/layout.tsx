@@ -1,5 +1,5 @@
 import { GoogleTagManager } from "@next/third-parties/google"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { useMessages } from "next-intl"
 import { Inter } from "next/font/google"
 
@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: "#FFF5E1",
+  userScalable: false,
+  initialScale: 1,
+  width: "device-width",
 }
 
 export default function RootLayout({
