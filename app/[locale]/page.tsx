@@ -15,6 +15,10 @@ export async function generateMetadata({
   }
 }
 
-export default function HomePage() {
-  return <Home />
+export default function HomePage({
+  params: { locale },
+}: {
+  params: { locale: string }
+}) {
+  return <Home locale={locale} />
 }

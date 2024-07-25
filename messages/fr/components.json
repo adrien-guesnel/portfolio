@@ -1,15 +1,19 @@
 {
   "Hero": {
-    "cta": "Voir mon LinkedIn",
-    "description": "Je suis un ingénieur logiciel français et je travaille actuellement chez <component></component> en tant que tech lead.",
-    "subtitle": "Je suis <primary>Tech lead</primary> spécialisé en <primary>React.js / Node.js</primary>",
-    "title": "Bonjour, je m'appelle Adrien Guesnel"
+    "description": "Tech Lead Freelancer specialisé en React.js / Node.js avec plus de 8 années d'expériences. Je suis prêt à vous aider à construire ou développer votre application web où que vous soyez.",
+    "discoverMyProjects": "Découvrez mes projets",
+    "discoverMySkills": "Découvrez mes compétences",
+    "hireMe": "Recrutez moi",
+    "title": "Hey, je suis <primary>Adrien</primary> 👋"
   },
   "navigationBar": {
-    "contact": "Contactez-moi",
+    "contact": "Contact",
+    "english": "Anglais",
+    "french": "Français",
     "homepage": "Accueil",
     "introduction": "Introduction",
     "projects": "Projets",
-    "references": "Références"
+    "references": "Références",
+    "skills": "Compétences"
   }
 }

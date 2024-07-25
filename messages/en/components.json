@@ -1,15 +1,19 @@
 {
   "Hero": {
-    "cta": "View my linkedin",
-    "description": "I'm a french software engineer, currently working at <component></component> as a tech lead.",
-    "subtitle": "I'm a <primary>Tech lead</primary> specialist in <primary>React.js / Node.js</primary>",
-    "title": "Hi, I'm Adrien Guesnel"
+    "description": "Tech Lead Freelancer specialized in React.js / Node.js with more than 8 years of experience. I'm ready to help you to build or growth your web application from anywhere on the world.",
+    "discoverMyProjects": "Discover my projects",
+    "discoverMySkills": "Discover my skills",
+    "hireMe": "Hire me",
+    "title": "Hi, I'm <primary>Adrien</primary> 👋"
   },
   "navigationBar": {
     "contact": "Contact",
+    "english": "English",
+    "french": "French",
     "homepage": "Homepage",
     "introduction": "Introduction",
     "projects": "Projects",
-    "references": "References"
+    "references": "References",
+    "skills": "Skills"
   }
 }
