@@ -1,33 +1,35 @@
 "use client"
 
-import Lottie from "lottie-react"
+import HeroImg from "@public/img/hero.png"
 import { useTranslations } from "next-intl"
+import Image from "next/image"
+import Link from "next/link"
 
-import computerAnimation from "./computer_animation.json"
+import { HIRE_ME_URL } from "@/app/lib/constants"
 
 export default function Hero() {
   const t = useTranslations("Hero")
 
   return (
-    <div className="container p-5 flex flex-col lg:flex-row min-h-screen justify-center items-center gap-16 mx-auto text-black dark:text-lightBrown">
-      <div className="max-w-sm">
-        <h1 className="text-3xl">{t("title")}</h1>
-        <h2 className="text-3xl">{t.rich("subtitle")}</h2>
-        <p className="text-xl mt-5">
-          {t.rich("description", {
-            component: () => (
-              <a className="link link-primary" href="https://www.guiild.fr/">
-                Guiild
-              </a>
-            ),
-          })}
-        </p>
+    <div className="container flex flex-col lg:flex-row min-h-screen justify-center items-center mx-auto text-black dark:text-lightBrown">
+      <div className="max-w-2xl flex flex-col">
+        <h1 className="text-4xl lg:text-6xl font-bold">{t.rich("title")}</h1>
+        <p className="body-large mt-6">{t("description")}</p>
+        <div className="flex felx-row gap-3 mt-6">
+          <Link href={HIRE_ME_URL} className="button button-contained">
+            {t("hireMe")}
+          </Link>
+
+          {/* <Link href="#" className="button button-outlined">
+            {t("discoverMySkills")}
+          </Link> */}
+        </div>
       </div>
-      <div>
-        <Lottie
-          animationData={computerAnimation}
-          loop={true}
-          className="h-72"
+      <div className="max-w-lg">
+        <Image
+          src={HeroImg}
+          alt="Adrien with his computer"
+          placeholder="blur"
         />
       </div>
     </div>

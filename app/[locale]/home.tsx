@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import Hero from "@components/Hero"
 import NavigationBar from "@components/NavigationBar"
 
-export default function Home() {
+export default function Home({ locale }: { locale: string }) {
   const [theme, setTheme] = useState<"light" | "dark">("light")
 
   function handleThemeChange() {
@@ -29,7 +29,11 @@ export default function Home() {
 
   return (
     <div className="bg-beige dark:bg-darkBrown">
-      <NavigationBar onThemeChange={handleThemeChange} themeMode={theme} />
+      <NavigationBar
+        onThemeChange={handleThemeChange}
+        themeMode={theme}
+        locale={locale}
+      />
       <Hero />
     </div>
   )
