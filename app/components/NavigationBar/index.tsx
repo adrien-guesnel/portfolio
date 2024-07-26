@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl"
 import Link from "next/link"
 import { useRef, useState } from "react"
 
+import { ThemeMode } from "@/app/lib/constants"
 import { usePathname, useRouter } from "@/app/navigation"
 
 import Flag, { COUNTRIES } from "@components/Flag"
@@ -15,14 +16,14 @@ import Logo from "@components/Logo"
 interface NavigationBarProps {
   onThemeChange: () => void
   className?: string
-  themeMode?: "light" | "dark"
+  themeMode?: ThemeMode
   locale: string
 }
 
 export default function NavigationBar({
   onThemeChange,
   className,
-  themeMode = "light",
+  themeMode = ThemeMode.Light,
   locale,
 }: NavigationBarProps) {
   const t = useTranslations("navigationBar")
@@ -59,7 +60,7 @@ export default function NavigationBar({
     <>
       <div
         className={clsx(
-          "rounded-2xl h-16 flex flex-row justify-between items-center px-4 py-2 max-w-5xl mx-auto sticky top-2 z-50 shadow-sm bg-white text-black dark:bg-black dark:text-lightBrown",
+          "lg:rounded-2xl h-16 flex flex-row justify-between items-center px-4 py-2 max-w-5xl mx-auto lg:top-2 z-50 shadow-sm bg-white text-black dark:bg-black dark:text-lightBrown fixed left-1/2 transform -translate-x-1/2 container",
           className,
         )}
       >
