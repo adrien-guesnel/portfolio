@@ -7,7 +7,7 @@
     "title": "Hi, I'm <primary>Adrien</primary> 👋"
   },
   "footer": {
-    "copyright": "© 2023 - {currentYear} / Created by Adrien Guesnel / Tout droits réservés"
+    "copyright": "© 2023 - {currentYear} / Created by Adrien Guesnel / All rights reserved"
   },
   "navigationBar": {
     "contact": "Contact",
