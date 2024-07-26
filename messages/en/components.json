@@ -6,6 +6,9 @@
     "hireMe": "Hire me",
     "title": "Hi, I'm <primary>Adrien</primary> 👋"
   },
+  "footer": {
+    "copyright": "© 2023 - {currentYear} / Created by Adrien Guesnel / All rights reserved"
+  },
   "navigationBar": {
     "contact": "Contact",
     "english": "English",

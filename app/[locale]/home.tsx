@@ -2,15 +2,18 @@
 
 import { useEffect, useState } from "react"
 
+import Footer from "@components/Footer"
 import Hero from "@components/Hero"
 import NavigationBar from "@components/NavigationBar"
 
+import { ThemeMode } from "../lib/constants"
+
 export default function Home({ locale }: { locale: string }) {
-  const [theme, setTheme] = useState<"light" | "dark">("light")
+  const [theme, setTheme] = useState<ThemeMode>(ThemeMode.Light)
 
   function handleThemeChange() {
     document.getElementsByTagName("html")[0].classList.toggle("dark")
-    setTheme(theme === "light" ? "dark" : "light")
+    setTheme(theme === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light)
   }
 
   useEffect(() => {
@@ -20,21 +23,22 @@ export default function Home({ locale }: { locale: string }) {
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
       document.documentElement.classList.add("dark")
-      setTheme("dark")
+      setTheme(ThemeMode.Dark)
     } else {
       document.documentElement.classList.remove("dark")
-      setTheme("light")
+      setTheme(ThemeMode.Light)
     }
   }, [])
 
   return (
-    <div className="bg-beige dark:bg-darkBrown">
+    <>
       <NavigationBar
         onThemeChange={handleThemeChange}
         themeMode={theme}
         locale={locale}
       />
       <Hero />
-    </div>
+      <Footer themeMode={theme} />
+    </>
   )
 }
