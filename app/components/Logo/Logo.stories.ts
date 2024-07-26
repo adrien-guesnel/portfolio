@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
+import { ThemeMode } from "@/app/lib/constants"
+
 import Logo from "./index"
 
 const meta = {
@@ -13,6 +15,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    themeMode: "light",
+    themeMode: ThemeMode.Light,
   },
 }
