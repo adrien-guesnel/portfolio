@@ -1,8 +1,28 @@
+html {
+  @apply whitespace-pre-line;
+}
+
 div {
   @apply transition-[background-color] duration-1000;
 }
 
 /*** typography ***/
+.h1 {
+  @apply text-[2.875rem] font-bold leading-[1.2em];
+}
+
+.h2 {
+  @apply text-[2rem] lg:text-[2.5rem] font-bold leading-[1.2em];
+}
+
+.h3 {
+  @apply text-[2.0875rem] font-bold leading-[1.2em] tracking-[-0.0375rem];
+}
+
+.h4 {
+  @apply text-[1.6875rem] font-bold leading-[1.2em] tracking-[-0.03375rem];
+}
+
 .body-small {
   @apply text-sm font-medium leading-[1.44rem];
 }

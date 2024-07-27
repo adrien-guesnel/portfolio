@@ -2,6 +2,7 @@ import { GoogleTagManager } from "@next/third-parties/google"
 import type { Metadata, Viewport } from "next"
 import { useMessages } from "next-intl"
 import { Inter } from "next/font/google"
+import { ToastContainer } from "react-toastify"
 
 import "@/app/globals.css"
 import NextIntlProvider from "@/app/lib/NextIntlProvider"
@@ -45,6 +46,7 @@ export default function RootLayout({
           now={new Date()}
         >
           {children}
+          <ToastContainer />
         </NextIntlProvider>
       </body>
     </html>

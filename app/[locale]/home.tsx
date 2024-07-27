@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 
+import Contact from "@components/Contact"
 import Footer from "@components/Footer"
 import Hero from "@components/Hero"
 import NavigationBar from "@components/NavigationBar"
@@ -38,6 +39,7 @@ export default function Home({ locale }: { locale: string }) {
         locale={locale}
       />
       <Hero />
+      <Contact />
       <Footer themeMode={theme} />
     </>
   )
