@@ -1,8 +1,28 @@
+html {
+  @apply whitespace-pre-line;
+}
+
 div {
   @apply transition-[background-color] duration-1000;
 }
 
 /*** typography ***/
+.h1 {
+  @apply text-4xl font-bold leading-[1.25em];
+}
+
+.h2 {
+  @apply text-[2.5rem] font-bold leading-[1.2em];
+}
+
+.h3 {
+  @apply text-2xl font-bold leading-[1.25em];
+}
+
+.h4 {
+  @apply text-xl font-bold leading-[1.25em];
+}
+
 .body-small {
   @apply text-sm font-medium leading-[1.44rem];
 }

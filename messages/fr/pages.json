@@ -1,8 +1,23 @@
 {
+  "Contact": {
+    "companyName": "Nom de l'entreprise",
+    "contactMe": "Besoin de plus d'informations ?",
+    "contactMeDescription": "Vous souhaitez en savoir plus sur mon travail ou discuter d’opportunités potentielles ?\nJe suis ouvert aux demandes des recruteurs et des entreprises.\nN'hésitez pas à me contacter en utilisant le formulaire.",
+    "email": "Email",
+    "emailFailed": "Échec de l'envoi de votre message, veuillez réessayer plus tard",
+    "message": "Message",
+    "messageSent": "Votre message a été envoyé!\nJe vous répondrai dans les plus brefs délais à l'adresse e-mail fournie : {email}",
+    "name": "Nom",
+    "placeholderCompanyName": "Mon entreprise",
+    "placeholderEmail": "email@domaine.com",
+    "placeholderMessage": "Bonjour, j'aimerais savoir si vous êtes intéressé pour travailler sur notre produit. \nÊtes-vous disponible pour en parler ?",
+    "placeholderName": "Maxime Dupont",
+    "submit": "Envoyez-moi votre message"
+  },
   "Home": {
     "seo": {
-      "title": "Adrien Guesnel - Freelance Lead Tech React.js / Node.js",
-      "description": "Vous recherchez un Lead Tech React.js / Node.js pour développer votre application ? Je suis là pour vous aider. Découvrez mon travail sur mon portfolio et contactez-moi."
+      "description": "Vous recherchez un Lead Tech React.js / Node.js pour développer votre application ? Je suis là pour vous aider. Découvrez mon travail sur mon portfolio et contactez-moi.",
+      "title": "Adrien Guesnel - Freelance Lead Tech React.js / Node.js"
     }
   }
 }

@@ -75,14 +75,14 @@ export default function NavigationBar({
           </ul>
         </nav> */}
         <div className="flex flex-row gap-5 items-center">
-          {/* <Link
+          <Link
             className="button button-contained"
-            href={"#"}
+            href={"#contact"}
             title={t("contact")}
           >
             {t("contact")}
           </Link>
-          <div className="vertical-separator h-7"></div> */}
+          <div className="vertical-separator h-7"></div>
           <div className="flex flex-row gap-5 items-center" ref={buttonRef}>
             <Flag
               countryCode={

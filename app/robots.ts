@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      exclude: ["/api/*"],
     },
     sitemap: ["https://aguesnel.fr/sitemap.xml"],
   }
