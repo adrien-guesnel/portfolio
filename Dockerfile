@@ -19,6 +19,10 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-l
 # Builder
 FROM base AS builder
 
+ARG GOOGLE_RECAPTCHA_SITE
+
+ENV NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE=$GOOGLE_RECAPTCHA_SITE
+
 COPY --from=deps /usr/app/node_modules ./node_modules
 COPY . .
 
@@ -27,7 +31,10 @@ RUN pnpm build
 # Container for prod release
 FROM base AS prod
 
-ENV NODE_ENV production
+ARG GOOGLE_RECAPTCHA_SITE
+
+ENV NODE_ENV="production"
+ENV NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE=$GOOGLE_RECAPTCHA_SITE
 
 RUN apt-get update && apt-get install -y openssl ca-certificates
 
