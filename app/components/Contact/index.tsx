@@ -56,7 +56,7 @@ export default function Contact({ className }: HeroProps) {
   return (
     <div
       id="contact"
-      className={clsx("bg-[#eed3b9] dark:bg-[#2e1300] py-10", className)}
+      className={clsx("bg-[#eed3b9] dark:bg-[#2e1300] pt-32 pb-20", className)}
     >
       <div className="container flex flex-col lg:flex-row min-h-screen justify-center items-center mx-auto text-black dark:text-lightBrown gap-2">
         <div className="max-w-xl flex flex-col gap-6 text-center">

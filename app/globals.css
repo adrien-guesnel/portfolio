@@ -4,4 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .container {
+    @apply px-4;
+  }
+}
+
 @import "./theme.css";
