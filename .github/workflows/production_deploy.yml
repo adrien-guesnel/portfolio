@@ -55,5 +55,3 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ${{ inputs.tags || steps.meta.outputs.tags }}
           labels: ${{ inputs.labels || steps.meta.outputs.labels }}
-          build-args: |
-            GOOGLE_RECAPTCHA_SITE=${{ secrets.GOOGLE_RECAPTCHA_SITE }}
