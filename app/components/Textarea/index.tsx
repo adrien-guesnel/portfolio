@@ -24,7 +24,7 @@ export default function Textarea({
         {label} {isRequired ? <span className="text-primary">*</span> : null}
       </label>
       <textarea
-        className="border body-medium border-gray-300 dark:border-gray-700 rounded-2xl px-4 py-5"
+        className="body-medium rounded-2xl border border-gray-300 px-4 py-5 text-black dark:border-gray-700"
         name={name}
         id={name}
         defaultValue={value}

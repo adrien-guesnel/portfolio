@@ -32,7 +32,7 @@ export default function Footer({ themeMode = ThemeMode.Light }: FooterProps) {
   const currentYear = new Date().getFullYear().toString()
 
   return (
-    <div className="flex flex-col lg:flex-row justify-between items-center p-12 bg-white text-black dark:bg-black dark:text-white gap-6 lg:gap-0">
+    <div className="flex flex-col items-center justify-between gap-6 bg-white p-12 text-black lg:flex-row lg:gap-0 dark:bg-black dark:text-white">
       <div className="flex justify-center gap-5">
         <a href={LIKEDIN_URL} target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faLinkedin} className="h-6" />
@@ -47,7 +47,7 @@ export default function Footer({ themeMode = ThemeMode.Light }: FooterProps) {
           <FontAwesomeIcon icon={faMedium} className="h-6" />
         </a>
       </div>
-      <Logo className="hidden lg:flex h-10" themeMode={themeMode} />
+      <Logo className="hidden h-10 lg:flex" themeMode={themeMode} />
       <p>{t("copyright", { currentYear })}</p>
     </div>
   )

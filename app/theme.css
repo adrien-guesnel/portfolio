@@ -12,7 +12,7 @@ div {
 }
 
 .h2 {
-  @apply text-[2rem] lg:text-[2.5rem] font-bold leading-[1.2em];
+  @apply text-[2rem] font-bold leading-[1.2em] lg:text-[2.5rem];
 }
 
 .h3 {
@@ -108,5 +108,5 @@ div {
 }
 
 .vertical-separator {
-  @apply bg-black dark:bg-white w-[2px];
+  @apply w-[2px] bg-black dark:bg-white;
 }

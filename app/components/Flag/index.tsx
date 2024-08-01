@@ -17,7 +17,7 @@ export default function Flag({ countryCode, className, ...props }: FlagProps) {
   return countryCode === COUNTRIES.France ? (
     <FlagFr
       className={clsx(
-        "border border-black dark:border-white rounded-lg h-8 w-auto",
+        "h-8 w-auto rounded-lg border border-black dark:border-white",
         className,
       )}
       {...props}
@@ -25,7 +25,7 @@ export default function Flag({ countryCode, className, ...props }: FlagProps) {
   ) : (
     <FlagEn
       className={clsx(
-        "border border-black dark:border-white rounded-lg h-8 w-auto",
+        "h-8 w-auto rounded-lg border border-black dark:border-white",
         className,
       )}
       {...props}

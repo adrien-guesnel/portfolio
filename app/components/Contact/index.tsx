@@ -56,21 +56,21 @@ export default function Contact({ className }: HeroProps) {
   return (
     <div
       id="contact"
-      className={clsx("bg-[#eed3b9] dark:bg-[#2e1300] pt-32 pb-20", className)}
+      className={clsx("bg-[#eed3b9] pb-20 pt-32 dark:bg-[#2e1300]", className)}
     >
-      <div className="container flex flex-col lg:flex-row min-h-screen justify-center items-center mx-auto text-black dark:text-lightBrown gap-2">
-        <div className="max-w-xl flex flex-col gap-6 text-center">
+      <div className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-2 text-black lg:flex-row dark:text-lightBrown">
+        <div className="flex max-w-xl flex-col gap-6 text-center">
           <h2 className="h2">{t("contactMe")}</h2>
           <p className="body-medium">{t("contactMeDescription")}</p>
           <Image src={ContactImg} alt="Contact me" placeholder="blur" />
         </div>
         <div className="w-full max-w-xl">
           {emailSent ? (
-            <div className="flex flex-col gap-5 items-center">
+            <div className="flex flex-col items-center gap-5">
               <FontAwesomeIcon
                 icon={faEnvelopeCircleCheck}
                 size="5x"
-                className="text-primary mx-auto"
+                className="mx-auto text-primary"
               />
               <p className="body-large text-center">
                 {t("messageSent", { email })}
@@ -107,13 +107,13 @@ export default function Contact({ className }: HeroProps) {
               />
               <ReCAPTCHA
                 size="normal"
-                className="self-end mr-5"
+                className="mr-5 self-end"
                 sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE!}
                 ref={recaptcha}
               />
               <Button
                 type="submit"
-                className="button-contained w-fit self-end mr-5 mt-5"
+                className="button-contained mr-5 mt-5 w-fit self-end"
               >
                 {t("submit")}
               </Button>
