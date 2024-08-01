@@ -103,7 +103,7 @@ export default function NavigationBar({
       <div
         ref={dropdownRef}
         className={clsx(
-          "bg-white rounded-3xl p-5 fixed top-[5rem] z-50 w-fit shadow-sm",
+          "bg-white dark:bg-black text-black dark:text-white rounded-3xl p-5 fixed top-[5rem] z-50 w-fit shadow-sm",
           isDropdownLanguagesOpen ? "flex" : "hidden",
         )}
       >
