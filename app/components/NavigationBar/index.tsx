@@ -60,7 +60,7 @@ export default function NavigationBar({
     <>
       <div
         className={clsx(
-          "lg:rounded-2xl h-16 flex flex-row justify-between items-center px-4 py-2 max-w-5xl mx-auto lg:top-2 z-50 shadow-sm bg-white text-black dark:bg-black dark:text-lightBrown fixed left-1/2 transform -translate-x-1/2 container",
+          "container fixed left-1/2 z-50 mx-auto flex h-16 max-w-5xl -translate-x-1/2 transform flex-row items-center justify-between bg-white px-4 py-2 text-black shadow-sm lg:top-2 lg:rounded-2xl dark:bg-black dark:text-lightBrown",
           className,
         )}
       >
@@ -74,7 +74,7 @@ export default function NavigationBar({
             </li>
           </ul>
         </nav> */}
-        <div className="flex flex-row gap-5 items-center">
+        <div className="flex flex-row items-center gap-5">
           <Link
             className="button button-contained"
             href={"#contact"}
@@ -83,7 +83,7 @@ export default function NavigationBar({
             {t("contact")}
           </Link>
           <div className="vertical-separator h-7"></div>
-          <div className="flex flex-row gap-5 items-center" ref={buttonRef}>
+          <div className="flex flex-row items-center gap-5" ref={buttonRef}>
             <Flag
               countryCode={
                 locale === "fr" ? COUNTRIES.France : COUNTRIES.United_Kingdom
@@ -94,7 +94,7 @@ export default function NavigationBar({
             <FontAwesomeIcon
               icon={themeMode === "light" ? faSun : faMoon}
               onClick={onThemeChange}
-              className="w-7 h-7 cursor-pointer"
+              className="h-7 w-7 cursor-pointer"
             />
           </div>
         </div>
@@ -103,20 +103,20 @@ export default function NavigationBar({
       <div
         ref={dropdownRef}
         className={clsx(
-          "bg-white dark:bg-black text-black dark:text-white rounded-3xl p-5 fixed top-[5rem] z-50 w-fit shadow-sm",
+          "fixed top-[5rem] z-50 w-fit rounded-3xl bg-white p-5 text-black shadow-sm dark:bg-black dark:text-white",
           isDropdownLanguagesOpen ? "flex" : "hidden",
         )}
       >
-        <ul className=" flex flex-col gap-4">
+        <ul className="flex flex-col gap-4">
           <li
-            className="flex flex-row gap-5 items-center cursor-pointer"
+            className="flex cursor-pointer flex-row items-center gap-5"
             onClick={() => switchLanguage("fr")}
           >
             <Flag countryCode={COUNTRIES.France} />
             <p className="body-large">{t("french")}</p>
           </li>
           <li
-            className="flex flex-row gap-5 items-center cursor-pointer"
+            className="flex cursor-pointer flex-row items-center gap-5"
             onClick={() => switchLanguage("en")}
           >
             <Flag countryCode={COUNTRIES.United_Kingdom} />
