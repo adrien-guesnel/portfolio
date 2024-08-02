@@ -3,6 +3,18 @@ import Mailjet from "node-mailjet"
 
 export async function POST(req: NextRequest, res: NextResponse) {
   try {
+    const formData = await req.json()
+
+    const { name, email, message, companyName } = formData
+    const token = formData[`g-recaptcha-response`]
+
+    console.info("Received a new message:")
+    console.info("Name:", name)
+    console.info("Email:", email)
+    console.info("Company Name:", companyName)
+    console.info("Message:", message)
+    console.info("Token:", token)
+
     if (
       !process.env.MJ_APIKEY_PUBLIC ||
       !process.env.MJ_APIKEY_PRIVATE ||
@@ -10,11 +22,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
     ) {
       throw new Error("API keys are missing")
     }
-
-    const formData = await req.json()
-
-    const { name, email, message, companyName } = formData
-    const token = formData[`g-recaptcha-response`]
 
     if (!name || !email || !message || !token) {
       throw new Error("Missing required fields")

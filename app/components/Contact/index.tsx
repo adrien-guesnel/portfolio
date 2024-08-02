@@ -39,9 +39,9 @@ export default function Contact({ className }: HeroProps) {
       })
 
       recaptcha?.current?.reset()
-      setEmail(data?.email as string)
 
       if (response.ok) {
+        setEmail(data?.email as string)
         setEmailSent(true)
       } else {
         console.error("Failed to send email")
@@ -56,15 +56,22 @@ export default function Contact({ className }: HeroProps) {
   return (
     <div
       id="contact"
-      className={clsx("bg-[#eed3b9] pb-20 pt-32 dark:bg-[#2e1300]", className)}
+      className={clsx("bg-[#eed3b9] dark:bg-[#2e1300]", className)}
     >
-      <div className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-2 text-black lg:flex-row dark:text-lightBrown">
-        <div className="flex max-w-xl flex-col gap-6 text-center">
-          <h2 className="h2">{t("contactMe")}</h2>
-          <p className="body-medium">{t("contactMeDescription")}</p>
-          <Image src={ContactImg} alt="Contact me" placeholder="blur" />
+      <div className="container mx-auto flex flex-col justify-center gap-2 text-black lg:flex-row dark:text-lightBrown">
+        <div className="flex max-w-2xl flex-col justify-between">
+          <div className="mt-20 flex flex-col gap-6 text-center lg:mt-32">
+            <h2 className="h2">{t("contactMe")}</h2>
+            <p className="body-medium">{t("contactMeDescription")}</p>
+          </div>
+          <Image
+            src={ContactImg}
+            alt="Contact me"
+            placeholder="blur"
+            className="hidden lg:block"
+          />
         </div>
-        <div className="w-full max-w-xl">
+        <div className="mx-auto w-full max-w-xl lg:m-0">
           {emailSent ? (
             <div className="flex flex-col items-center gap-5">
               <FontAwesomeIcon
@@ -77,7 +84,10 @@ export default function Contact({ className }: HeroProps) {
               </p>
             </div>
           ) : (
-            <form className="flex flex-col" onSubmit={handleSubmit}>
+            <form
+              className="my-10 flex flex-col lg:my-20"
+              onSubmit={handleSubmit}
+            >
               <Input
                 label={t("name")}
                 name="name"
