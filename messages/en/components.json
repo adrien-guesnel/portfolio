@@ -1,11 +1,4 @@
 {
-  "Hero": {
-    "description": "Tech Lead Freelancer specialized in React.js / Node.js with more than 8 years of experience. I'm ready to help you to build or growth your web application from anywhere on the world.",
-    "discoverMyProjects": "Discover my projects",
-    "discoverMySkills": "Discover my skills",
-    "hireMe": "Hire me",
-    "title": "Hi, I'm <primary>Adrien</primary> 👋"
-  },
   "footer": {
     "copyright": "© 2023 - {currentYear} / Created by Adrien Guesnel / All rights reserved"
   },

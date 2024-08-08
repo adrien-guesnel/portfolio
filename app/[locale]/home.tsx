@@ -6,6 +6,7 @@ import Contact from "@components/Contact"
 import Footer from "@components/Footer"
 import Hero from "@components/Hero"
 import NavigationBar from "@components/NavigationBar"
+import Skills from "@components/Skills"
 
 import { ThemeMode } from "../lib/constants"
 
@@ -39,6 +40,7 @@ export default function Home({ locale }: { locale: string }) {
         locale={locale}
       />
       <Hero />
+      <Skills />
       <Contact />
       <Footer themeMode={theme} />
     </>

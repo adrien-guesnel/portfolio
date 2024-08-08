@@ -14,10 +14,21 @@
     "placeholderName": "Maxime Dupont",
     "submit": "Envoyez-moi votre message"
   },
+  "Hero": {
+    "description": "Tech Lead Freelancer specialisé en React.js / Node.js avec plus de 8 années d'expériences. Je suis prêt à vous aider à construire ou développer votre application web où que vous soyez.",
+    "discoverMyProjects": "Découvrez mes projets",
+    "discoverMySkills": "Découvrez mes compétences",
+    "hireMe": "Recrutez moi",
+    "title": "Hey, je suis <primary>Adrien</primary> 👋"
+  },
   "Home": {
     "seo": {
       "description": "Vous recherchez un Lead Tech React.js / Node.js pour développer votre application ? Je suis là pour vous aider. Découvrez mon travail sur mon portfolio et contactez-moi.",
       "title": "Adrien Guesnel - Freelance Lead Tech React.js / Node.js"
     }
+  },
+  "Skills": {
+    "description": "Je suis spécialisé dans les technologies Node.js et JavaScript, avec un fort accent sur la création d'applications Web performantes et évolutives. \nJe maîtrise les frameworks populaires tels que React.js, Next.js et Nest.js.\nEn tant que développeur expérimenté, je m'engage à fournir des solutions de haute qualité qui répondent aux besoins de mes clients.",
+    "title": "Mes compétences sont mes super pouvoirs : découvrez ce que je peux faire."
   }
 }
