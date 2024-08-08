@@ -14,10 +14,21 @@
     "placeholderName": "John doe",
     "submit": "Send me your message"
   },
+  "Hero": {
+    "description": "Tech Lead Freelancer specialized in React.js / Node.js with more than 8 years of experience. I'm ready to help you to build or growth your web application from anywhere on the world.",
+    "discoverMyProjects": "Discover my projects",
+    "discoverMySkills": "Discover my skills",
+    "hireMe": "Hire me",
+    "title": "Hi, I'm <primary>Adrien</primary> 👋"
+  },
   "Home": {
     "seo": {
       "description": "You're looking for a Lead Tech React.js / Node.js to develop your application ? I'm here to help you. Discover my work on my portfolio and contact me.",
       "title": "Adrien Guesnel - Freelance Lead Tech React.js / Node.js"
     }
+  },
+  "Skills": {
+    "description": "I specialize in Node.js and JavaScript technologies, with a strong focus on building efficient and scalable web applications.\nI am proficient in popular frameworks such as React.js, Next.js and Nest.js.\nAs an experienced developer, I am dedicated to delivering high-quality solutions that meet the needs of my clients.",
+    "title": "My skills are my superpowers—check out what I can do."
   }
 }

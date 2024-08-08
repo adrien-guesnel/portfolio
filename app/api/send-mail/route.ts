@@ -15,12 +15,18 @@ export async function POST(req: NextRequest, res: NextResponse) {
     console.info("Message:", message)
     console.info("Token:", token)
 
-    if (
-      !process.env.MJ_APIKEY_PUBLIC ||
-      !process.env.MJ_APIKEY_PRIVATE ||
-      !process.env.GOOGLE_RECAPTCHA_SECRET
-    ) {
+    const mjApiKeyPublic = process.env.MJ_APIKEY_PUBLIC
+    const mjApiKeyPrivate = process.env.MJ_APIKEY_PRIVATE
+    const googleRecaptchaSecret = process.env.GOOGLE_RECAPTCHA
+
+    const contactEmail = process.env.CONTACT_EMAIL
+
+    if (!mjApiKeyPublic || !mjApiKeyPrivate || !googleRecaptchaSecret) {
       throw new Error("API keys are missing")
+    }
+
+    if (!contactEmail) {
+      throw new Error("Missing contact email")
     }
 
     if (!name || !email || !message || !token) {
@@ -36,7 +42,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams({
-          secret: process.env.GOOGLE_RECAPTCHA_SECRET,
+          secret: googleRecaptchaSecret,
           response: token,
         }),
       },
@@ -48,21 +54,18 @@ export async function POST(req: NextRequest, res: NextResponse) {
       throw new Error("Invalid reCAPTCHA token")
     }
 
-    const mailjet = Mailjet.apiConnect(
-      process.env.MJ_APIKEY_PUBLIC,
-      process.env.MJ_APIKEY_PRIVATE,
-    )
+    const mailjet = Mailjet.apiConnect(mjApiKeyPublic, mjApiKeyPrivate)
 
     void mailjet.post("send", { version: "v3.1" }).request({
       Messages: [
         {
           From: {
-            Email: email,
+            Email: contactEmail,
             Name: name,
           },
           To: [
             {
-              Email: "contact@aguesnel.fr",
+              Email: contactEmail,
             },
           ],
           Subject: `${name} contacts you on aguesnel.fr form`,
