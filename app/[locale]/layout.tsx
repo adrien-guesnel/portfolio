@@ -7,6 +7,8 @@ import { ToastContainer } from "react-toastify"
 import "@/app/globals.css"
 import NextIntlProvider from "@/app/lib/NextIntlProvider"
 
+import { ThemeProvider } from "../lib/ThemeProvider"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -44,8 +46,10 @@ export default function RootLayout({
           timeZone="Europe/Berlin"
           now={new Date()}
         >
-          {children}
-          <ToastContainer />
+          <ThemeProvider>
+            {children}
+            <ToastContainer />
+          </ThemeProvider>
         </NextIntlProvider>
       </body>
     </html>

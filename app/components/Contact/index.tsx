@@ -66,12 +66,12 @@ export default function Contact({ className }: HeroProps) {
           </div>
           <Image
             src={ContactImg}
-            alt="Contact me"
+            alt="Illustration of Adrien on the phone"
             placeholder="blur"
             className="hidden lg:block"
           />
         </div>
-        <div className="mx-auto w-full max-w-xl lg:m-0">
+        <div className="mx-auto w-full max-w-lg lg:m-0">
           {emailSent ? (
             <div className="flex flex-col items-center gap-5">
               <FontAwesomeIcon
@@ -131,6 +131,12 @@ export default function Contact({ className }: HeroProps) {
           )}
         </div>
       </div>
+      <Image
+        src={ContactImg}
+        alt="Illustration of Adrien on the phone"
+        placeholder="blur"
+        className="mx-auto block max-w-lg lg:hidden"
+      />
     </div>
   )
 }

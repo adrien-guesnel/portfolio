@@ -5,7 +5,6 @@ import {
   faLinkedin,
   faMedium,
 } from "@fortawesome/free-brands-svg-icons"
-import { faMoon } from "@fortawesome/free-regular-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useTranslations } from "next-intl"
 
@@ -48,7 +47,9 @@ export default function Footer({ themeMode = ThemeMode.Light }: FooterProps) {
         </a>
       </div>
       <Logo className="hidden h-10 lg:flex" themeMode={themeMode} />
-      <p>{t("copyright", { currentYear })}</p>
+      <p className="text-center lg:text-left">
+        {t("copyright", { currentYear })}
+      </p>
     </div>
   )
 }
