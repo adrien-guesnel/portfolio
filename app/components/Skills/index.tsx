@@ -1,6 +1,6 @@
 "use client"
 
-import SkillsImg from "@public/img/skills.png"
+import SkillsImg from "@public/img/skills.webp"
 import clsx from "clsx"
 import { useTranslations } from "next-intl"
 import Image from "next/image"

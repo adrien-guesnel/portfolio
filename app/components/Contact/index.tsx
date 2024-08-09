@@ -2,7 +2,7 @@
 
 import { faEnvelopeCircleCheck } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import ContactImg from "@public/img/contact.png"
+import ContactImg from "@public/img/contact.webp"
 import clsx from "clsx"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
@@ -71,9 +71,14 @@ export default function Contact({ className }: HeroProps) {
             className="hidden lg:block"
           />
         </div>
-        <div className="mx-auto w-full max-w-lg lg:m-0">
+        <div
+          className={clsx(
+            "mx-auto w-full max-w-lg lg:m-0",
+            emailSent ? "items-center" : "",
+          )}
+        >
           {emailSent ? (
-            <div className="flex flex-col items-center gap-5">
+            <div className="flex flex-col items-center gap-5 py-8">
               <FontAwesomeIcon
                 icon={faEnvelopeCircleCheck}
                 size="5x"

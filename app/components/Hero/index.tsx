@@ -1,6 +1,6 @@
 "use client"
 
-import HeroImg from "@public/img/hero.png"
+import HeroImg from "@public/img/hero.webp"
 import clsx from "clsx"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
