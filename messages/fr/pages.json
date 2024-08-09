@@ -6,7 +6,7 @@
     "email": "Email",
     "emailFailed": "Échec de l'envoi de votre message, veuillez réessayer plus tard",
     "message": "Message",
-    "messageSent": "Votre message a été envoyé!\nJe vous répondrai dans les plus brefs délais à l'adresse e-mail fournie : {email}",
+    "messageSent": "Votre message a été envoyé !\nJe vous répondrai dans les plus brefs délais à l'adresse e-mail fournie : {email}",
     "name": "Nom",
     "placeholderCompanyName": "Mon entreprise",
     "placeholderEmail": "email@domaine.com",
