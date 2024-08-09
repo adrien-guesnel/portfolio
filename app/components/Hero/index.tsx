@@ -18,7 +18,7 @@ export default function Hero({ className }: HeroProps) {
   return (
     <div className={clsx("bg-beige dark:bg-darkBrown", className)}>
       <div className="container mx-auto flex flex-col items-center justify-center pt-32 text-black lg:flex-row dark:text-lightBrown">
-        <div className="flex max-w-2xl flex-col pb-20">
+        <div className="flex max-w-2xl flex-col lg:pb-20">
           <h1 className="text-4xl font-bold lg:text-6xl">{t.rich("title")}</h1>
           <p className="body-large mt-6">{t("description")}</p>
           <div className="felx-row mt-6 flex gap-3">

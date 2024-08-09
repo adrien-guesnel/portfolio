@@ -1,19 +1,16 @@
 import * as React from "react"
 
-interface Props extends React.SVGProps<SVGSVGElement> {
-  lightColor?: string
-  darkColor?: string
-  className?: string
-}
+import { IconProps } from "@/@types"
+import { ThemeMode } from "@/app/lib/constants"
 
 export default function ReactLogo({
-  lightColor = "dark",
+  lightColor = "black",
   darkColor = "white",
+  themeMode = ThemeMode.Light,
   className,
   ...props
-}: Props) {
-  const isDarkMode = document.documentElement.classList.contains("dark")
-  const logoColor = isDarkMode ? "white" : "black"
+}: IconProps) {
+  const logoColor = themeMode === ThemeMode.Dark ? darkColor : lightColor
 
   return (
     <svg

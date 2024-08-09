@@ -17,7 +17,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
     const mjApiKeyPublic = process.env.MJ_APIKEY_PUBLIC
     const mjApiKeyPrivate = process.env.MJ_APIKEY_PRIVATE
-    const googleRecaptchaSecret = process.env.GOOGLE_RECAPTCHA
+    const googleRecaptchaSecret = process.env.GOOGLE_RECAPTCHA_SECRET
 
     const contactEmail = process.env.CONTACT_EMAIL
 
