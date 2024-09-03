@@ -74,7 +74,7 @@ export default function Contact({ className }: HeroProps) {
         <div
           className={clsx(
             "mx-auto w-full max-w-lg lg:m-0",
-            emailSent ? "items-center" : "",
+            emailSent ? "self-center" : "",
           )}
         >
           {emailSent ? (
