@@ -12,6 +12,7 @@ import { usePathname, useRouter } from "@/app/navigation"
 
 import Flag, { COUNTRIES } from "@components/Flag"
 import Logo from "@components/Logo"
+import Toggle from "@components/Toggle"
 
 interface NavigationBarProps {
   onThemeChange: () => void
@@ -91,10 +92,12 @@ export default function NavigationBar({
               onClick={(event) => toggleDropdownLanguages()}
               className="cursor-pointer"
             />
-            <FontAwesomeIcon
-              icon={themeMode === "light" ? faSun : faMoon}
-              onClick={onThemeChange}
-              className="h-7 w-7 cursor-pointer"
+
+            <Toggle
+              value={themeMode === ThemeMode.Dark}
+              onChange={onThemeChange}
+              iconLeft={faSun}
+              iconRight={faMoon}
             />
           </div>
         </div>
