@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import Mailjet from "node-mailjet"
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   try {
     const formData = await req.json()
 

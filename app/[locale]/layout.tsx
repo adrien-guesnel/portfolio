@@ -26,12 +26,14 @@ export const viewport: Viewport = {
   width: "device-width",
 }
 
+type Params = Promise<{ locale: string }>
+
 export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Params
 }) {
   const { locale } = await params
 

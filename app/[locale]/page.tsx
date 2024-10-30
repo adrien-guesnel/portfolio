@@ -2,11 +2,9 @@ import { getTranslations } from "next-intl/server"
 
 import Home from "./home"
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string }
-}) {
+type Params = Promise<{ locale: string }>
+
+export async function generateMetadata({ params }: { params: Params }) {
   const { locale } = await params
 
   const t = await getTranslations({ locale, namespace: "Home" })
@@ -17,11 +15,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function HomePage({
-  params,
-}: {
-  params: { locale: string }
-}) {
+export default async function HomePage({ params }: { params: Params }) {
   const { locale } = await params
 
   return <Home locale={locale} />
