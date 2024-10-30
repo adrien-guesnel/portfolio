@@ -1,4 +1,4 @@
-@import "../node_modules/react-toastify/dist/ReactToastify.css";
+@import "./theme.css";
 
 @tailwind base;
 @tailwind components;
@@ -9,5 +9,3 @@
     @apply px-4;
   }
 }
-
-@import "./theme.css";

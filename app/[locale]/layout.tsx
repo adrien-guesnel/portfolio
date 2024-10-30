@@ -1,8 +1,8 @@
 import { GoogleTagManager } from "@next/third-parties/google"
 import type { Metadata, Viewport } from "next"
-import { useMessages } from "next-intl"
+import { getMessages } from "next-intl/server"
 import { Inter } from "next/font/google"
-import { ToastContainer } from "react-toastify"
+import { Toaster } from "sonner"
 
 import "@/app/globals.css"
 import NextIntlProvider from "@/app/lib/NextIntlProvider"
@@ -26,14 +26,18 @@ export const viewport: Viewport = {
   width: "device-width",
 }
 
-export default function RootLayout({
+type Params = Promise<{ locale: string }>
+
+export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Params
 }) {
-  const messages = useMessages()
+  const { locale } = await params
+
+  const messages = await getMessages()
 
   return (
     <html lang={locale}>
@@ -48,7 +52,7 @@ export default function RootLayout({
         >
           <ThemeProvider>
             {children}
-            <ToastContainer />
+            <Toaster position="top-right" richColors closeButton />
           </ThemeProvider>
         </NextIntlProvider>
       </body>
