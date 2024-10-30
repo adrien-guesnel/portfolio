@@ -11,7 +11,7 @@ export default function TailwindLogo({
   ...props
 }: IconProps) {
   const logoColor = themeMode === ThemeMode.Dark ? darkColor : lightColor
-  console.log(logoColor)
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,3 +1,47 @@
-<svg width="50" xmlns="http://www.w3.org/2000/svg" height="30" fill="none" viewBox="0 0 50 30"><g data-testid="Flags / France">
-<g class="fills"><rect rx="0" ry="0" width="50" height="30" class="frame-background"/></g><g data-testid="Flags / France" style="fill: rgb(0, 0, 0);" class="frame-children"><rect rx="0" ry="0" width="50" height="30" style="fill: rgb(237, 41, 57);" class="fills" data-testid="svg-rect"/><rect rx="0" ry="0" width="33.333" height="30" style="fill: rgb(255, 255, 255);" class="fills" data-testid="svg-rect"/><rect rx="0" ry="0" width="16.667" height="30" style="fill: rgb(0, 35, 149);" class="fills" data-testid="svg-rect" viewBox="0 0 108 108"/>
-</g></g></svg>
+<svg
+  width="100%"
+  height="100%"
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 50 30"
+>
+  <g data-testid="Flags / France">
+    <g class="fills">
+      <rect rx="0" ry="0" width="50" height="30" class="frame-background" />
+    </g>
+    <g
+      data-testid="Flags / France"
+      style="fill: rgb(0, 0, 0)"
+      class="frame-children"
+    >
+      <rect
+        rx="0"
+        ry="0"
+        width="50"
+        height="30"
+        style="fill: rgb(237, 41, 57)"
+        class="fills"
+        data-testid="svg-rect"
+      />
+      <rect
+        rx="0"
+        ry="0"
+        width="33.333"
+        height="30"
+        style="fill: rgb(255, 255, 255)"
+        class="fills"
+        data-testid="svg-rect"
+      />
+      <rect
+        rx="0"
+        ry="0"
+        width="16.667"
+        height="30"
+        style="fill: rgb(0, 35, 149)"
+        class="fills"
+        data-testid="svg-rect"
+        viewBox="0 0 108 108"
+      />
+    </g>
+  </g>
+</svg>

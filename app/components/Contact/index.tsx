@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { FormEvent, RefObject, useRef, useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
-import { toast } from "react-toastify"
+import { toast } from "sonner"
 
 import { Button } from "@components/Button"
 import Input from "@components/Input"

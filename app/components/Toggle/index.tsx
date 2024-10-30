@@ -20,7 +20,7 @@ export default function Toggle({
         <FontAwesomeIcon
           icon={iconLeft}
           className={clsx(
-            value ? "text-gray-400 dark:text-gray-600" : "text-primary",
+            value ? "text-gray-900 dark:text-gray-200" : "text-primary",
           )}
         />
       ) : null}
@@ -37,14 +37,14 @@ export default function Toggle({
         />
         <label
           htmlFor="switch-component-1"
-          className="absolute left-0 top-0 h-5 w-5 cursor-pointer rounded-full border border-slate-300 bg-white shadow-sm transition-transform duration-300 peer-checked:translate-x-6 peer-checked:border-slate-800 dark:border-slate-500 dark:bg-black dark:peer-checked:border-slate-500"
+          className="absolute left-0 top-0 h-5 w-5 cursor-pointer rounded-full border border-slate-300 bg-white shadow-sm transition-transform duration-300 peer-checked:translate-x-6 peer-checked:border-slate-800 dark:border-slate-800 dark:bg-black dark:peer-checked:border-slate-800"
         ></label>
       </div>
       {iconRight ? (
         <FontAwesomeIcon
           icon={iconRight}
           className={clsx(
-            value ? "text-primary" : "text-gray-400 dark:text-gray-600",
+            value ? "text-primary" : "text-gray-900 dark:text-gray-200",
           )}
         />
       ) : null}

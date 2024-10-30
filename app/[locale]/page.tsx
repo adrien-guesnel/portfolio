@@ -3,10 +3,12 @@ import { getTranslations } from "next-intl/server"
 import Home from "./home"
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: {
   params: { locale: string }
 }) {
+  const { locale } = await params
+
   const t = await getTranslations({ locale, namespace: "Home" })
 
   return {
@@ -15,10 +17,12 @@ export async function generateMetadata({
   }
 }
 
-export default function HomePage({
-  params: { locale },
+export default async function HomePage({
+  params,
 }: {
   params: { locale: string }
 }) {
+  const { locale } = await params
+
   return <Home locale={locale} />
 }
