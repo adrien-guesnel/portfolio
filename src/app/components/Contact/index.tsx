@@ -82,7 +82,7 @@ export default function Contact({ className }: HeroProps) {
               <FontAwesomeIcon
                 icon={faEnvelopeCircleCheck}
                 size="5x"
-                className="mx-auto text-primary"
+                className="text-primary mx-auto"
               />
               <p className="body-large text-center">
                 {t("messageSent", { email: email ?? "" })}
@@ -128,7 +128,7 @@ export default function Contact({ className }: HeroProps) {
               />
               <Button
                 type="submit"
-                className="button-contained mr-5 mt-5 w-fit self-end"
+                className="button-contained mt-5 mr-5 w-fit self-end"
               >
                 {t("submit")}
               </Button>
