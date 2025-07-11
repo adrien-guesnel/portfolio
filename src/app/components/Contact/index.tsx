@@ -6,7 +6,7 @@ import ContactImg from "@public/img/contact.webp"
 import clsx from "clsx"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
-import { FormEvent, RefObject, useRef, useState } from "react"
+import { FormEvent, useRef, useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
 import { toast } from "sonner"
 
@@ -22,7 +22,7 @@ export default function Contact({ className }: HeroProps) {
   const t = useTranslations("Contact")
   const [emailSent, setEmailSent] = useState(false)
   const [email, setEmail] = useState<string | undefined>()
-  const recaptcha: RefObject<ReCAPTCHA> = useRef(null)
+  const recaptcha = useRef<ReCAPTCHA>(null)
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -82,10 +82,10 @@ export default function Contact({ className }: HeroProps) {
               <FontAwesomeIcon
                 icon={faEnvelopeCircleCheck}
                 size="5x"
-                className="text-primary mx-auto"
+                className="mx-auto text-primary"
               />
               <p className="body-large text-center">
-                {t("messageSent", { email })}
+                {t("messageSent", { email: email ?? "" })}
               </p>
             </div>
           ) : (
@@ -128,7 +128,7 @@ export default function Contact({ className }: HeroProps) {
               />
               <Button
                 type="submit"
-                className="button-contained mt-5 mr-5 w-fit self-end"
+                className="button-contained mr-5 mt-5 w-fit self-end"
               >
                 {t("submit")}
               </Button>
