@@ -2,9 +2,8 @@ import type { Preview } from "@storybook/react"
 import React from "react"
 
 // @ts-ignore
-import NextIntlProvider from "@/app/lib/NextIntlProvider"
+import NextIntlProvider from "@/src/app/lib/NextIntlProvider"
 
-import "../app/globals.css"
 // @ts-ignore
 import messagesComponentsEn from "../messages/en/components.json"
 // @ts-ignore
@@ -13,6 +12,7 @@ import messagesPagesEn from "../messages/en/pages.json"
 import messagesComponentsFr from "../messages/fr/components.json"
 // @ts-ignore
 import messagesPagesFr from "../messages/fr/pages.json"
+import "../src/app/globals.css"
 
 const preview: Preview = {
   globalTypes: {

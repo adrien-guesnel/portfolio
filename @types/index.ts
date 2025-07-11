@@ -1,4 +1,4 @@
-import { ThemeMode } from "@/app/lib/constants"
+import { ThemeMode } from "@/src/app/lib/constants"
 
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
   lightColor?: string
