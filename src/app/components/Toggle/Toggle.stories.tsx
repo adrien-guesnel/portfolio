@@ -1,5 +1,5 @@
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/nextjs"
 
 import Toggle from "./index"
 

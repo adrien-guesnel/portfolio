@@ -30,14 +30,14 @@ export default function Toggle({
           checked={value}
           id="switch-component-1"
           type="checkbox"
-          className="peer h-5 w-11 cursor-pointer appearance-none rounded-full bg-slate-100 transition-colors duration-300 checked:bg-primary dark:bg-slate-800"
+          className="peer checked:bg-primary h-5 w-11 cursor-pointer appearance-none rounded-full bg-slate-100 transition-colors duration-300 dark:bg-slate-800"
           onChange={(e) => {
             onChange(e.target.checked)
           }}
         />
         <label
           htmlFor="switch-component-1"
-          className="absolute left-0 top-0 h-5 w-5 cursor-pointer rounded-full border border-slate-300 bg-white shadow-xs transition-transform duration-300 peer-checked:translate-x-6 peer-checked:border-slate-800 dark:border-slate-800 dark:bg-black dark:peer-checked:border-slate-800"
+          className="absolute top-0 left-0 h-5 w-5 cursor-pointer rounded-full border border-slate-300 bg-white shadow-xs transition-transform duration-300 peer-checked:translate-x-6 peer-checked:border-slate-800 dark:border-slate-800 dark:bg-black dark:peer-checked:border-slate-800"
         ></label>
       </div>
       {iconRight ? (

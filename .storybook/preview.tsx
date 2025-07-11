@@ -15,6 +15,7 @@ import messagesPagesFr from "../messages/fr/pages.json"
 import "../src/app/globals.css"
 
 const preview: Preview = {
+  tags: ["autodocs"],
   globalTypes: {
     locale: {
       name: "Locale",

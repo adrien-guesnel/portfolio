@@ -61,7 +61,7 @@ export default function NavigationBar({
     <>
       <div
         className={clsx(
-          "container fixed left-1/2 z-50 mx-auto flex h-16 max-w-5xl -translate-x-1/2 transform flex-row items-center justify-between bg-white px-4 py-2 text-black shadow-xs lg:top-2 lg:rounded-2xl dark:bg-black dark:text-light-brown",
+          "dark:text-light-brown fixed left-1/2 z-50 container mx-auto flex h-16 max-w-5xl -translate-x-1/2 transform flex-row items-center justify-between bg-white px-4 py-2 text-black shadow-xs lg:top-2 lg:rounded-2xl dark:bg-black",
           className,
         )}
       >

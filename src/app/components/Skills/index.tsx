@@ -35,7 +35,7 @@ export default function Skills({ themeMode, className }: SkillsProps) {
         <ReactLogo className={logoClass} themeMode={themeMode} />
         <StorybookLogo className={logoClass} themeMode={themeMode} />
       </div>
-      <div className="container mx-auto mt-16 flex max-w-3xl flex-col items-center justify-center text-center text-black dark:text-light-brown">
+      <div className="dark:text-light-brown container mx-auto mt-16 flex max-w-3xl flex-col items-center justify-center text-center text-black">
         <h2 className="h2">{t("title")}</h2>
         <p className="body-large mt-6">{t("description")}</p>
 

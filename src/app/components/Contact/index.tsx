@@ -58,7 +58,7 @@ export default function Contact({ className }: HeroProps) {
       id="contact"
       className={clsx("bg-[#eed3b9] dark:bg-[#2e1300]", className)}
     >
-      <div className="container mx-auto flex flex-col justify-center gap-2 text-black lg:flex-row dark:text-light-brown">
+      <div className="dark:text-light-brown container mx-auto flex flex-col justify-center gap-2 text-black lg:flex-row">
         <div className="flex max-w-2xl flex-col justify-between">
           <div className="mt-20 flex flex-col gap-6 text-center lg:mt-32">
             <h2 className="h2">{t("contactMe")}</h2>
@@ -82,7 +82,7 @@ export default function Contact({ className }: HeroProps) {
               <FontAwesomeIcon
                 icon={faEnvelopeCircleCheck}
                 size="5x"
-                className="mx-auto text-primary"
+                className="text-primary mx-auto"
               />
               <p className="body-large text-center">
                 {t("messageSent", { email })}
@@ -128,7 +128,7 @@ export default function Contact({ className }: HeroProps) {
               />
               <Button
                 type="submit"
-                className="button-contained mr-5 mt-5 w-fit self-end"
+                className="button-contained mt-5 mr-5 w-fit self-end"
               >
                 {t("submit")}
               </Button>

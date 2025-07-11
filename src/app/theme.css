@@ -8,31 +8,31 @@ div {
 
 /*** typography ***/
 .h1 {
-  @apply text-[2.875rem] font-bold leading-[1.2em];
+  @apply text-[2.875rem] leading-[1.2em] font-bold;
 }
 
 .h2 {
-  @apply text-[2rem] font-bold leading-[1.2em] lg:text-[2.5rem];
+  @apply text-[2rem] leading-[1.2em] font-bold lg:text-[2.5rem];
 }
 
 .h3 {
-  @apply text-[2.0875rem] font-bold leading-[1.2em] tracking-[-0.0375rem];
+  @apply text-[2.0875rem] leading-[1.2em] font-bold tracking-[-0.0375rem];
 }
 
 .h4 {
-  @apply text-[1.6875rem] font-bold leading-[1.2em] tracking-[-0.03375rem];
+  @apply text-[1.6875rem] leading-[1.2em] font-bold tracking-[-0.03375rem];
 }
 
 .body-small {
-  @apply text-sm font-medium leading-[1.44rem];
+  @apply text-sm leading-[1.44rem] font-medium;
 }
 
 .body-medium {
-  @apply text-base font-medium leading-[1.44rem];
+  @apply text-base leading-[1.44rem] font-medium;
 }
 
 .body-large {
-  @apply text-lg font-medium leading-[1.39rem];
+  @apply text-lg leading-[1.39rem] font-medium;
 }
 
 /*** button ***/

@@ -5,17 +5,10 @@ const config: StorybookConfig = {
     "../src/app/components/**/*.mdx",
     "../src/app/components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-  ],
+  addons: ["storybook/actions", "@storybook/addon-docs"],
   framework: {
     name: "@storybook/nextjs",
     options: {},
-  },
-  docs: {
-    autodocs: "tag",
   },
   webpackFinal: async (config) => {
     config.module = config.module || {}
