@@ -1,7 +1,5 @@
-import * as React from "react"
-
-import { IconProps } from "@/@types"
-import { ThemeMode } from "@/src/app/lib/constants"
+import type { IconProps } from "@/@types";
+import { ThemeMode } from "@/src/app/lib/constants";
 
 export default function NodeLogo({
   lightColor = "black",
@@ -10,7 +8,7 @@ export default function NodeLogo({
   className,
   ...props
 }: IconProps) {
-  const logoColor = themeMode === ThemeMode.Dark ? darkColor : lightColor
+  const logoColor = themeMode === ThemeMode.Dark ? darkColor : lightColor;
 
   return (
     <svg
@@ -46,5 +44,5 @@ export default function NodeLogo({
         d="M394.538 105.2a.97.97 0 01.98 0l8.13 4.69c.304.176.49.5.49.85v9.39c0 .35-.186.674-.49.85l-8.13 4.69a.97.97 0 01-.98 0l-8.125-4.69a.979.979 0 01-.5-.85v-9.39c0-.35.18-.674.49-.85zm0 0"
       ></path>
     </svg>
-  )
+  );
 }

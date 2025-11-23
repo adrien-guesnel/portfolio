@@ -1,28 +1,27 @@
-"use client"
+"use client";
 
-import SkillsImg from "@public/img/skills.webp"
-import clsx from "clsx"
-import { useTranslations } from "next-intl"
-import Image from "next/image"
+import clsx from "clsx";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 
-import { ThemeMode } from "@/src/app/lib/constants"
-
-import NestLogo from "@components/Icons/nest"
-import NextLogo from "@components/Icons/next"
-import NodeLogo from "@components/Icons/node"
-import ReactLogo from "@components/Icons/react"
-import StorybookLogo from "@components/Icons/storybook"
-import TailwindLogo from "@components/Icons/tailwind"
-import TypescriptLogo from "@components/Icons/typescript"
+import NestLogo from "@components/Icons/nest";
+import NextLogo from "@components/Icons/next";
+import NodeLogo from "@components/Icons/node";
+import ReactLogo from "@components/Icons/react";
+import StorybookLogo from "@components/Icons/storybook";
+import TailwindLogo from "@components/Icons/tailwind";
+import TypescriptLogo from "@components/Icons/typescript";
+import SkillsImg from "@public/img/skills.webp";
+import type { ThemeMode } from "@/src/app/lib/constants";
 
 interface SkillsProps {
-  themeMode: ThemeMode
-  className?: string
+  themeMode: ThemeMode;
+  className?: string;
 }
 
 export default function Skills({ themeMode, className }: SkillsProps) {
-  const t = useTranslations("Skills")
-  const logoClass = "h-12 object-contain w-fit"
+  const t = useTranslations("Skills");
+  const logoClass = "h-12 object-contain w-fit";
 
   return (
     <div className={clsx("bg-[#fffdf7] dark:bg-[#311d17]", className)}>
@@ -47,5 +46,5 @@ export default function Skills({ themeMode, className }: SkillsProps) {
         />
       </div>
     </div>
-  )
+  );
 }

@@ -16,39 +16,27 @@ jobs:
 
     steps:
       - name: ⬇ Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: 📖 Read .nvmrc
         run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
         id: nvm
 
       - name: ⚙️ Use Node.js ${{ steps.nvm.outputs.NODE_VERSION }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
 
-      - uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v4
         with:
-          version: 9
-
-      - name: 🔎 Check node_modules in cache
-        uses: actions/cache@v4
-        id: cache-node-modules
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          run_install: false
+          version: 10
 
       - name: ⬇ Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: 🕵️‍♂️ Verify lint
         run: pnpm lint
-
-      - name: 🕵️‍♂️ Verify prettier
-        run: pnpm prettier --check ./
 
       - name: 🕵️‍♂️ Verify next.js build
         run: pnpm build

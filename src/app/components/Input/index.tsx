@@ -1,12 +1,12 @@
-import { HTMLAttributes, HTMLInputTypeAttribute } from "react"
+import type { HTMLAttributes, HTMLInputTypeAttribute } from "react";
 
 interface InputProps extends HTMLAttributes<HTMLInputElement> {
-  label: string
-  name: string
-  isRequired?: boolean
-  value?: string
-  placeholder?: string
-  type: HTMLInputTypeAttribute
+  label: string;
+  name: string;
+  isRequired?: boolean;
+  value?: string;
+  placeholder?: string;
+  type: HTMLInputTypeAttribute;
 }
 
 export default function Input({
@@ -34,5 +34,5 @@ export default function Input({
         {...inputProps}
       />
     </div>
-  )
+  );
 }

@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import React, { TextareaHTMLAttributes } from "react"
+import type { TextareaHTMLAttributes } from "react";
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label: string
-  name: string
-  isRequired?: boolean
-  value?: string
-  placeholder?: string
+  label: string;
+  name: string;
+  isRequired?: boolean;
+  value?: string;
+  placeholder?: string;
 }
 
 export default function Textarea({
@@ -33,5 +33,5 @@ export default function Textarea({
         {...textareaProps}
       />
     </div>
-  )
+  );
 }

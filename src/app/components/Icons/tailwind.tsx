@@ -1,7 +1,5 @@
-import * as React from "react"
-
-import { IconProps } from "@/@types"
-import { ThemeMode } from "@/src/app/lib/constants"
+import type { IconProps } from "@/@types";
+import { ThemeMode } from "@/src/app/lib/constants";
 
 export default function TailwindLogo({
   lightColor = "black",
@@ -10,7 +8,7 @@ export default function TailwindLogo({
   className,
   ...props
 }: IconProps) {
-  const logoColor = themeMode === ThemeMode.Dark ? darkColor : lightColor
+  const logoColor = themeMode === ThemeMode.Dark ? darkColor : lightColor;
 
   return (
     <svg
@@ -34,5 +32,5 @@ export default function TailwindLogo({
         </clipPath>
       </defs>
     </svg>
-  )
+  );
 }

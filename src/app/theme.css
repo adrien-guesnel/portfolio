@@ -112,6 +112,6 @@ div {
 }
 
 input,
-textarea   {
+textarea {
   @apply bg-white;
 }

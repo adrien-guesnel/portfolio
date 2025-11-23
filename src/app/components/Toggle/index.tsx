@@ -1,7 +1,6 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import clsx from "clsx"
-import { useState } from "react"
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
 
 export default function Toggle({
   value = false,
@@ -9,19 +8,17 @@ export default function Toggle({
   iconLeft,
   iconRight,
 }: {
-  value: boolean
-  onChange: (value: boolean) => void
-  iconLeft?: IconProp
-  iconRight?: IconProp
+  value: boolean;
+  onChange: (value: boolean) => void;
+  iconLeft?: IconProp;
+  iconRight?: IconProp;
 }) {
   return (
     <div className="flex flex-row items-center gap-2">
       {iconLeft ? (
         <FontAwesomeIcon
           icon={iconLeft}
-          className={clsx(
-            value ? "text-gray-900 dark:text-gray-200" : "text-primary",
-          )}
+          className={clsx(value ? "text-gray-900 dark:text-gray-200" : "text-primary")}
         />
       ) : null}
 
@@ -32,7 +29,7 @@ export default function Toggle({
           type="checkbox"
           className="peer checked:bg-primary h-5 w-11 cursor-pointer appearance-none rounded-full bg-slate-100 transition-colors duration-300 dark:bg-slate-800"
           onChange={(e) => {
-            onChange(e.target.checked)
+            onChange(e.target.checked);
           }}
         />
         <label
@@ -43,11 +40,9 @@ export default function Toggle({
       {iconRight ? (
         <FontAwesomeIcon
           icon={iconRight}
-          className={clsx(
-            value ? "text-primary" : "text-gray-900 dark:text-gray-200",
-          )}
+          className={clsx(value ? "text-primary" : "text-gray-900 dark:text-gray-200")}
         />
       ) : null}
     </div>
-  )
+  );
 }
