@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/nextjs"
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import Textarea from "./index"
+import Textarea from "./index";
 
 const meta = {
   title: "Atoms/Textarea",
@@ -9,10 +9,10 @@ const meta = {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Textarea>
+} satisfies Meta<typeof Textarea>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
@@ -21,4 +21,4 @@ export const Default: Story = {
     placeholder: "Placeholder",
     rows: 5,
   },
-}
+};

@@ -1,34 +1,28 @@
-"use client"
+"use client";
 
-import {
-  faGithub,
-  faLinkedin,
-  faMedium,
-} from "@fortawesome/free-brands-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useTranslations } from "next-intl"
+import { faGithub, faLinkedin, faMedium } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslations } from "next-intl";
 
+import Logo from "@components/Logo";
 import {
   GITHUB_URL,
   HIRE_ME_URL,
   LIKEDIN_URL,
   MEDIUM_URL,
   ThemeMode,
-} from "@/src/app/lib/constants"
+} from "@/src/app/lib/constants";
 
-import Flag, { COUNTRIES } from "@components/Flag"
-import Logo from "@components/Logo"
-
-import Malt from "./Malt"
+import Malt from "./Malt";
 
 interface FooterProps {
-  themeMode: ThemeMode
+  themeMode: ThemeMode;
 }
 
 export default function Footer({ themeMode = ThemeMode.Light }: FooterProps) {
-  const t = useTranslations("footer")
+  const t = useTranslations("footer");
 
-  const currentYear = new Date().getFullYear().toString()
+  const currentYear = new Date().getFullYear().toString();
 
   return (
     <div className="flex flex-col items-center justify-between gap-6 bg-white p-12 text-black lg:flex-row lg:gap-0 dark:bg-black dark:text-white">
@@ -47,9 +41,7 @@ export default function Footer({ themeMode = ThemeMode.Light }: FooterProps) {
         </a>
       </div>
       <Logo className="hidden h-10 lg:flex" themeMode={themeMode} />
-      <p className="text-center lg:text-left">
-        {t("copyright", { currentYear })}
-      </p>
+      <p className="text-center lg:text-left">{t("copyright", { currentYear })}</p>
     </div>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/nextjs"
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import NavigationBar from "./index"
+import NavigationBar from "./index";
 
 const meta = {
   title: "Components/NavigationBar",
@@ -9,14 +9,14 @@ const meta = {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof NavigationBar>
+} satisfies Meta<typeof NavigationBar>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
     onThemeChange: () => {},
     locale: "en",
   },
-}
+};

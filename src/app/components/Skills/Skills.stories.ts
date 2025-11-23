@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/nextjs"
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { ThemeMode } from "@/src/app/lib/constants"
+import { ThemeMode } from "@/src/app/lib/constants";
 
-import Skills from "./index"
+import Skills from "./index";
 
 const meta = {
   title: "Components/Skills",
@@ -11,13 +11,13 @@ const meta = {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Skills>
+} satisfies Meta<typeof Skills>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
     themeMode: ThemeMode.Light,
   },
-}
+};

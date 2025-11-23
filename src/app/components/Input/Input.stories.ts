@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/nextjs"
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import Input from "./index"
+import Input from "./index";
 
 const meta = {
   title: "Atoms/Input",
@@ -9,10 +9,10 @@ const meta = {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Input>
+} satisfies Meta<typeof Input>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
@@ -21,4 +21,4 @@ export const Default: Story = {
     placeholder: "Placeholder",
     type: "text",
   },
-}
+};

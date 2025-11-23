@@ -1,18 +1,13 @@
-import type { Preview } from "@storybook/react"
-import React from "react"
+import type { Preview } from "@storybook/react";
 
-// @ts-ignore
-import NextIntlProvider from "@/src/app/lib/NextIntlProvider"
+// @ts-expect-error avoid type error due to importing json files
+import NextIntlProvider from "@/src/app/lib/NextIntlProvider";
 
-// @ts-ignore
-import messagesComponentsEn from "../messages/en/components.json"
-// @ts-ignore
-import messagesPagesEn from "../messages/en/pages.json"
-// @ts-ignore
-import messagesComponentsFr from "../messages/fr/components.json"
-// @ts-ignore
-import messagesPagesFr from "../messages/fr/pages.json"
-import "../src/app/globals.css"
+import messagesComponentsEn from "../messages/en/components.json";
+import messagesPagesEn from "../messages/en/pages.json";
+import messagesComponentsFr from "../messages/fr/components.json";
+import messagesPagesFr from "../messages/fr/pages.json";
+import "../src/app/globals.css";
 
 const preview: Preview = {
   tags: ["autodocs"],
@@ -44,22 +39,22 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => {
-      const locale = context.globals.locale || "en"
-      console.log("locale", locale)
+      const locale = context.globals.locale || "en";
+      console.log("locale", locale);
 
-      let messages = { ...messagesComponentsEn, ...messagesPagesEn }
+      let messages = { ...messagesComponentsEn, ...messagesPagesEn };
 
       if (locale === "fr") {
-        messages = { ...messagesComponentsFr, ...messagesPagesFr }
+        messages = { ...messagesComponentsFr, ...messagesPagesFr };
       }
 
       return (
         <NextIntlProvider locale={locale} messages={messages}>
           <Story />
         </NextIntlProvider>
-      )
+      );
     },
   ],
-}
+};
 
-export default preview
+export default preview;

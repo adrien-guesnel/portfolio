@@ -1,21 +1,20 @@
-"use client"
+"use client";
 
-import HeroImg from "@public/img/hero.webp"
-import clsx from "clsx"
-import { useTranslations } from "next-intl"
-import Image from "next/image"
-import Link from "next/link"
+import clsx from "clsx";
+import Image from "next/image";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
 
-import { HIRE_ME_URL } from "@/src/app/lib/constants"
-
-import RichText from "@components/RichText"
+import RichText from "@components/RichText";
+import HeroImg from "@public/img/hero.webp";
+import { HIRE_ME_URL } from "@/src/app/lib/constants";
 
 interface HeroProps {
-  className?: string
+  className?: string;
 }
 
 export default function Hero({ className }: HeroProps) {
-  const t = useTranslations("Hero")
+  const t = useTranslations("Hero");
 
   return (
     <div className={clsx("bg-beige dark:bg-dark-brown", className)}>
@@ -36,13 +35,9 @@ export default function Hero({ className }: HeroProps) {
           </div>
         </div>
         <div className="max-w-lg">
-          <Image
-            src={HeroImg}
-            alt="Adrien with his computer"
-            placeholder="blur"
-          />
+          <Image src={HeroImg} alt="Adrien with his computer" placeholder="blur" />
         </div>
       </div>
     </div>
-  )
+  );
 }

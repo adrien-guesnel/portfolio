@@ -29,7 +29,7 @@ jobs:
 
       - uses: pnpm/action-setup@v3
         with:
-          version: 9
+          version: 10
 
       - name: 🔎 Check node_modules in cache
         uses: actions/cache@v4
@@ -46,9 +46,6 @@ jobs:
 
       - name: 🕵️‍♂️ Verify lint
         run: pnpm lint
-
-      - name: 🕵️‍♂️ Verify prettier
-        run: pnpm prettier --check ./
 
       - name: 🕵️‍♂️ Verify next.js build
         run: pnpm build

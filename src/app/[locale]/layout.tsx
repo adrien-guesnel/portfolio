@@ -1,15 +1,16 @@
-import { GoogleTagManager } from "@next/third-parties/google"
-import type { Metadata, Viewport } from "next"
-import { getMessages } from "next-intl/server"
-import { Inter } from "next/font/google"
-import { Toaster } from "sonner"
+import { GoogleTagManager } from "@next/third-parties/google";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
+import { getMessages } from "next-intl/server";
+import { Toaster } from "sonner";
 
-import "@/src/app/globals.css"
-import NextIntlProvider from "@/src/app/lib/NextIntlProvider"
+import "@/src/app/globals.css";
 
-import { ThemeProvider } from "../lib/ThemeProvider"
+import NextIntlProvider from "@/src/app/lib/NextIntlProvider";
 
-const inter = Inter({ subsets: ["latin"] })
+import { ThemeProvider } from "../lib/ThemeProvider";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Adrien Guesnel - Software Engineer",
@@ -17,27 +18,27 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-}
+};
 
 export const viewport: Viewport = {
   themeColor: "#FFF5E1",
   userScalable: false,
   initialScale: 1,
   width: "device-width",
-}
+};
 
-type Params = Promise<{ locale: string }>
+type Params = Promise<{ locale: string }>;
 
 export default async function RootLayout({
   children,
   params,
 }: {
-  children: React.ReactNode
-  params: Params
+  children: React.ReactNode;
+  params: Params;
 }) {
-  const { locale } = await params
+  const { locale } = await params;
 
-  const messages = await getMessages()
+  const messages = await getMessages();
 
   return (
     <html lang={locale}>
@@ -57,5 +58,5 @@ export default async function RootLayout({
         </NextIntlProvider>
       </body>
     </html>
-  )
+  );
 }

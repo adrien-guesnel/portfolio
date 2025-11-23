@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/nextjs"
+import type { StorybookConfig } from "@storybook/nextjs";
 
 const config: StorybookConfig = {
   stories: [
@@ -11,14 +11,21 @@ const config: StorybookConfig = {
     options: {},
   },
   webpackFinal: async (config) => {
-    config.module = config.module || {}
-    config.module.rules = config.module.rules || []
+    config.module = config.module || {};
+    config.module.rules = config.module.rules || [];
 
-    const imageRule = config.module.rules.find((rule) =>
-      rule?.["test"]?.test(".svg"),
-    )
+    // This modifies the existing image rule to exclude .svg files
+    // since you want to handle those files with @svgr/webpack
+    const imageRule = config.module.rules.find(
+      (rule) =>
+        typeof rule === "object" &&
+        rule !== null &&
+        "test" in rule &&
+        (rule as any).test instanceof RegExp &&
+        (rule as any).test.test(".svg"),
+    );
     if (imageRule) {
-      imageRule["exclude"] = /\.svg$/
+      (imageRule as any).exclude = /\.svg$/;
     }
 
     config.module.rules.push({
@@ -42,10 +49,10 @@ const config: StorybookConfig = {
           },
         },
       ],
-    })
+    });
 
-    return config
+    return config;
   },
   staticDirs: ["../public"],
-}
-export default config
+};
+export default config;
