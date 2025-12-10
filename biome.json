@@ -13,7 +13,10 @@
     "rules": {
       "correctness": {
         "noUnusedVariables": "error",
-        "noUnusedImports": "error"
+        "noUnusedImports": {
+          "level": "error",
+          "fix": "safe"
+        }
       },
       "style": {
         "useConst": "error",

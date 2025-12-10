@@ -1,4 +1,9 @@
 {
+  "Articles": {
+    "title": "Derniers articles de blog",
+    "description": "Restez à jour avec mes dernières réflexions, analyses et retours d'expérience sur le développement web. Je partage des articles techniques, des études de cas et des conseils pratiques pour vous aider à concevoir et maintenir des applications performantes et évolutives. Abonnez-vous pour ne rien manquer.",
+    "viewAllButton": "Voir tous les articles"
+  },
   "Contact": {
     "companyName": "Nom de l'entreprise",
     "contactMe": "Besoin de plus d'informations ?",
