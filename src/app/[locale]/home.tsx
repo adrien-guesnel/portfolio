@@ -1,5 +1,6 @@
 "use client";
 
+import Articles from "@components/organisms/Articles";
 import Contact from "@/src/app/components/Contact";
 import Footer from "@/src/app/components/Footer";
 import Hero from "@/src/app/components/Hero";
@@ -20,6 +21,7 @@ export default function Home({ locale }: { locale: string }) {
       <NavigationBar onThemeChange={handleThemeChange} themeMode={theme} locale={locale} />
       <Hero />
       <Skills themeMode={theme} />
+      <Articles />
       <Contact />
       <Footer themeMode={theme} />
     </>

@@ -1,4 +1,9 @@
 {
+  "Articles": {
+    "title": "Latest blog articles",
+    "description": "Stay up to date with my latest thoughts, analyses, and experiences on web development. I share technical articles, case studies, and practical tips to help you design and maintain efficient and scalable applications. Subscribe to never miss an update.",
+    "viewAllButton": "View all articles"
+  },
   "Contact": {
     "companyName": "Company name",
     "contactMe": "Need more informations?",
