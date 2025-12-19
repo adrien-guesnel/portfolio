@@ -38,7 +38,7 @@ export function MediumArticleCard({
         />
       </div>
       <div className="flex flex-1 flex-col gap-4 p-5">
-        <h3 className="text-xl font-semibold text-black dark:text-light-brown">{title}</h3>
+        <h3 className="text-xl font-semibold  dark:text-light-brown">{title}</h3>
         <p className="body-small text-slate-600 dark:text-slate-200 line-clamp-3" title={snippet}>
           {snippet}
         </p>

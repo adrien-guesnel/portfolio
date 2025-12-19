@@ -1,13 +1,17 @@
-import type { HTMLAttributes } from "react";
+import clsx from "clsx";
 
 import LogoBright from "@/public/logo_bright.svg";
 import LogoDark from "@/public/logo_dark.svg";
-import { ThemeMode } from "@/src/app/lib/constants";
 
-interface LogoProps extends HTMLAttributes<SVGElement> {
-  themeMode: ThemeMode;
+interface LogoProps {
+  className?: string;
 }
 
-export default function Logo({ themeMode, ...props }: LogoProps) {
-  return themeMode === ThemeMode.Light ? <LogoBright {...props} /> : <LogoDark {...props} />;
+export default function Logo({ className }: LogoProps) {
+  return (
+    <>
+      <LogoBright className={clsx("block dark:hidden", className)} />
+      <LogoDark className={clsx("hidden dark:block", className)} />
+    </>
+  );
 }

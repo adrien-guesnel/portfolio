@@ -6,7 +6,7 @@
     "pnpm": ">=10"
   },
   "scripts": {
-    "dev": "next dev -p 3055 --turbo",
+    "dev": "next dev -p 3055",
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
@@ -49,11 +49,13 @@
     "@types/react": "19.2.6",
     "@types/react-dom": "19.2.3",
     "@types/react-google-recaptcha": "2.1.9",
+    "daisyui": "5.5.14",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "postcss": "8.5.6",
     "storybook": "10.0.8",
     "tailwindcss": "4.1.17",
     "typescript": "5.9.3"
-  }
+  },
+  "browserslist": "> 1%"
 }

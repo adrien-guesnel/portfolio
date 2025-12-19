@@ -24,7 +24,7 @@ export default function Input({
         {label} {isRequired ? <span className="text-primary">*</span> : null}
       </label>
       <input
-        className="body-medium rounded-2xl border border-gray-300 px-4 py-5 text-black dark:border-gray-700"
+        className="body-medium rounded-2xl border border-gray-300 px-4 py-5  dark:border-gray-700"
         name={name}
         id={name}
         defaultValue={value}

@@ -5,27 +5,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTranslations } from "next-intl";
 
 import Logo from "@components/Logo";
-import {
-  GITHUB_URL,
-  HIRE_ME_URL,
-  LIKEDIN_URL,
-  MEDIUM_URL,
-  ThemeMode,
-} from "@/src/app/lib/constants";
+import { GITHUB_URL, HIRE_ME_URL, LIKEDIN_URL, MEDIUM_URL } from "@/src/app/lib/constants";
 
 import Malt from "./Malt";
 
-interface FooterProps {
-  themeMode: ThemeMode;
-}
-
-export default function Footer({ themeMode = ThemeMode.Light }: FooterProps) {
+export default function Footer() {
   const t = useTranslations("footer");
 
   const currentYear = new Date().getFullYear().toString();
 
   return (
-    <div className="flex flex-col items-center justify-between gap-6 bg-white p-12 text-black lg:flex-row lg:gap-0 dark:bg-black dark:text-white">
+    <div className="flex flex-col items-center justify-between gap-6 bg-white p-12  lg:flex-row lg:gap-0 dark:bg-black ">
       <div className="flex justify-center gap-5">
         <a href={LIKEDIN_URL} target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faLinkedin} className="h-6" />
@@ -40,7 +30,7 @@ export default function Footer({ themeMode = ThemeMode.Light }: FooterProps) {
           <FontAwesomeIcon icon={faMedium} className="h-6" />
         </a>
       </div>
-      <Logo className="hidden h-10 lg:flex" themeMode={themeMode} />
+      <Logo className="hidden h-10 lg:flex" />
       <p className="text-center lg:text-left">{t("copyright", { currentYear })}</p>
     </div>
   );

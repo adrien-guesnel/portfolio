@@ -42,10 +42,10 @@ export default function Articles({ className }: { className?: string }) {
   ];
 
   return (
-    <section className={clsx("bg-beige dark:bg-dark-brown py-12", className)}>
+    <section id="articles" className={clsx("bg-beige dark:bg-dark-brown py-12", className)}>
       <div className="container mx-auto flex flex-col gap-10 px-6 lg:px-0">
         <header className="max-w-3xl">
-          <h2 className="mt-4 text-3xl font-semibold leading-tight text-black dark:text-light-brown">
+          <h2 className="mt-4 text-3xl font-semibold leading-tight  dark:text-light-brown">
             {t("title")}
           </h2>
           <p className="body-large mt-3 text-slate-700 dark:text-slate-200">{t("description")}</p>

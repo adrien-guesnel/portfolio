@@ -12,29 +12,27 @@ import StorybookLogo from "@components/Icons/storybook";
 import TailwindLogo from "@components/Icons/tailwind";
 import TypescriptLogo from "@components/Icons/typescript";
 import SkillsImg from "@public/img/skills.webp";
-import type { ThemeMode } from "@/src/app/lib/constants";
 
 interface SkillsProps {
-  themeMode: ThemeMode;
   className?: string;
 }
 
-export default function Skills({ themeMode, className }: SkillsProps) {
+export default function Skills({ className }: SkillsProps) {
   const t = useTranslations("Skills");
-  const logoClass = "h-12 object-contain w-fit";
+  const logoClass = "h-12 object-contain w-fit  ";
 
   return (
-    <div className={clsx("bg-[#fffdf7] dark:bg-[#311d17]", className)}>
+    <div id="skills" className={clsx("", className)}>
       <div className="flex flex-row justify-evenly gap-4 pt-12 lg:gap-10">
-        <TypescriptLogo className={logoClass} themeMode={themeMode} />
-        <TailwindLogo className={logoClass} themeMode={themeMode} />
-        <NextLogo className={logoClass} themeMode={themeMode} />
-        <NestLogo className={logoClass} themeMode={themeMode} />
-        <NodeLogo className={logoClass} themeMode={themeMode} />
-        <ReactLogo className={logoClass} themeMode={themeMode} />
-        <StorybookLogo className={logoClass} themeMode={themeMode} />
+        <TypescriptLogo className={logoClass} />
+        <TailwindLogo className={logoClass} />
+        <NextLogo className={logoClass} />
+        <NestLogo className={logoClass} />
+        <NodeLogo className={logoClass} />
+        <ReactLogo className={logoClass} />
+        <StorybookLogo className={logoClass} />
       </div>
-      <div className="dark:text-light-brown container mx-auto mt-16 flex max-w-3xl flex-col items-center justify-center text-center text-black">
+      <div className="dark:text-light-brown container mx-auto mt-16 flex max-w-3xl flex-col items-center justify-center text-center ">
         <h2 className="h2">{t("title")}</h2>
         <p className="body-large mt-6">{t("description")}</p>
 
