@@ -20,6 +20,7 @@
     "submit": "Envoyez-moi votre message"
   },
   "Hero": {
+    "ViewMySkills": "Voir mes compétences",
     "description": "Tech Lead Freelancer specialisé en React.js / Node.js avec plus de 8 années d'expériences. Je suis prêt à vous aider à construire ou développer votre application web où que vous soyez.",
     "discoverMyProjects": "Découvrez mes projets",
     "discoverMySkills": "Découvrez mes compétences",

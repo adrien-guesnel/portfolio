@@ -10,6 +10,7 @@ import {
 import BiomeImg from "@public/img/articles/biome.webp";
 import OmzImg from "@public/img/articles/omz.webp";
 import OpenTofuImg from "@public/img/articles/opentofu.webp";
+import { SECTION_IDS } from "@/src/app/lib/Routes";
 import { Link } from "@/src/i18n/routing";
 
 export default function Articles({ className }: { className?: string }) {
@@ -41,8 +42,13 @@ export default function Articles({ className }: { className?: string }) {
     },
   ];
 
+  const articlesSectionId = SECTION_IDS.articles;
+
   return (
-    <section id="articles" className={clsx("bg-beige dark:bg-dark-brown py-12", className)}>
+    <section
+      id={articlesSectionId}
+      className={clsx("bg-beige dark:bg-dark-brown py-12", className)}
+    >
       <div className="container mx-auto flex flex-col gap-10 px-6 lg:px-0">
         <header className="max-w-3xl">
           <h2 className="mt-4 text-3xl font-semibold leading-tight  dark:text-light-brown">

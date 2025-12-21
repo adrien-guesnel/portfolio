@@ -1,13 +1,14 @@
 "use client";
 
 import clsx from "clsx";
-import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
+import AppMockup from "@components/molecules/AppMockup";
 import RichText from "@components/RichText";
-import HeroImg from "@public/img/hero.webp";
+import HeroImg from "@public/img/test.jpeg";
 import { HIRE_ME_URL } from "@/src/app/lib/constants";
+import { SECTION_IDS, SECTION_ROUTES } from "@/src/app/lib/Routes";
 
 interface HeroProps {
   className?: string;
@@ -16,11 +17,17 @@ interface HeroProps {
 export default function Hero({ className }: HeroProps) {
   const t = useTranslations("Hero");
 
+  const homeSectionId = SECTION_IDS.home;
+
   return (
-    <div id="home" className={clsx("", className)}>
-      <div className="container mx-auto flex flex-col items-center justify-center pt-32 lg:flex-row">
+    <div id={homeSectionId} className={clsx("", className)}>
+      <div className="container mx-auto flex flex-col-reverse items-center justify-center pt-32 lg:flex-row gap-4">
         <div className="flex max-w-2xl flex-col lg:pb-20">
-          <h1 className="text-4xl font-bold lg:text-6xl">
+          <div className="uppercase text-xs badge badge-soft badge-primary font-bold">
+            <span className="bg-[#23C45F] border-[#3eff85] border rounded-full h-2.5 w-2.5"></span>
+            {t("availableForNewProjects")}
+          </div>
+          <h1 className="text-4xl mt-4 font-bold lg:text-6xl leading-9 lg:leading-14">
             <RichText>{(tags) => t.rich("title", tags)}</RichText>
           </h1>
           <p className="body-large mt-6">{t("description")}</p>
@@ -29,14 +36,16 @@ export default function Hero({ className }: HeroProps) {
               {t("hireMe")}
             </Link>
 
-            {/* <Link href="#" className="button button-outlined">
-            {t("discoverMySkills")}
-          </Link> */}
+            <Link href={SECTION_ROUTES.skills} className="btn btn-outlined">
+              {t("ViewMySkills")}
+            </Link>
           </div>
         </div>
-        <div className="max-w-lg">
-          <Image src={HeroImg} alt="Adrien with his computer" placeholder="blur" />
-        </div>
+        <AppMockup
+          image={HeroImg}
+          className="h-[300px] lg:h-[450px]"
+          alt="Adrien with his computer"
+        />
       </div>
     </div>
   );

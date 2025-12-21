@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import Logo from "@components/Logo";
 import { HIRE_ME_URL } from "@/src/app/lib/constants";
+import { SECTION_ROUTES } from "@/src/app/lib/Routes";
 import { Link, usePathname, useRouter } from "@/src/i18n/routing";
 
 type DaisyTheme = "light" | "dark";
@@ -74,17 +75,17 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a href="#skills" className="font-medium">
+              <a href={SECTION_ROUTES.skills} className="font-medium">
                 {t("skills")}
               </a>
             </li>
             <li>
-              <a href="#articles" className="font-medium">
+              <a href={SECTION_ROUTES.articles} className="font-medium">
                 {t("articles")}
               </a>
             </li>
             <li>
-              <a href="#contact" className="font-medium">
+              <a href={SECTION_ROUTES.contact} className="font-medium">
                 {t("contact")}
               </a>
             </li>

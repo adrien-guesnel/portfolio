@@ -12,6 +12,7 @@ import StorybookLogo from "@components/Icons/storybook";
 import TailwindLogo from "@components/Icons/tailwind";
 import TypescriptLogo from "@components/Icons/typescript";
 import SkillsImg from "@public/img/skills.webp";
+import { SECTION_IDS } from "@/src/app/lib/Routes";
 
 interface SkillsProps {
   className?: string;
@@ -19,10 +20,11 @@ interface SkillsProps {
 
 export default function Skills({ className }: SkillsProps) {
   const t = useTranslations("Skills");
-  const logoClass = "h-12 object-contain w-fit  ";
+  const logoClass = "h-12 object-contain w-fit";
+  const skillsSectionId = SECTION_IDS.skills;
 
   return (
-    <div id="skills" className={clsx("", className)}>
+    <div id={skillsSectionId} className={clsx("", className)}>
       <div className="flex flex-row justify-evenly gap-4 pt-12 lg:gap-10">
         <TypescriptLogo className={logoClass} />
         <TailwindLogo className={logoClass} />

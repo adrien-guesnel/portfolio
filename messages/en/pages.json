@@ -1,7 +1,7 @@
 {
   "Articles": {
-    "title": "Latest blog articles",
     "description": "Stay up to date with my latest thoughts, analyses, and experiences on web development. I share technical articles, case studies, and practical tips to help you design and maintain efficient and scalable applications. Subscribe to never miss an update.",
+    "title": "Latest blog articles",
     "viewAllButton": "View all articles"
   },
   "Contact": {
@@ -20,11 +20,14 @@
     "submit": "Send me your message"
   },
   "Hero": {
-    "description": "Tech Lead Freelancer specialized in React.js / Node.js with more than 8 years of experience. I'm ready to help you to build or growth your web application from anywhere on the world.",
+    "ViewMySkills": "See my skills",
+    "ViewMyWork": "View my work",
+    "availableForNewProjects": "Available for new projects",
+    "description": "I deliver measurable growth and efficiency through robust full-stack architecture. Transform your complex challenges into high-performance, user-centric digital products.",
     "discoverMyProjects": "Discover my projects",
     "discoverMySkills": "Discover my skills",
     "hireMe": "Hire me",
-    "title": "Hi, I'm <primary>Adrien</primary> 👋"
+    "title": "Empowering Businesses with scalable <lightGradient>Node.js & React Solutions</lightGradient>"
   },
   "Home": {
     "seo": {

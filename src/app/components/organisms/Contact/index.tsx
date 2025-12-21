@@ -13,6 +13,7 @@ import ContactImg from "@public/img/contact.webp";
 import { Button } from "@/src/app/components/Button";
 import Input from "@/src/app/components/Input";
 import Textarea from "@/src/app/components/Textarea";
+import { SECTION_IDS } from "@/src/app/lib/Routes";
 
 interface HeroProps {
   className?: string;
@@ -54,8 +55,10 @@ export default function Contact({ className }: HeroProps) {
     }
   }
 
+  const contactSectionId = SECTION_IDS.contact;
+
   return (
-    <div id="contact" className={clsx("", className)}>
+    <div id={contactSectionId} className={clsx("", className)}>
       <div className="dark:text-light-brown container mx-auto flex flex-col justify-center gap-2  lg:flex-row">
         <div className="flex max-w-2xl flex-col justify-between">
           <div className="mt-20 flex flex-col gap-6 text-center lg:mt-32">
