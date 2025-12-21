@@ -99,4 +99,29 @@
       background-size: cover;
     }
   }
+
+  /* Highlighted panels and inputs use a subtle, frosted glow instead of flat fills. */
+  .glass-panel {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(237, 242, 255, 0.95));
+    box-shadow: 0 40px 70px rgba(15, 23, 42, 0.15);
+    backdrop-filter: blur(24px);
+  }
+
+  .glass-input {
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(18px);
+  }
+
+  html[data-theme="dark"] {
+    .glass-panel {
+      background: linear-gradient(180deg, rgba(12, 16, 36, 0.85), rgba(20, 25, 48, 0.9));
+      box-shadow: 0 40px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    .glass-input {
+      background-color: rgba(15, 23, 42, 0.8);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+  }
 }

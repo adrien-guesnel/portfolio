@@ -1,9 +1,12 @@
 {
   "Articles": {
-    "description": "Stay up to date with my latest thoughts, analyses, and experiences on web development. I share technical articles, case studies, and practical tips to help you design and maintain efficient and scalable applications. Subscribe to never miss an update.",
+    "description": "Stay up to date with my latest thoughts, analyses, and experiences on web development. I share technical articles, case studies, and practical tips to help you design and maintain efficient and scalable applications.",
     "readMoreOnMedium": "Read more on Medium",
-    "title": "Latest blog articles",
-    "viewAllButton": "View all articles"
+    "tags": {
+      "devops": "Devops",
+      "tooling": "Tooling"
+    },
+    "title": "Latest blog articles"
   },
   "Contact": {
     "companyName": "Company name",
@@ -27,11 +30,8 @@
   },
   "Hero": {
     "ViewMySkills": "See my skills",
-    "ViewMyWork": "View my work",
     "availableForNewProjects": "Available for new projects",
     "description": "I deliver measurable growth and efficiency through robust full-stack architecture. Transform your complex challenges into high-performance, user-centric digital products.",
-    "discoverMyProjects": "Discover my projects",
-    "discoverMySkills": "Discover my skills",
     "hireMe": "Hire me",
     "title": "Empowering Businesses with scalable <lightGradient>Node.js & React Solutions</lightGradient>"
   },
@@ -43,9 +43,7 @@
   },
   "Skills": {
     "backendTitle": "Backend & Architecture",
-    "description": "I specialize in Node.js and JavaScript technologies, with a strong focus on building efficient and scalable web applications.\nI am proficient in popular frameworks such as React.js, Next.js and Nest.js.\nAs an experienced developer, I am dedicated to delivering high-quality solutions that meet the needs of my clients.",
     "frontendTitle": "Frontend & UI",
-    "heading": "Tech Stack Proficiency",
-    "title": "My skills are my superpowers—check out what I can do."
+    "heading": "Tech Stack Proficiency"
   }
 }

@@ -27,7 +27,7 @@ export default function Textarea({
       </label>
       <textarea
         className={clsx(
-          "body-medium w-full rounded-2xl border border-base-300 bg-base-200 px-4 py-4 text-base-content placeholder:text-base-content/40 focus:outline-none focus:ring-2 focus:ring-primary/30",
+          "body-medium w-full rounded-2xl border border-base-300 glass-input px-4 py-4 text-base-content placeholder:text-base-content/40 focus:outline-none focus:ring-2 focus:ring-primary/30",
           className,
         )}
         name={name}

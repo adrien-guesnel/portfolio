@@ -4,7 +4,7 @@ import { faClock, faEnvelopeCircleCheck, faMapMarker } from "@fortawesome/free-s
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 import { useFormatter, useTranslations } from "next-intl";
-import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { type FormEvent, useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "sonner";
 
@@ -61,17 +61,6 @@ export default function Contact({ className }: HeroProps) {
     return () => clearInterval(interval);
   }, []);
 
-  const timezoneCurrent = useMemo(
-    () =>
-      new Intl.DateTimeFormat("en", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-        timeZone: "Europe/Paris",
-      }).format(currentParisTime),
-    [currentParisTime],
-  );
-
   const contactSectionId = SECTION_IDS.contact;
 
   return (
@@ -80,15 +69,15 @@ export default function Contact({ className }: HeroProps) {
         <div className="rounded-box border border-base-300 bg-base-200/40 p-6 lg:p-12">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-stretch">
             <div className="flex flex-col justify-center gap-6 text-center lg:text-left">
-              <h2 className="text-2xl mt-4 font-bold lg:text-4xl leading-6 lg:leading-9">
+              <h2 className="text-4xl mt-4 font-bold lg:text-6xl leading-9 lg:leading-14">
                 <RichText>{(tags) => t.rich("contactMe", tags)}</RichText>
               </h2>
               <p className="body-medium whitespace-pre-line text-base-content/70">
                 {t("contactMeDescription")}
               </p>
 
-              <div className="flex flex-row gap-5">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
+              <div className="flex flex-row gap-5 justify-center lg:justify-start">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
                   <FontAwesomeIcon icon={faMapMarker} className="text-base-content" />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -99,8 +88,8 @@ export default function Contact({ className }: HeroProps) {
                 </div>
               </div>
 
-              <div className="flex flex-row gap-5">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
+              <div className="flex flex-row gap-5 justify-center lg:justify-start">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
                   <FontAwesomeIcon icon={faClock} className="text-base-content" />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -122,7 +111,7 @@ export default function Contact({ className }: HeroProps) {
 
             <div
               className={clsx(
-                "rounded-box border border-base-300 bg-base-100 p-6 lg:p-10",
+                "rounded-box border border-base-300 glass-panel p-6 lg:p-10",
                 emailSent && "flex items-center justify-center",
               )}
             >

@@ -4,18 +4,9 @@
   },
   "navigationBar": {
     "articles": "Items",
-    "bookDiscoveryCall": "Book Discovery Call",
     "contact": "Contact",
-    "english": "English",
-    "french": "French",
     "hireMe": "Hire me",
-    "home": "Home",
     "homepage": "Homepage",
-    "introduction": "Introduction",
-    "projects": "Projects",
-    "references": "References",
-    "results": "Results",
-    "skills": "Skills",
-    "work": "Work"
+    "skills": "Skills"
   }
 }
