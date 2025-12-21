@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 
 import AppMockup from "@components/molecules/AppMockup";
 import RichText from "@components/RichText";
-import HeroImg from "@public/img/test.jpeg";
+import HeroImg from "@public/img/hero.jpeg";
 import { HIRE_ME_URL } from "@/src/app/lib/constants";
 import { SECTION_IDS, SECTION_ROUTES } from "@/src/app/lib/Routes";
 

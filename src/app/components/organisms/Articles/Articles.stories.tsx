@@ -1,7 +1,6 @@
 // @ts-nocheck
-import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import BiomeArticleImg from "@public/img/articles/biome.webp";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { Articles } from "./index";
 
@@ -15,19 +14,21 @@ type Story = StoryObj<typeof Articles>;
 
 const sampleArticles = [
   {
-    image: BiomeArticleImg,
     title: "How I swapped ESLint/Prettier for Biome",
     snippet:
       "ESLint and Prettier felt like the default, but Biome brought everything into a single, faster toolchain. Here is what the migration looked like.",
     url: "https://medium.com/",
+    readTime: "3 min",
+    tag: "Tooling",
   },
   {
-    image: BiomeArticleImg,
     title: "Techniques for resilient React layouts",
     snippet:
       "Sharing the layout heuristics I rely on so that cards, grids, and nav bars stay consistent when the data internet throws curveballs.",
     url: "https://medium.com/",
-    buttonLabel: "View article",
+    readTime: "4 min",
+    tag: "Frontend",
+    tagColor: "secondary",
   },
 ];
 
