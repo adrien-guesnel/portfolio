@@ -10,6 +10,7 @@
     "contactMeDescription": "Vous souhaitez en savoir plus sur mon travail ou discuter d’opportunités potentielles ?\nJe suis ouvert aux demandes des recruteurs et des entreprises.\nN'hésitez pas à me contacter en utilisant le formulaire.",
     "email": "Email",
     "emailFailed": "Échec de l'envoi de votre message, veuillez réessayer plus tard",
+    "location": "Localisation",
     "message": "Message",
     "messageSent": "Votre message a été envoyé !\nJe vous répondrai dans les plus brefs délais à l'adresse e-mail fournie : {email}",
     "name": "Nom",
@@ -17,6 +18,10 @@
     "placeholderEmail": "email@domaine.com",
     "placeholderMessage": "Bonjour, j'aimerais savoir si vous êtes intéressé pour travailler sur notre produit. \nÊtes-vous disponible pour en parler ?",
     "placeholderName": "Maxime Dupont",
+    "strasbourgFrance": "Strasbourg, France ou à distance",
+    "timezoneLabel": "Fuseau horaire",
+    "timezoneValue": "GMT+1 (heure de Paris)",
+    "timezoneLive": "Heure actuelle : {time}",
     "submit": "Envoyez-moi votre message"
   },
   "Hero": {

@@ -83,6 +83,10 @@
     @apply px-4;
   }
 
+  .text-gray {
+    @apply text-[#93A1B7];
+  }
+
   html[data-theme="dark"] {
     body {
       background-color: #010617;

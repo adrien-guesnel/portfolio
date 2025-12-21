@@ -1,15 +1,14 @@
 "use client";
 
-import { faEnvelopeCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { faClock, faEnvelopeCircleCheck, faMapMarker } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { type FormEvent, useRef, useState } from "react";
+import { useFormatter, useTranslations } from "next-intl";
+import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "sonner";
 
-import ContactImg from "@public/img/contact.webp";
+import RichText from "@components/RichText";
 import { Button } from "@/src/app/components/Button";
 import Input from "@/src/app/components/Input";
 import Textarea from "@/src/app/components/Textarea";
@@ -23,7 +22,9 @@ export default function Contact({ className }: HeroProps) {
   const t = useTranslations("Contact");
   const [emailSent, setEmailSent] = useState(false);
   const [email, setEmail] = useState<string | undefined>();
+  const [currentParisTime, setCurrentParisTime] = useState(() => new Date());
   const recaptcha = useRef<ReCAPTCHA>(null);
+  const formatter = useFormatter();
   const siteKey = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE;
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -55,83 +56,132 @@ export default function Contact({ className }: HeroProps) {
     }
   }
 
+  useEffect(() => {
+    const interval = setInterval(() => setCurrentParisTime(new Date()), 60_000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const timezoneCurrent = useMemo(
+    () =>
+      new Intl.DateTimeFormat("en", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        timeZone: "Europe/Paris",
+      }).format(currentParisTime),
+    [currentParisTime],
+  );
+
   const contactSectionId = SECTION_IDS.contact;
 
   return (
-    <div id={contactSectionId} className={clsx("", className)}>
-      <div className="dark:text-light-brown container mx-auto flex flex-col justify-center gap-2  lg:flex-row">
-        <div className="flex max-w-2xl flex-col justify-between">
-          <div className="mt-20 flex flex-col gap-6 text-center lg:mt-32">
-            <h2 className="h2">{t("contactMe")}</h2>
-            <p className="body-medium">{t("contactMeDescription")}</p>
-          </div>
-          <Image
-            src={ContactImg}
-            alt="Illustration of Adrien on the phone"
-            placeholder="blur"
-            className="hidden lg:block"
-          />
-        </div>
-        <div className={clsx("mx-auto w-full max-w-lg lg:m-0", emailSent ? "self-center" : "")}>
-          {emailSent ? (
-            <div className="flex flex-col items-center gap-5 py-8">
-              <FontAwesomeIcon
-                icon={faEnvelopeCircleCheck}
-                size="5x"
-                className="text-primary mx-auto"
-              />
-              <p className="body-large text-center">{t("messageSent", { email: email ?? "" })}</p>
+    <section id={contactSectionId} className={clsx("py-16 lg:py-24", className)}>
+      <div className="container mx-auto px-4">
+        <div className="rounded-box border border-base-300 bg-base-200/40 p-6 lg:p-12">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-stretch">
+            <div className="flex flex-col justify-center gap-6 text-center lg:text-left">
+              <h2 className="text-2xl mt-4 font-bold lg:text-4xl leading-6 lg:leading-9">
+                <RichText>{(tags) => t.rich("contactMe", tags)}</RichText>
+              </h2>
+              <p className="body-medium whitespace-pre-line text-base-content/70">
+                {t("contactMeDescription")}
+              </p>
+
+              <div className="flex flex-row gap-5">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
+                  <FontAwesomeIcon icon={faMapMarker} className="text-base-content" />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <p className="text-xs uppercase text-base-content/70 font-semibold tracking-wide">
+                    {t("location")}
+                  </p>
+                  <p className="font-semibold text-base-content">{t("strasbourgFrance")}</p>
+                </div>
+              </div>
+
+              <div className="flex flex-row gap-5">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
+                  <FontAwesomeIcon icon={faClock} className="text-base-content" />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <p className="text-xs uppercase text-base-content/70 font-semibold tracking-wide">
+                    {t("timezoneLabel")}
+                  </p>
+                  <p className="font-semibold text-base-content">{t("timezoneValue")}</p>
+                  <p className="text-sm text-base-content/70">
+                    {t("timezoneLive", {
+                      time: formatter.dateTime(currentParisTime, {
+                        hour: "numeric",
+                        minute: "numeric",
+                      }),
+                    })}
+                  </p>
+                </div>
+              </div>
             </div>
-          ) : (
-            <form className="my-10 flex flex-col lg:my-20" onSubmit={handleSubmit}>
-              <Input
-                label={t("name")}
-                name="name"
-                isRequired
-                type="text"
-                placeholder={t("placeholderName")}
-              />
-              <Input
-                label={t("companyName")}
-                name="companyName"
-                type="text"
-                placeholder={t("placeholderCompanyName")}
-              />
-              <Input
-                label={t("email")}
-                name="email"
-                isRequired
-                type="email"
-                placeholder={t("placeholderEmail")}
-              />
-              <Textarea
-                label={t("message")}
-                name="message"
-                isRequired
-                rows={5}
-                placeholder={t("placeholderMessage")}
-              />
-              {siteKey ? (
-                <ReCAPTCHA
-                  size="normal"
-                  className="mr-5 self-end"
-                  sitekey={siteKey}
-                  ref={recaptcha}
-                />
-              ) : null}
-              <Button type="submit" className="button-contained mt-5 mr-5 w-fit self-end">
-                {t("submit")}
-              </Button>
-            </form>
-          )}
+
+            <div
+              className={clsx(
+                "rounded-box border border-base-300 bg-base-100 p-6 lg:p-10",
+                emailSent && "flex items-center justify-center",
+              )}
+            >
+              {emailSent ? (
+                <div className="flex flex-col items-center gap-5 py-8">
+                  <FontAwesomeIcon
+                    icon={faEnvelopeCircleCheck}
+                    size="5x"
+                    className="text-primary"
+                  />
+                  <p className="body-large text-center">
+                    {t("messageSent", { email: email ?? "" })}
+                  </p>
+                </div>
+              ) : (
+                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                  <Input
+                    label={t("name")}
+                    name="name"
+                    isRequired
+                    type="text"
+                    placeholder={t("placeholderName")}
+                  />
+                  <Input
+                    label={t("companyName")}
+                    name="companyName"
+                    type="text"
+                    placeholder={t("placeholderCompanyName")}
+                  />
+                  <Input
+                    label={t("email")}
+                    name="email"
+                    isRequired
+                    type="email"
+                    placeholder={t("placeholderEmail")}
+                  />
+                  <Textarea
+                    label={t("message")}
+                    name="message"
+                    isRequired
+                    rows={5}
+                    placeholder={t("placeholderMessage")}
+                  />
+
+                  {siteKey ? (
+                    <div className="mt-2 self-end">
+                      <ReCAPTCHA size="normal" sitekey={siteKey} ref={recaptcha} />
+                    </div>
+                  ) : null}
+
+                  <Button type="submit" className="btn btn-primary btn-outline mt-4 w-full">
+                    {t("submit")}
+                  </Button>
+                </form>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-      <Image
-        src={ContactImg}
-        alt="Illustration of Adrien on the phone"
-        placeholder="blur"
-        className="mx-auto block max-w-lg lg:hidden"
-      />
-    </div>
+    </section>
   );
 }

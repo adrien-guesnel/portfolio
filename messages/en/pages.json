@@ -6,10 +6,11 @@
   },
   "Contact": {
     "companyName": "Company name",
-    "contactMe": "Need more informations?",
+    "contactMe": "Let's build something <primary>extraordinary</primary>",
     "contactMeDescription": "Interested in learning more about my work or discussing potential opportunities?\nI welcome inquiries from recruiters and companies.\nPlease feel free to reach out using the contact information.",
     "email": "Email",
     "emailFailed": "Failed to send your message, please try later",
+    "location": "Location",
     "message": "Message",
     "messageSent": "Your message has been sent!\nI will respond to you as soon as possible at the email address provided: {email}",
     "name": "Name",
@@ -17,6 +18,10 @@
     "placeholderEmail": "email@domain.com",
     "placeholderMessage": "Hi, i would like to know if you're interested to work on our product. Are you available to talk about it ?",
     "placeholderName": "John doe",
+    "strasbourgFrance": "Strasbourg, France or Remote",
+    "timezoneLabel": "Timezone",
+    "timezoneValue": "GMT+1 (Paris time)",
+    "timezoneLive": "Current time: {time}",
     "submit": "Send me your message"
   },
   "Hero": {
