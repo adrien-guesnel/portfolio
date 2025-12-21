@@ -1,15 +1,12 @@
 {
   "footer": {
-    "copyright": "© 2023 - {currentYear} / Créé par Adrien Guesnel / Tous droits réservés"
+    "copyright": "© 2023 - {currentYear} - Tous droits réservés"
   },
   "navigationBar": {
+    "articles": "Articles",
     "contact": "Contact",
-    "english": "Anglais",
-    "french": "Français",
+    "hireMe": "Recrutez moi",
     "homepage": "Accueil",
-    "introduction": "Introduction",
-    "projects": "Projets",
-    "references": "Références",
     "skills": "Compétences"
   }
 }

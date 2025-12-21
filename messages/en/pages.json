@@ -1,15 +1,20 @@
 {
   "Articles": {
-    "title": "Latest blog articles",
-    "description": "Stay up to date with my latest thoughts, analyses, and experiences on web development. I share technical articles, case studies, and practical tips to help you design and maintain efficient and scalable applications. Subscribe to never miss an update.",
-    "viewAllButton": "View all articles"
+    "description": "Stay up to date with my latest thoughts, analyses, and experiences on web development. I share technical articles, case studies, and practical tips to help you design and maintain efficient and scalable applications.",
+    "readMoreOnMedium": "Read more on Medium",
+    "tags": {
+      "devops": "Devops",
+      "tooling": "Tooling"
+    },
+    "title": "Latest blog articles"
   },
   "Contact": {
     "companyName": "Company name",
-    "contactMe": "Need more informations?",
+    "contactMe": "Let's build something <primary>extraordinary</primary>",
     "contactMeDescription": "Interested in learning more about my work or discussing potential opportunities?\nI welcome inquiries from recruiters and companies.\nPlease feel free to reach out using the contact information.",
     "email": "Email",
     "emailFailed": "Failed to send your message, please try later",
+    "location": "Location",
     "message": "Message",
     "messageSent": "Your message has been sent!\nI will respond to you as soon as possible at the email address provided: {email}",
     "name": "Name",
@@ -17,14 +22,18 @@
     "placeholderEmail": "email@domain.com",
     "placeholderMessage": "Hi, i would like to know if you're interested to work on our product. Are you available to talk about it ?",
     "placeholderName": "John doe",
-    "submit": "Send me your message"
+    "strasbourgFrance": "Strasbourg, France or Remote",
+    "submit": "Send me your message",
+    "timezoneLabel": "Timezone",
+    "timezoneLive": "Current time: {time}",
+    "timezoneValue": "GMT+1 (Paris time)"
   },
   "Hero": {
-    "description": "Tech Lead Freelancer specialized in React.js / Node.js with more than 8 years of experience. I'm ready to help you to build or growth your web application from anywhere on the world.",
-    "discoverMyProjects": "Discover my projects",
-    "discoverMySkills": "Discover my skills",
+    "ViewMySkills": "See my skills",
+    "availableForNewProjects": "Available for new projects",
+    "description": "I deliver measurable growth and efficiency through robust full-stack architecture. Transform your complex challenges into high-performance, user-centric digital products.",
     "hireMe": "Hire me",
-    "title": "Hi, I'm <primary>Adrien</primary> 👋"
+    "title": "Empowering Businesses with scalable <lightGradient>Node.js & React Solutions</lightGradient>"
   },
   "Home": {
     "seo": {
@@ -33,7 +42,8 @@
     }
   },
   "Skills": {
-    "description": "I specialize in Node.js and JavaScript technologies, with a strong focus on building efficient and scalable web applications.\nI am proficient in popular frameworks such as React.js, Next.js and Nest.js.\nAs an experienced developer, I am dedicated to delivering high-quality solutions that meet the needs of my clients.",
-    "title": "My skills are my superpowers—check out what I can do."
+    "backendTitle": "Backend & Architecture",
+    "frontendTitle": "Frontend & UI",
+    "heading": "Tech Stack Proficiency"
   }
 }

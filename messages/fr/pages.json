@@ -1,15 +1,21 @@
 {
   "Articles": {
+    "description": "Restez à jour avec mes dernières réflexions, analyses et retours d'expérience sur le développement web. Je partage des articles techniques, des études de cas et des conseils pratiques pour vous aider à concevoir et maintenir des applications performantes et évolutives.",
+    "readMoreOnMedium": "Lire plus sur Medium",
+    "tags": {
+      "devops": "Devops",
+      "tooling": "Outils"
+    },
     "title": "Derniers articles de blog",
-    "description": "Restez à jour avec mes dernières réflexions, analyses et retours d'expérience sur le développement web. Je partage des articles techniques, des études de cas et des conseils pratiques pour vous aider à concevoir et maintenir des applications performantes et évolutives. Abonnez-vous pour ne rien manquer.",
     "viewAllButton": "Voir tous les articles"
   },
   "Contact": {
     "companyName": "Nom de l'entreprise",
-    "contactMe": "Besoin de plus d'informations ?",
+    "contactMe": "Construisons quelque chose de <primary>extraordinaire</primary>",
     "contactMeDescription": "Vous souhaitez en savoir plus sur mon travail ou discuter d’opportunités potentielles ?\nJe suis ouvert aux demandes des recruteurs et des entreprises.\nN'hésitez pas à me contacter en utilisant le formulaire.",
     "email": "Email",
     "emailFailed": "Échec de l'envoi de votre message, veuillez réessayer plus tard",
+    "location": "Localisation",
     "message": "Message",
     "messageSent": "Votre message a été envoyé !\nJe vous répondrai dans les plus brefs délais à l'adresse e-mail fournie : {email}",
     "name": "Nom",
@@ -17,14 +23,21 @@
     "placeholderEmail": "email@domaine.com",
     "placeholderMessage": "Bonjour, j'aimerais savoir si vous êtes intéressé pour travailler sur notre produit. \nÊtes-vous disponible pour en parler ?",
     "placeholderName": "Maxime Dupont",
-    "submit": "Envoyez-moi votre message"
+    "strasbourgFrance": "Strasbourg, France ou à distance",
+    "submit": "Envoyez-moi votre message",
+    "timezoneLabel": "Fuseau horaire",
+    "timezoneLive": "Heure actuelle : {time}",
+    "timezoneValue": "GMT+1 (heure de Paris)"
   },
   "Hero": {
+    "ViewMySkills": "Voir mes compétences",
+    "ViewMyWork": "Voir mes réalisations",
+    "availableForNewProjects": "Disponible pour de nouveaux projets",
     "description": "Tech Lead Freelancer specialisé en React.js / Node.js avec plus de 8 années d'expériences. Je suis prêt à vous aider à construire ou développer votre application web où que vous soyez.",
     "discoverMyProjects": "Découvrez mes projets",
     "discoverMySkills": "Découvrez mes compétences",
     "hireMe": "Recrutez moi",
-    "title": "Hey, je suis <primary>Adrien</primary> 👋"
+    "title": "Concevez des produits scalables avec <lightGradient>Node.js & React</lightGradient>"
   },
   "Home": {
     "seo": {
@@ -33,7 +46,8 @@
     }
   },
   "Skills": {
-    "description": "Je suis spécialisé dans les technologies Node.js et JavaScript, avec un fort accent sur la création d'applications Web performantes et évolutives. \nJe maîtrise les frameworks populaires tels que React.js, Next.js et Nest.js.\nEn tant que développeur expérimenté, je m'engage à fournir des solutions de haute qualité qui répondent aux besoins de mes clients.",
-    "title": "Mes compétences sont mes super pouvoirs : découvrez ce que je peux faire."
+    "backendTitle": "Back-end & Architecture",
+    "frontendTitle": "Front-end & UI",
+    "heading": "Mes compétences techniques"
   }
 }

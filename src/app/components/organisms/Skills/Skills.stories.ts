@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { ThemeMode } from "@/src/app/lib/constants";
-
 import Skills from "./index";
 
 const meta = {
@@ -16,8 +14,4 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    themeMode: ThemeMode.Light,
-  },
-};
+export const Default: Story = {};

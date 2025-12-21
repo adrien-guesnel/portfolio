@@ -1,14 +1,13 @@
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { getMessages } from "next-intl/server";
 import { Toaster } from "sonner";
 
 import "@/src/app/globals.css";
 
 import NextIntlProvider from "@/src/app/lib/NextIntlProvider";
-
-import { ThemeProvider } from "../lib/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,16 +44,22 @@ export default async function RootLayout({
       <GoogleTagManager gtmId="GTM-PNCB69TF" />
 
       <body className={inter.className} suppressHydrationWarning>
+        <Script id="init-theme" strategy="beforeInteractive">
+          {`(function () {
+            const stored = localStorage.getItem('data-theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = stored || (prefersDark ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+          })()`}
+        </Script>
         <NextIntlProvider
           locale={locale}
           messages={messages}
           timeZone="Europe/Berlin"
           now={new Date()}
         >
-          <ThemeProvider>
-            {children}
-            <Toaster position="top-right" richColors closeButton />
-          </ThemeProvider>
+          {children}
+          <Toaster position="top-right" richColors closeButton />
         </NextIntlProvider>
       </body>
     </html>

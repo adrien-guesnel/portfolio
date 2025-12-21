@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { HTMLAttributes, HTMLInputTypeAttribute } from "react";
 
 interface InputProps extends HTMLAttributes<HTMLInputElement> {
@@ -16,15 +17,19 @@ export default function Input({
   value,
   placeholder,
   type,
+  className,
   ...inputProps
 }: InputProps) {
   return (
-    <div className="flex flex-col gap-5 px-6 py-4">
-      <label className="body-medium" htmlFor={name}>
+    <div className="flex flex-col gap-2">
+      <label className="text-xs font-semibold tracking-wider text-base-content/60" htmlFor={name}>
         {label} {isRequired ? <span className="text-primary">*</span> : null}
       </label>
       <input
-        className="body-medium rounded-2xl border border-gray-300 px-4 py-5 text-black dark:border-gray-700"
+        className={clsx(
+          "body-medium w-full rounded-full border border-base-300 glass-input px-4 py-4 text-base-content placeholder:text-base-content/40 focus:outline-none focus:ring-2 focus:ring-primary/30",
+          className,
+        )}
         name={name}
         id={name}
         defaultValue={value}

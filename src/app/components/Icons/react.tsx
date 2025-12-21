@@ -1,15 +1,6 @@
 import type { IconProps } from "@/@types";
-import { ThemeMode } from "@/src/app/lib/constants";
 
-export default function ReactLogo({
-  lightColor = "black",
-  darkColor = "white",
-  themeMode = ThemeMode.Light,
-  className,
-  ...props
-}: IconProps) {
-  const logoColor = themeMode === ThemeMode.Dark ? darkColor : lightColor;
-
+export default function ReactLogo({ className, ...props }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,8 +9,8 @@ export default function ReactLogo({
       {...props}
     >
       <title>{"React Logo"}</title>
-      <circle r={2.05} fill={logoColor} />
-      <g fill="none" stroke={logoColor}>
+      <circle r={2.05} fill="currentColor" />
+      <g fill="none" stroke="currentColor">
         <ellipse rx={11} ry={4.2} />
         <ellipse rx={11} ry={4.2} transform="rotate(60)" />
         <ellipse rx={11} ry={4.2} transform="rotate(120)" />

@@ -38,5 +38,8 @@ jobs:
       - name: 🕵️‍♂️ Verify lint
         run: pnpm lint
 
+      - name: 🕵️‍♂️ Verify i18n-keys
+        run: pnpm i18n-check
+
       - name: 🕵️‍♂️ Verify next.js build
         run: pnpm build
