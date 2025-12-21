@@ -1,6 +1,7 @@
 {
   "Articles": {
     "description": "Stay up to date with my latest thoughts, analyses, and experiences on web development. I share technical articles, case studies, and practical tips to help you design and maintain efficient and scalable applications. Subscribe to never miss an update.",
+    "readMoreOnMedium": "Read more on Medium",
     "title": "Latest blog articles",
     "viewAllButton": "View all articles"
   },
@@ -19,10 +20,10 @@
     "placeholderMessage": "Hi, i would like to know if you're interested to work on our product. Are you available to talk about it ?",
     "placeholderName": "John doe",
     "strasbourgFrance": "Strasbourg, France or Remote",
+    "submit": "Send me your message",
     "timezoneLabel": "Timezone",
-    "timezoneValue": "GMT+1 (Paris time)",
     "timezoneLive": "Current time: {time}",
-    "submit": "Send me your message"
+    "timezoneValue": "GMT+1 (Paris time)"
   },
   "Hero": {
     "ViewMySkills": "See my skills",
