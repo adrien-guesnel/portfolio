@@ -39,7 +39,10 @@
     }
   },
   "Skills": {
+    "backendTitle": "Back-end & Architecture",
     "description": "Je suis spécialisé dans les technologies Node.js et JavaScript, avec un fort accent sur la création d'applications Web performantes et évolutives. \nJe maîtrise les frameworks populaires tels que React.js, Next.js et Nest.js.\nEn tant que développeur expérimenté, je m'engage à fournir des solutions de haute qualité qui répondent aux besoins de mes clients.",
+    "frontendTitle": "Front-end & UI",
+    "heading": "Maîtrise de la stack",
     "title": "Mes compétences sont mes super pouvoirs : découvrez ce que je peux faire."
   }
 }
