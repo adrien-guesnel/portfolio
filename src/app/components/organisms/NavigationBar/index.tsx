@@ -1,8 +1,7 @@
 "use client";
 
-import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
+import { HalfMoon, SunLight } from "iconoir-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
@@ -123,10 +122,10 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
               aria-label="Toggle theme"
             />
             <span className="swap-on">
-              <FontAwesomeIcon icon={faSun} />
+              <SunLight className="h-4 w-4" aria-hidden />
             </span>
             <span className="swap-off">
-              <FontAwesomeIcon icon={faMoon} />
+              <HalfMoon className="h-4 w-4" aria-hidden />
             </span>
           </label>
 

@@ -1,8 +1,7 @@
 "use client";
 
-import { faClock, faEnvelopeCircleCheck, faMapMarker } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
+import { Clock, MapPin, SendMail } from "iconoir-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -78,7 +77,7 @@ export default function Contact({ className }: HeroProps) {
 
               <div className="flex flex-row gap-5 justify-center lg:justify-start">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
-                  <FontAwesomeIcon icon={faMapMarker} className="text-base-content" />
+                  <MapPin className="h-5 w-5 text-base-content" aria-hidden />
                 </div>
                 <div className="flex flex-col gap-1">
                   <p className="text-xs uppercase text-base-content/70 font-semibold tracking-wide">
@@ -90,7 +89,7 @@ export default function Contact({ className }: HeroProps) {
 
               <div className="flex flex-row gap-5 justify-center lg:justify-start">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
-                  <FontAwesomeIcon icon={faClock} className="text-base-content" />
+                  <Clock className="h-5 w-5 text-base-content" aria-hidden />
                 </div>
                 <div className="flex flex-col gap-1">
                   <p className="text-xs uppercase text-base-content/70 font-semibold tracking-wide">
@@ -117,11 +116,7 @@ export default function Contact({ className }: HeroProps) {
             >
               {emailSent ? (
                 <div className="flex flex-col items-center gap-5 py-8">
-                  <FontAwesomeIcon
-                    icon={faEnvelopeCircleCheck}
-                    size="5x"
-                    className="text-primary"
-                  />
+                  <SendMail className="h-20 w-20 text-primary" aria-hidden />
                   <p className="body-large text-center">
                     {t("messageSent", { email: email ?? "" })}
                   </p>

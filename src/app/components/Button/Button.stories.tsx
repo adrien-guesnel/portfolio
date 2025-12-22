@@ -1,7 +1,7 @@
 // @ts-nocheck
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import { Star } from "iconoir-react";
 
 import { Button } from "./index";
 
@@ -37,7 +37,7 @@ Disabled.parameters = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  icon: <FontAwesomeIcon icon={faStar} />,
+  icon: <Star className="h-4 w-4" aria-hidden />,
 };
 WithIcon.parameters = {
   chromatic: { disableSnapshot: true },
