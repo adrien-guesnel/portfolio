@@ -1,8 +1,7 @@
 "use client";
 
-import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
+import { ArrowUpRight } from "iconoir-react";
 import { useTranslations } from "next-intl";
 
 import {
@@ -64,7 +63,7 @@ export default function Articles({ className }: { className?: string }) {
               href={mediumProfileUrl}
               target="_blank"
             >
-              {t("readMoreOnMedium")} <FontAwesomeIcon icon={faExternalLink} />
+              {t("readMoreOnMedium")} <ArrowUpRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>
         </div>
