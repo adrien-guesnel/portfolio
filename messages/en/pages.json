@@ -41,6 +41,89 @@
       "title": "Adrien Guesnel - Freelance Lead Tech React.js / Node.js"
     }
   },
+  "EngineeringPhilosophy": {
+    "title": "My engineering <primary>philosophy</primary>",
+    "description": "Durable systems, accessible interfaces, and performance-calibrated tooling let the teams I partner with ship features with confidence. These three pillars describe how I think about every project I touch.",
+    "pillars": [
+      {
+        "title": "Clean Architecture",
+        "description": "Modular boundaries keep the codebase durable and predictable, so every iteration stays composable and testable."
+      },
+      {
+        "title": "Human-Centric Logic",
+        "description": "Interfaces are tuned to real needs, ensuring complexity lives under the hood while experiences stay intuitive."
+      },
+      {
+        "title": "Performance First",
+        "description": "Every choice balances speed and clarity, from release automation to interactions that feel responsive."
+      }
+    ]
+  },
+  "Projects": {
+    "heading": "Selected projects",
+    "description": "Technical challenges and measurable outcomes from the past decade of work.",
+    "professionalLabel": "Professional work",
+    "personalLabel": "Personal projects",
+    "githubLabel": "View full GitHub",
+    "cardLabels": {
+      "challenge": "Challenge:",
+      "solution": "Solution:",
+      "impact": "Impact"
+    },
+    "professionalProjects": [
+      {
+        "title": "Private jet booking platform - Loop Aero",
+        "role": "Lead Full-Stack Node.js / React.js",
+        "challenge": "Led the development of the Loop Aero private jet reservation platform from scratch using React.js, Next.js, and NestJS.",
+        "solution": "Built the design system, orchestrated API integrations and backend architecture, and led the technical direction with regular alignment syncs.",
+        "impact": [
+          "Aligned requirements with the client and project manager through frequent checkpoints",
+          "Mentored a junior developer and safeguarded deliverable quality via reviews",
+          "Delivered a polished UI with fast loading screens"
+        ],
+        "tags": ["React", "Next.js", "Nest.js", "Prisma", "Tailwind"],
+        "imageSrc": "/img/projects/loop-aero.png",
+        "projectUrl": "https://loop-aero.com",
+        "imageLabel": "Loop Aero homepage screenshot"
+      }
+    ],
+    "personalProjects": [
+      {
+        "title": "Professional portfolio",
+        "role": "Creator",
+        "challenge": "Clearly convey my freelance React/Node.js positioning.",
+        "solution": "This site explains my technical philosophy, showcases project work, and shares testimonials from past collaborations.",
+        "impact": [
+          "Demonstrated technical expertise through this open-source build",
+          "Get qualified leads via the contact form"
+        ],
+        "tags": ["Next.js", "Tailwind", "Storybook", "DaisyUI"],
+        "imageLabel": "Portfolio illustration",
+        "imageSrc": "/img/projects/portfolio.png",
+        "githubUrl": "https://github.com/adrien-guesnel/portfolio"
+      }
+    ]
+  },
+  "Testimonials": {
+    "title": "My clients trust me",
+    "description": "Partners who shared how the collaboration unfolded: clear milestones, responsive feedback, and a constant pursuit of quality.",
+    "cards": [
+      {
+        "quote": "We hired Adrien to build a feature for our LMS (NextJS, Python etc.). He grasped the stakes and needs very quickly, then delivered the work at pace. No complaints— it was a superb experience.",
+        "person": "Antoine K.",
+        "role": "CEO",
+        "company": "Jedha",
+        "companyUrl": "https://jedha.co"
+      },
+      {
+        "quote": "Adrien is without a doubt the developer I’ve enjoyed working with most as a product designer. He listens, challenges, and supports the product thinking while bringing his engineering mindset—always with kindness and intelligence.",
+        "person": "Vincent B.",
+        "role": "Product Designer",
+        "company": "Chance",
+        "companyUrl": "https://chance.co"
+      }
+    ]
+  },
   "Skills": {
     "backendTitle": "Backend & Architecture",
     "frontendTitle": "Frontend & UI",

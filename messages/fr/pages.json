@@ -45,6 +45,89 @@
       "title": "Adrien Guesnel - Freelance Lead Tech React.js / Node.js"
     }
   },
+  "EngineeringPhilosophy": {
+    "title": "Ma <primary>philosophie</primary> d'ingénierie",
+    "description": "Systèmes durables, interfaces accessibles et outils calibrés sur la performance permettent aux équipes avec lesquelles je collabore de déployer des fonctionnalités sereinement. Ces trois piliers décrivent mon approche de chaque projet.",
+    "pillars": [
+      {
+        "title": "Architecture propre",
+        "description": "Des frontières modulaires gardent le code durable et prévisible, pour que chaque itération reste composable et testable."
+      },
+      {
+        "title": "Logique centrée humain",
+        "description": "Les interfaces sont alignées sur les vrais besoins pour laisser la complexité sous le capot et offrir des expériences intuitives."
+      },
+      {
+        "title": "Priorité performance",
+        "description": "Chaque décision équilibre vitesse et clarté, de l'automatisation des releases aux interactions qui répondent instantanément."
+      }
+    ]
+  },
+  "Projects": {
+    "heading": "Projets sélectionnés",
+    "description": "Défis techniques et résultats mesurables accumulés ces dernières années.",
+    "professionalLabel": "Travaux professionnels",
+    "personalLabel": "Projets personnels",
+    "githubLabel": "Voir mon GitHub complet",
+    "cardLabels": {
+      "challenge": "Défi :",
+      "solution": "Solution :",
+      "impact": "Impact"
+    },
+    "professionalProjects": [
+      {
+        "title": "Création d'une plateforme de réservation de jets privés - Loop Aero",
+        "role": "Lead Full-Stack Node.js / React.js",
+        "challenge": "Piloté la création d'une plateforme de réservation de jets privés from scratch avec React.js, Next.js et NestJS.",
+        "solution": "Mis en place un design system, orchestré les intégrations API et l'architecture backend, tout en animant la direction technique avec des synchronisations régulières.",
+        "impact": [
+          "Aligné les besoins avec le client et le chef de projet grâce à des points réguliers",
+          "Mentoré un développeur junior et garantir la qualité des livrables",
+          "Livré une plateforme avec une UI soignée et un temps de chargement rapide"
+        ],
+        "tags": ["React", "Next.js", "Nest.js", "Prisma", "Tailwind"],
+        "imageSrc": "/img/projects/loop-aero.png",
+        "projectUrl": "https://loop-aero.com",
+        "imageLabel": "Capture d'écran de la page d'accueil du site loop aero"
+      }
+    ],
+    "personalProjects": [
+      {
+        "title": "Portfolio professionnel",
+        "role": "Créateur",
+        "challenge": "Présenter clairement mon positionnement freelance React/Node.js.",
+        "solution": "Ce site explique ma philosophie technique, des exemples de projets ainsi que des témoignages de mes précédentes expériences.",
+        "impact": [
+          "Démontrer mon expertise technique avec ce projet open-source",
+          "Récupération de leads qualifiés via le formulaire de contact"
+        ],
+        "tags": ["Next.js", "Tailwind", "Storybook", "DaisyUI"],
+        "imageLabel": "Illustration du portfolio",
+        "imageSrc": "/img/projects/portfolio.png",
+        "githubUrl": "https://github.com/adrien-guesnel/portfolio"
+      }
+    ]
+  },
+  "Testimonials": {
+    "title": "Mes clients me font confiance",
+    "description": "Quelques clients qui ont partagé la manière dont la collaboration s'est déroulée : jalons clairs, retours réactifs et une recherche constante de qualité.",
+    "cards": [
+      {
+        "quote": "Nous avons pris Adrien pour développer une feature sur notre LMS (NextJS, Python etc.). Adrien a compris hyper vite les enjeux et les besoins, il a su développer et délivrer très rapidement. Rien à redire, c'était une super expérience.",
+        "person": "Antoine K.",
+        "role": "CEO",
+        "company": "Jedha",
+        "companyUrl": "https://jedha.co"
+      },
+      {
+        "quote": "Adrien est sans nul doute le développeur avec lequel j’ai pris le plus de plaisir à travailler en tant que product designer. Il écoute, challenge et accompagne la réflexion produit en y apportant sa connaissance d’ingénieur, toujours avec bienveillance et intelligence.",
+        "person": "Vincent B.",
+        "role": "Product Designer",
+        "company": "Chance",
+        "companyUrl": "https://chance.co"
+      }
+    ]
+  },
   "Skills": {
     "backendTitle": "Back-end & Architecture",
     "frontendTitle": "Front-end & UI",
