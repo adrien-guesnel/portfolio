@@ -1,4 +1,4 @@
-FROM node:24-alpine AS base
+FROM dhi.io/node:24-alpine3.22 AS base
 WORKDIR /app
 
 # Install dependencies only when needed
