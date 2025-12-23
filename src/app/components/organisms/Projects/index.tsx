@@ -13,7 +13,6 @@ export default function Projects({ className }: { className?: string }) {
   const t = useTranslations("Projects");
   const [scope, setScope] = useState<"professional" | "personal">("professional");
 
-  const cardLabels = t.raw("cardLabels") as ProjectCardProps["cardLabels"];
   const professionalProjects = t.raw("professionalProjects") as LocalizedProjectData[];
   const personalProjects = t.raw("personalProjects") as LocalizedProjectData[];
 
@@ -71,7 +70,7 @@ export default function Projects({ className }: { className?: string }) {
         </div>
         <div className="grid gap-8">
           {displayedProjects.map((project) => (
-            <ProjectCard key={project.title} {...project} cardLabels={cardLabels} />
+            <ProjectCard key={project.title} {...project} />
           ))}
         </div>
       </div>

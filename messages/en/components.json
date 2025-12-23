@@ -1,4 +1,11 @@
 {
+  "ProjectCard": {
+    "challenge": "Challenge:",
+    "impact": "Impact:",
+    "solution": "Solution:",
+    "visitGitHub": "GitHub",
+    "visitProject": "View project"
+  },
   "footer": {
     "copyright": "© 2023 - {currentYear} - All rights reserved"
   },

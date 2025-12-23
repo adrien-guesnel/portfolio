@@ -65,11 +65,6 @@
     "professionalLabel": "Professional work",
     "personalLabel": "Personal projects",
     "githubLabel": "View full GitHub",
-    "cardLabels": {
-      "challenge": "Challenge:",
-      "solution": "Solution:",
-      "impact": "Impact"
-    },
     "professionalProjects": [
       {
         "title": "Private jet booking platform - Loop Aero",

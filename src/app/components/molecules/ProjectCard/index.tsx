@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "iconoir-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 import Card from "@components/atoms/Card";
 import SkillBadge from "@components/atoms/SkillBadge";
@@ -16,11 +17,6 @@ export interface ProjectCardProps {
   imageLabel: string;
   imageSrc?: string;
   imageAlt?: string;
-  cardLabels: {
-    challenge: string;
-    solution: string;
-    impact: string;
-  };
 }
 
 export default function ProjectCard({
@@ -35,8 +31,9 @@ export default function ProjectCard({
   imageLabel,
   imageSrc,
   imageAlt,
-  cardLabels,
 }: ProjectCardProps) {
+  const t = useTranslations("ProjectCard");
+
   const actionBase =
     "inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold transition";
   const primaryAction = `${actionBase} border border-primary/30 bg-primary/10 text-primary hover:border-primary/70`;
@@ -56,7 +53,7 @@ export default function ProjectCard({
             />
           ) : null}
           <div
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/50"
+            className="absolute inset-0 bg-linear-to-b from-transparent via-black/30 to-black/50"
             aria-hidden
           />
           <div className="relative z-10 flex h-full w-full items-end p-4 text-left text-xs font-semibold uppercase tracking-[0.3em] text-base-content">
@@ -70,12 +67,12 @@ export default function ProjectCard({
               <div className="flex flex-wrap items-center justify-end gap-2">
                 {projectUrl ? (
                   <a href={projectUrl} target="_blank" rel="noreferrer" className={primaryAction}>
-                    Visit project <ArrowUpRight className="h-4 w-4" aria-hidden />
+                    {t("visitProject")} <ArrowUpRight className="h-4 w-4" aria-hidden />
                   </a>
                 ) : null}
                 {githubUrl ? (
                   <a href={githubUrl} target="_blank" rel="noreferrer" className={secondaryAction}>
-                    GitHub <ArrowUpRight className="h-4 w-4" aria-hidden />
+                    {t("visitGitHub")} <ArrowUpRight className="h-4 w-4" aria-hidden />
                   </a>
                 ) : null}
               </div>
@@ -85,17 +82,15 @@ export default function ProjectCard({
 
           <div className="space-y-2">
             <p className="text-sm text-base-content/70">
-              <span className="font-semibold text-base-content">{cardLabels.challenge}</span>{" "}
-              {challenge}
+              <span className="font-semibold text-base-content">{t("challenge")}</span> {challenge}
             </p>
             <p className="text-sm text-base-content/70">
-              <span className="font-semibold text-base-content">{cardLabels.solution}</span>{" "}
-              {solution}
+              <span className="font-semibold text-base-content">{t("solution")}</span> {solution}
             </p>
           </div>
 
           <div className="space-y-2 text-sm text-base-content/70">
-            <p className="font-semibold text-base-content">{cardLabels.impact}</p>
+            <p className="font-semibold text-base-content">{t("impact")}</p>
             <ul className="flex flex-col gap-1">
               {impact.map((item) => (
                 <li key={item} className="flex items-start gap-2">
