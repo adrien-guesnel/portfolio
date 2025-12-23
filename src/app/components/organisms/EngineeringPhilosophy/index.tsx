@@ -24,9 +24,7 @@ export default function EngineeringPhilosophy({ className }: { className?: strin
             <h2 className="text-3xl font-semibold leading-tight text-base-content md:text-4xl">
               <RichText>{(tags) => t.rich("title", tags)}</RichText>
             </h2>
-            <p className="mx-auto max-w-3xl text-base text-base-content/70 lg:mx-0">
-              {t("description")}
-            </p>
+            <p className="mx-auto max-w-3xl text-base text-gray lg:mx-0">{t("description")}</p>
           </div>
 
           <div className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-3">

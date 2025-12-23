@@ -37,7 +37,7 @@ export default function ProjectCard({
   const actionBase =
     "inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold transition";
   const primaryAction = `${actionBase} border border-primary/30 bg-primary/10 text-primary hover:border-primary/70`;
-  const secondaryAction = `${actionBase} border border-base-200/60 text-base-content/70 hover:border-base-content/70 hover:text-base-content`;
+  const secondaryAction = `${actionBase} border border-base-200/60 text-gray hover:border-base-content/70 hover:text-base-content`;
   return (
     <Card>
       <div className="grid gap-4 lg:grid-cols-[0.65fr_1fr] lg:items-center">
@@ -77,19 +77,19 @@ export default function ProjectCard({
                 ) : null}
               </div>
             </div>
-            <p className="text-xs uppercase tracking-[0.4em] text-base-content/60">Role · {role}</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-gray">Role · {role}</p>
           </div>
 
           <div className="space-y-2">
-            <p className="text-sm text-base-content/70">
+            <p className="text-sm text-gray">
               <span className="font-semibold text-base-content">{t("challenge")}</span> {challenge}
             </p>
-            <p className="text-sm text-base-content/70">
+            <p className="text-sm text-gray">
               <span className="font-semibold text-base-content">{t("solution")}</span> {solution}
             </p>
           </div>
 
-          <div className="space-y-2 text-sm text-base-content/70">
+          <div className="space-y-2 text-sm text-gray">
             <p className="font-semibold text-base-content">{t("impact")}</p>
             <ul className="flex flex-col gap-1">
               {impact.map((item) => (

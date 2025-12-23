@@ -27,7 +27,7 @@ export default function Projects({ className }: { className?: string }) {
               <h2 className="text-3xl font-semibold text-base-content lg:text-4xl">
                 {t("heading")}
               </h2>
-              <p className="text-sm text-base-content/70 mt-2">{t("description")}</p>
+              <p className="text-md text-gray mt-2">{t("description")}</p>
             </div>
 
             <a
@@ -48,7 +48,7 @@ export default function Projects({ className }: { className?: string }) {
               "relative rounded-full px-5 py-2 text-sm font-semibold transition-colors w-fit",
               scope === "professional"
                 ? "bg-primary text-white shadow-[0_20px_40px_rgba(3,5,20,0.45)]"
-                : "text-base-content/60",
+                : "text-gray",
             )}
             onClick={() => setScope("professional")}
           >
@@ -61,7 +61,7 @@ export default function Projects({ className }: { className?: string }) {
               "relative w-fit rounded-full px-5 py-2 text-sm font-semibold transition-colors",
               scope === "personal"
                 ? "bg-primary text-white shadow-[0_20px_40px_rgba(3,5,20,0.45)]"
-                : "text-base-content/60",
+                : "text-gray",
             )}
             onClick={() => setScope("personal")}
           >

@@ -32,8 +32,8 @@
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
   --border: 1px;
-  --depth: 0;
-  --noise: 0;
+  --depth: 1;
+  --noise: 1;
 }
 
 @plugin "daisyui/theme" {
@@ -68,7 +68,7 @@
   --size-field: 0.25rem;
   --border: 1px;
   --depth: 1;
-  --noise: 0;
+  --noise: 1;
 }
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
@@ -84,7 +84,31 @@
   }
 
   .text-gray {
-    @apply text-[#93A1B7];
+    @apply text-base-content/70;
+  }
+
+  html[data-theme="light"] {
+    body {
+      background-color: var(--color-base-100);
+      background-image:
+        linear-gradient(0deg, rgba(76, 85, 99, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(76, 85, 99, 0.05) 1px, transparent 1px);
+      background-size: 75px 75px;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .glass-panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(237, 242, 255, 0.95));
+      box-shadow: 0 40px 70px rgba(15, 23, 42, 0.15);
+      backdrop-filter: blur(24px);
+    }
+
+    .glass-input {
+      background-color: rgba(255, 255, 255, 0.75);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(18px);
+    }
   }
 
   html[data-theme="dark"] {
@@ -98,22 +122,7 @@
       background-attachment: fixed;
       background-size: cover;
     }
-  }
 
-  /* Highlighted panels and inputs use a subtle, frosted glow instead of flat fills. */
-  .glass-panel {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(237, 242, 255, 0.95));
-    box-shadow: 0 40px 70px rgba(15, 23, 42, 0.15);
-    backdrop-filter: blur(24px);
-  }
-
-  .glass-input {
-    background-color: rgba(255, 255, 255, 0.75);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(18px);
-  }
-
-  html[data-theme="dark"] {
     .glass-panel {
       background: linear-gradient(180deg, rgba(12, 16, 36, 0.85), rgba(20, 25, 48, 0.9));
       box-shadow: 0 40px 70px rgba(0, 0, 0, 0.45);

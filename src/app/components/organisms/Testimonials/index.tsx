@@ -14,7 +14,7 @@ export default function Testimonials({ className }: { className?: string }) {
           <h2 className="text-3xl font-semibold leading-tight text-base-content md:text-4xl">
             {t("title")}
           </h2>
-          <p className="max-w-3xl text-base-content/70">{t("description")}</p>
+          <p className="max-w-3xl text-gray">{t("description")}</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">

@@ -17,7 +17,7 @@ export default function Articles({ className }: { className?: string }) {
 
   const articles: MediumArticleCardProps[] = [
     {
-      title: "How i dump eslint/prettier for biome, and you should do the same!",
+      title: "How I dump eslint/prettier for biome, and you should do the same!",
       snippet:
         "ESLint and Prettier felt like the default, but Biome brought everything into a single, faster toolchain. Here is what the migration looked like.",
       url: `${MEDIUM_URL}/how-i-dump-eslint-prettier-for-biome-and-you-should-do-the-same-8bcdf05fefff`,

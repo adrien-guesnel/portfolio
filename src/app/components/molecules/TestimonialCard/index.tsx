@@ -21,11 +21,11 @@ export default function TestimonialCard({
 
   return (
     <Card>
-      <p className="body-large text-base-content/80">“{quote}”</p>
+      <p className="body-large text-gray">“{quote}”</p>
 
       <div className="mt-6 flex flex-col gap-1">
         <p className="text-base font-semibold text-base-content">{person}</p>
-        <p className="text-sm uppercase tracking-[0.3em] text-base-content/60">{role}</p>
+        <p className="text-sm uppercase tracking-[0.3em] text-gray">{role}</p>
         {companyUrl ? (
           <a
             className={clsx("text-sm font-semibold", companyClass)}
