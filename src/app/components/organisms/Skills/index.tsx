@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 
+import SkillBadge from "@components/atoms/SkillBadge";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
 
 interface SkillsProps {
@@ -58,12 +59,7 @@ export default function Skills({ className }: SkillsProps) {
             <div className="rounded-[24px] border border-base-300 bg-base-200/20 p-6">
               <div className="flex flex-wrap gap-3">
                 {backendSkills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-base-300 bg-base-100/50 px-4 py-2 text-sm font-semibold text-base-content/80"
-                  >
-                    {skill}
-                  </span>
+                  <SkillBadge key={skill} skill={skill} />
                 ))}
               </div>
             </div>
@@ -79,12 +75,7 @@ export default function Skills({ className }: SkillsProps) {
             <div className="rounded-[24px] border border-base-300 bg-base-200/20 p-6">
               <div className="flex flex-wrap gap-3">
                 {frontendSkills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-base-300 bg-base-100/50 px-4 py-2 text-sm font-semibold text-base-content/80"
-                  >
-                    {skill}
-                  </span>
+                  <SkillBadge key={skill} skill={skill} />
                 ))}
               </div>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import { ArrowRight } from "iconoir-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
@@ -30,7 +31,7 @@ export default function Hero({ className }: HeroProps) {
           <h1 className="text-4xl mt-4 font-bold lg:text-6xl leading-9 lg:leading-14">
             <RichText>{(tags) => t.rich("title", tags)}</RichText>
           </h1>
-          <p className="body-large mt-6">{t("description")}</p>
+          <p className="body-large mt-6 text-gray">{t("description")}</p>
           <div className="flex-row mt-6 flex gap-3">
             <Link href={HIRE_ME_URL} className="btn btn-primary">
               {t("hireMe")}
@@ -38,6 +39,7 @@ export default function Hero({ className }: HeroProps) {
 
             <Link href={SECTION_ROUTES.skills} className="btn btn-outlined">
               {t("ViewMySkills")}
+              <ArrowRight className="ml-2" />
             </Link>
           </div>
         </div>

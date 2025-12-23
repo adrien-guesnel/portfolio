@@ -8,20 +8,19 @@ import {
   MediumArticleCard,
   type MediumArticleCardProps,
 } from "@components/molecules/MediumArticleCard";
+import { MEDIUM_URL } from "@/src/app/lib/constants";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
 import { Link } from "@/src/i18n/routing";
 
 export default function Articles({ className }: { className?: string }) {
   const t = useTranslations("Articles");
 
-  const mediumProfileUrl = "https://medium.com/@adrienguesnel";
-
   const articles: MediumArticleCardProps[] = [
     {
       title: "How i dump eslint/prettier for biome, and you should do the same!",
       snippet:
         "ESLint and Prettier felt like the default, but Biome brought everything into a single, faster toolchain. Here is what the migration looked like.",
-      url: `${mediumProfileUrl}/how-i-dump-eslint-prettier-for-biome-and-you-should-do-the-same-8bcdf05fefff`,
+      url: `${MEDIUM_URL}/how-i-dump-eslint-prettier-for-biome-and-you-should-do-the-same-8bcdf05fefff`,
       readTime: "3 min",
       tag: t("tags.tooling"),
     },
@@ -29,7 +28,7 @@ export default function Articles({ className }: { className?: string }) {
       title: "Deploy your first app on Kubernetes with OpenTofu",
       snippet:
         "It’s always complicated to manually update and deploy changes on Kubernetes infrastructure, let’s simplify that with OpenTofu!",
-      url: `${mediumProfileUrl}/deploy-your-first-app-on-kubernetes-with-opentofu-ae7286dece49`,
+      url: `${MEDIUM_URL}/deploy-your-first-app-on-kubernetes-with-opentofu-ae7286dece49`,
       readTime: "4 min",
       tag: t("tags.devops"),
       tagColor: "secondary",
@@ -38,7 +37,7 @@ export default function Articles({ className }: { className?: string }) {
       title: "Personnaliser votre terminal avec Oh My Zsh — Tutorial Mac OS",
       snippet:
         "Installer Oh My Zsh pour donner un coup de jeune à votre terminal en noir et blanc.",
-      url: `${mediumProfileUrl}/personnaliser-votre-terminal-avec-oh-my-zsh-tutorial-mac-os-da962449f9c7`,
+      url: `${MEDIUM_URL}/personnaliser-votre-terminal-avec-oh-my-zsh-tutorial-mac-os-da962449f9c7`,
       readTime: "2 min",
       tag: t("tags.tooling"),
     },
@@ -58,11 +57,7 @@ export default function Articles({ className }: { className?: string }) {
           </h2>
           <div className="flex flex-col lg:flex-row justify-between gap-4 lg:items-end">
             <p className="body-large mt-3 text-gray max-w-3xl">{t("description")}</p>
-            <Link
-              className="flex gap-2 text-gray items-center"
-              href={mediumProfileUrl}
-              target="_blank"
-            >
+            <Link className="flex gap-2 text-gray items-center" href={MEDIUM_URL} target="_blank">
               {t("readMoreOnMedium")} <ArrowUpRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>

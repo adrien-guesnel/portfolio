@@ -7,6 +7,7 @@ import { type FormEvent, useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "sonner";
 
+import { GlassCard } from "@components/atoms/GlassCard";
 import RichText from "@components/RichText";
 import { Button } from "@/src/app/components/Button";
 import Input from "@/src/app/components/Input";
@@ -77,7 +78,7 @@ export default function Contact({ className }: HeroProps) {
 
               <div className="flex flex-row gap-5 justify-center lg:justify-start">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
-                  <MapPin className="h-5 w-5 text-base-content" aria-hidden />
+                  <MapPin className="text-primary h-5 w-5" aria-hidden />
                 </div>
                 <div className="flex flex-col gap-1">
                   <p className="text-xs uppercase text-base-content/70 font-semibold tracking-wide">
@@ -89,7 +90,7 @@ export default function Contact({ className }: HeroProps) {
 
               <div className="flex flex-row gap-5 justify-center lg:justify-start">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
-                  <Clock className="h-5 w-5 text-base-content" aria-hidden />
+                  <Clock className="h-5 w-5 text-primary" aria-hidden />
                 </div>
                 <div className="flex flex-col gap-1">
                   <p className="text-xs uppercase text-base-content/70 font-semibold tracking-wide">
@@ -108,12 +109,7 @@ export default function Contact({ className }: HeroProps) {
               </div>
             </div>
 
-            <div
-              className={clsx(
-                "rounded-box border border-base-300 glass-panel p-6 lg:p-10",
-                emailSent && "flex items-center justify-center",
-              )}
-            >
+            <GlassCard className={clsx("lg:p-10", emailSent && "flex items-center justify-center")}>
               {emailSent ? (
                 <div className="flex flex-col items-center gap-5 py-8">
                   <SendMail className="h-20 w-20 text-primary" aria-hidden />
@@ -162,7 +158,7 @@ export default function Contact({ className }: HeroProps) {
                   </Button>
                 </form>
               )}
-            </div>
+            </GlassCard>
           </div>
         </div>
       </div>

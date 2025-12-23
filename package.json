@@ -14,12 +14,8 @@
     "build-storybook": "storybook build",
     "lint:fix": "biome lint --write .",
     "check:write": "biome check --write",
-    "i18n-check": "i18n-check --source en --locales messages -u src/ -f next-intl"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,css,scss,json,md,mdx}": [
-      "biome check --apply"
-    ]
+    "i18n-check": "i18n-check --source en --locales messages -u src/ -f next-intl -i \"Projects.professionalProjects*\" \"Projects.personalProjects*\" \"Testimonials.cards*\"",
+    "prepare": "husky"
   },
   "dependencies": {
     "@next/third-parties": "16.1.0",
@@ -49,7 +45,6 @@
     "@types/react-google-recaptcha": "2.1.9",
     "daisyui": "5.5.14",
     "husky": "9.1.7",
-    "lint-staged": "16.2.7",
     "postcss": "8.5.6",
     "storybook": "10.1.10",
     "tailwindcss": "4.1.18",

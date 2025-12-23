@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import { type ReactNode, useEffect } from "react";
 
 // @ts-expect-error avoid type error due to importing json files
 import NextIntlProvider from "@/src/app/lib/NextIntlProvider";
@@ -8,6 +9,24 @@ import messagesPagesEn from "../messages/en/pages.json";
 import messagesComponentsFr from "../messages/fr/components.json";
 import messagesPagesFr from "../messages/fr/pages.json";
 import "../src/app/globals.css";
+
+const ThemeSetter = ({ theme, children }: { theme: string; children: ReactNode }) => {
+  useEffect(() => {
+    const documentElement = document.documentElement;
+    const previousTheme = documentElement.getAttribute("data-theme");
+    documentElement.setAttribute("data-theme", theme);
+
+    return () => {
+      if (previousTheme) {
+        documentElement.setAttribute("data-theme", previousTheme);
+      } else {
+        documentElement.removeAttribute("data-theme");
+      }
+    };
+  }, [theme]);
+
+  return <>{children}</>;
+};
 
 const preview: Preview = {
   tags: ["autodocs"],
@@ -20,6 +39,18 @@ const preview: Preview = {
         items: [
           { value: "en", title: "English" },
           { value: "fr", title: "Français" },
+        ],
+        showName: true,
+      },
+    },
+    theme: {
+      name: "Theme",
+      description: "Toggle daisyUI theme",
+      toolbar: {
+        icon: "contrast",
+        items: [
+          { value: "light", title: "Light" },
+          { value: "dark", title: "Dark" },
         ],
         showName: true,
       },
@@ -40,18 +71,19 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const locale = context.globals.locale || "en";
-      console.log("locale", locale);
+      const theme = context.globals.theme || "light";
 
-      let messages = { ...messagesComponentsEn, ...messagesPagesEn };
-
-      if (locale === "fr") {
-        messages = { ...messagesComponentsFr, ...messagesPagesFr };
-      }
+      const messages =
+        locale === "fr"
+          ? { ...messagesComponentsFr, ...messagesPagesFr }
+          : { ...messagesComponentsEn, ...messagesPagesEn };
 
       return (
-        <NextIntlProvider locale={locale} messages={messages}>
-          <Story />
-        </NextIntlProvider>
+        <ThemeSetter theme={theme}>
+          <NextIntlProvider locale={locale} messages={messages}>
+            <Story />
+          </NextIntlProvider>
+        </ThemeSetter>
       );
     },
   ],
