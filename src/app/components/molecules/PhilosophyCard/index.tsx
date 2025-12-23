@@ -16,7 +16,7 @@ export default function PhilosophyCard({ title, description, icon }: PhilosophyC
       </div>
       <div className="flex flex-1 flex-col gap-2">
         <h3 className="text-lg font-semibold leading-snug text-base-content md:text-xl">{title}</h3>
-        <p className="text-sm text-base-content/70 md:text-base">{description}</p>
+        <p className="text-sm text-gray md:text-base">{description}</p>
       </div>
     </Card>
   );

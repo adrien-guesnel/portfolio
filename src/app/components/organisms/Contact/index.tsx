@@ -72,7 +72,7 @@ export default function Contact({ className }: HeroProps) {
               <h2 className="text-4xl mt-4 font-bold lg:text-6xl leading-9 lg:leading-14">
                 <RichText>{(tags) => t.rich("contactMe", tags)}</RichText>
               </h2>
-              <p className="body-medium whitespace-pre-line text-base-content/70">
+              <p className="body-medium whitespace-pre-line text-gray">
                 {t("contactMeDescription")}
               </p>
 
@@ -81,7 +81,7 @@ export default function Contact({ className }: HeroProps) {
                   <MapPin className="text-primary h-5 w-5" aria-hidden />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <p className="text-xs uppercase text-base-content/70 font-semibold tracking-wide">
+                  <p className="text-xs uppercase text-gray font-semibold tracking-wide">
                     {t("location")}
                   </p>
                   <p className="font-semibold text-base-content">{t("strasbourgFrance")}</p>
@@ -93,11 +93,11 @@ export default function Contact({ className }: HeroProps) {
                   <Clock className="h-5 w-5 text-primary" aria-hidden />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <p className="text-xs uppercase text-base-content/70 font-semibold tracking-wide">
+                  <p className="text-xs uppercase text-gray font-semibold tracking-wide">
                     {t("timezoneLabel")}
                   </p>
                   <p className="font-semibold text-base-content">{t("timezoneValue")}</p>
-                  <p className="text-sm text-base-content/70">
+                  <p className="text-sm text-gray">
                     {t("timezoneLive", {
                       time: formatter.dateTime(currentParisTime, {
                         hour: "numeric",

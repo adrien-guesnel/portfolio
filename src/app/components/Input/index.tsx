@@ -22,7 +22,7 @@ export default function Input({
 }: InputProps) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-xs font-semibold tracking-wider text-base-content/60" htmlFor={name}>
+      <label className="text-xs font-semibold tracking-wider text-gray" htmlFor={name}>
         {label} {isRequired ? <span className="text-primary">*</span> : null}
       </label>
       <input

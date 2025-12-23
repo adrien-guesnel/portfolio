@@ -50,14 +50,14 @@ export function MediumArticleCard({
           {title}
         </h3>
 
-        <p className="body-medium mt-4 flex-1 text-base-content/70 line-clamp-3 dark:text-slate-300">
+        <p className="body-medium mt-4 flex-1 text-gray line-clamp-3 dark:text-slate-300">
           {snippet}
         </p>
 
-        <div className="mt-6 border-t border-base-200/60 pt-4 text-sm text-base-content/60 dark:border-white/10">
+        <div className="mt-6 border-t border-base-200/60 pt-4 text-sm text-gray dark:border-white/10">
           <div className="flex items-center justify-between font-medium">
             <span>{readTime}</span>
-            <ArrowRightCircle className="text-base-content/60 group-hover:text-primary h-8 w-8" />
+            <ArrowRightCircle className="text-gray group-hover:text-primary h-8 w-8" />
           </div>
         </div>
       </Card>
