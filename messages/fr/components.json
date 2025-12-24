@@ -4,16 +4,17 @@
     "impact": "Impact :",
     "solution": "Solution :",
     "visitGitHub": "GitHub",
-    "visitProject": "Voir projet"
+    "visitProject": "Voir le projet"
   },
   "footer": {
     "copyright": "© 2023 - {currentYear} - Tous droits réservés"
   },
   "navigationBar": {
-    "articles": "Articles",
     "contact": "Contact",
-    "hireMe": "Recrutez moi",
+    "bookDiscoveryCall": "On en parle ?",
     "homepage": "Accueil",
-    "skills": "Compétences"
+    "skills": "Compétences",
+    "projects": "Projets",
+    "testimonials": "Témoignages"
   }
 }

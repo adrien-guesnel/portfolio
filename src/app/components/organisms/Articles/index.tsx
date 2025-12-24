@@ -49,10 +49,14 @@ export default function Articles({ className }: { className?: string }) {
     <section
       id={articlesSectionId}
       className={clsx("bg-beige dark:bg-dark-brown py-12", className)}
+      aria-labelledby="articles-heading"
     >
       <div className="container mx-auto flex flex-col gap-10 px-6 lg:px-0">
         <div>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight  dark:text-light-brown">
+          <h2
+            id="articles-heading"
+            className="mt-4 text-3xl font-semibold leading-tight  dark:text-light-brown"
+          >
             {t("title")}
           </h2>
           <div className="flex flex-col lg:flex-row justify-between gap-4 lg:items-end">
@@ -65,7 +69,9 @@ export default function Articles({ className }: { className?: string }) {
 
         <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
           {articles.map((article, index) => (
-            <MediumArticleCard key={`${article.title}-${index}`} {...article} />
+            <article key={`${article.title}-${index}`}>
+              <MediumArticleCard {...article} />
+            </article>
           ))}
         </div>
       </div>
