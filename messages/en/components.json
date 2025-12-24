@@ -10,10 +10,11 @@
     "copyright": "© 2023 - {currentYear} - All rights reserved"
   },
   "navigationBar": {
-    "articles": "Items",
+    "bookDiscoveryCall": "Talk?",
     "contact": "Contact",
-    "hireMe": "Hire me",
     "homepage": "Homepage",
-    "skills": "Skills"
+    "projects": "Projects",
+    "skills": "Skills",
+    "testimonials": "Testimonials"
   }
 }

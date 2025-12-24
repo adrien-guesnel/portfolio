@@ -11,7 +11,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear().toString();
 
   return (
-    <div className="flex flex-col items-center justify-between bg-white p-12  lg:flex-row lg:gap-0 dark:bg-[#0E172A] border-t dark:border-[#1A2539] border-[#DFE5EE] ">
+    <footer className="flex flex-col items-center justify-between bg-white p-12  lg:flex-row lg:gap-0 dark:bg-[#0E172A] border-t dark:border-[#1A2539] border-[#DFE5EE] ">
       <div className="flex flex-col lg:flex-row items-center">
         <div className="flex items-center gap-2">
           <Logo className="h-5" />
@@ -33,6 +33,6 @@ export default function Footer() {
           Malt
         </a>
       </div>
-    </div>
+    </footer>
   );
 }

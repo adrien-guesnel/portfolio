@@ -24,7 +24,7 @@ export default function TestimonialCard({
       <p className="body-large text-gray">“{quote}”</p>
 
       <div className="mt-6 flex flex-col gap-1">
-        <p className="text-base font-semibold text-base-content">{person}</p>
+        <h3 className="text-base font-semibold text-base-content">{person}</h3>
         <p className="text-sm uppercase tracking-[0.3em] text-gray">{role}</p>
         {companyUrl ? (
           <a

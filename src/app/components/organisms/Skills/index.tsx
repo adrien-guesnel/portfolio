@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 
+import Card from "@components/atoms/Card";
 import SkillBadge from "@components/atoms/SkillBadge";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
 
@@ -40,10 +41,17 @@ export default function Skills({ className }: SkillsProps) {
   ];
 
   return (
-    <section id={skillsSectionId} className={clsx("py-16 lg:py-24", className)}>
+    <section
+      id={skillsSectionId}
+      className={clsx("py-16 lg:py-24", className)}
+      aria-labelledby="skills-heading"
+    >
       <div className="container mx-auto px-6 lg:px-0">
         <header className="mb-10">
-          <h2 className="text-3xl font-semibold leading-tight text-base-content lg:text-4xl">
+          <h2
+            id="skills-heading"
+            className="text-3xl font-semibold leading-tight text-base-content lg:text-4xl"
+          >
             <span className="border-l-4 border-primary pl-4">{t("heading")}</span>
           </h2>
         </header>
@@ -56,13 +64,13 @@ export default function Skills({ className }: SkillsProps) {
               </span>
               <h3 className="text-lg font-semibold text-base-content">{t("backendTitle")}</h3>
             </div>
-            <div className="rounded-[24px] border border-base-300 bg-base-200/20 p-6">
+            <Card>
               <div className="flex flex-wrap gap-3">
                 {backendSkills.map((skill) => (
                   <SkillBadge key={skill} skill={skill} />
                 ))}
               </div>
-            </div>
+            </Card>
           </div>
 
           <div>
@@ -72,13 +80,13 @@ export default function Skills({ className }: SkillsProps) {
               </span>
               <h3 className="text-lg font-semibold text-base-content">{t("frontendTitle")}</h3>
             </div>
-            <div className="rounded-[24px] border border-base-300 bg-base-200/20 p-6">
+            <Card>
               <div className="flex flex-wrap gap-3">
                 {frontendSkills.map((skill) => (
                   <SkillBadge key={skill} skill={skill} />
                 ))}
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </div>

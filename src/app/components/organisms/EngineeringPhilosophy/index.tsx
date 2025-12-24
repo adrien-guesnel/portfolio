@@ -17,11 +17,14 @@ export default function EngineeringPhilosophy({ className }: { className?: strin
   }));
 
   return (
-    <section className={clsx("py-16 lg:py-24", className)}>
+    <section className={clsx("py-16 lg:py-24", className)} aria-labelledby="philosophy-heading">
       <div className="container mx-auto px-6 lg:px-0">
         <div className="mx-auto flex max-w-5xl flex-col gap-10 text-center lg:text-left">
           <div className="space-y-6">
-            <h2 className="text-3xl font-semibold leading-tight text-base-content md:text-4xl">
+            <h2
+              id="philosophy-heading"
+              className="text-3xl font-semibold leading-tight text-base-content md:text-4xl"
+            >
               <RichText>{(tags) => t.rich("title", tags)}</RichText>
             </h2>
             <p className="mx-auto max-w-3xl text-base text-gray lg:mx-0">{t("description")}</p>

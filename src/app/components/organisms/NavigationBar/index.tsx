@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import Logo from "@components/Logo";
-import { HIRE_ME_URL } from "@/src/app/lib/constants";
+import { BOOKING_DISCOVERY_CALL_URL } from "@/src/app/lib/constants";
 import { SECTION_ROUTES } from "@/src/app/lib/Routes";
 import { Link, usePathname, useRouter } from "@/src/i18n/routing";
 
@@ -71,16 +71,21 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
           </span>
         </div>
 
-        <div className="navbar-center hidden md:flex">
-          <ul className="menu menu-horizontal px-1">
+        <nav className="navbar-center hidden md:flex" aria-label="Main navigation">
+          <ul className="menu menu-horizontal">
             <li>
               <a href={SECTION_ROUTES.skills} className="font-medium">
                 {t("skills")}
               </a>
             </li>
             <li>
-              <a href={SECTION_ROUTES.articles} className="font-medium">
-                {t("articles")}
+              <a href={SECTION_ROUTES.projects} className="font-medium">
+                {t("projects")}
+              </a>
+            </li>
+            <li>
+              <a href={SECTION_ROUTES.testimonials} className="font-medium">
+                {t("testimonials")}
               </a>
             </li>
             <li>
@@ -89,7 +94,7 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
               </a>
             </li>
           </ul>
-        </div>
+        </nav>
 
         <div className="navbar-end gap-2">
           <div className="join">
@@ -131,10 +136,10 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
 
           <a
             className="hidden md:flex btn btn-primary btn-sm rounded-full px-5"
-            href={HIRE_ME_URL}
-            title={t("hireMe")}
+            href={BOOKING_DISCOVERY_CALL_URL}
+            title={t("bookDiscoveryCall")}
           >
-            {t("hireMe")}
+            {t("bookDiscoveryCall")}
           </a>
         </div>
       </div>

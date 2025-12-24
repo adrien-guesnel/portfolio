@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import ProjectCard, { type ProjectCardProps } from "@components/molecules/ProjectCard";
 import { GITHUB_URL } from "@/src/app/lib/constants";
+import { SECTION_IDS } from "@/src/app/lib/Routes";
 
 type LocalizedProjectData = Omit<ProjectCardProps, "cardLabels">;
 
@@ -19,12 +20,19 @@ export default function Projects({ className }: { className?: string }) {
   const displayedProjects = scope === "professional" ? professionalProjects : personalProjects;
 
   return (
-    <section className={clsx("py-16 lg:py-20 text-base-content", className)}>
+    <section
+      className={clsx("py-16 lg:py-20 text-base-content", className)}
+      aria-labelledby="projects-heading"
+      id={SECTION_IDS.projects}
+    >
       <div className="container mx-auto flex flex-col gap-10 px-4">
         <header className="flex flex-col gap-3 lg:gap-2">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <h2 className="text-3xl font-semibold text-base-content lg:text-4xl">
+              <h2
+                id="projects-heading"
+                className="text-3xl font-semibold text-base-content lg:text-4xl"
+              >
                 {t("heading")}
               </h2>
               <p className="text-md text-gray mt-2">{t("description")}</p>

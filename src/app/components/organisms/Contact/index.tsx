@@ -7,6 +7,7 @@ import { type FormEvent, useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "sonner";
 
+import Card from "@components/atoms/Card";
 import { GlassCard } from "@components/atoms/GlassCard";
 import RichText from "@components/RichText";
 import { Button } from "@/src/app/components/Button";
@@ -64,12 +65,19 @@ export default function Contact({ className }: HeroProps) {
   const contactSectionId = SECTION_IDS.contact;
 
   return (
-    <section id={contactSectionId} className={clsx("py-16 lg:py-24", className)}>
+    <section
+      id={contactSectionId}
+      className={clsx("py-16 lg:py-24", className)}
+      aria-labelledby="contact-heading"
+    >
       <div className="container mx-auto px-4">
-        <div className="rounded-box border border-base-300 bg-base-200/40 p-6 lg:p-12">
+        <Card className="p-6 lg:p-12">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-stretch">
             <div className="flex flex-col justify-center gap-6 text-center lg:text-left">
-              <h2 className="text-4xl mt-4 font-bold lg:text-6xl leading-9 lg:leading-14">
+              <h2
+                id="contact-heading"
+                className="text-4xl mt-4 font-bold lg:text-6xl leading-9 lg:leading-14"
+              >
                 <RichText>{(tags) => t.rich("contactMe", tags)}</RichText>
               </h2>
               <p className="body-medium whitespace-pre-line text-gray">
@@ -160,7 +168,7 @@ export default function Contact({ className }: HeroProps) {
               )}
             </GlassCard>
           </div>
-        </div>
+        </Card>
       </div>
     </section>
   );
