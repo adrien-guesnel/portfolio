@@ -36,23 +36,19 @@ test.describe("Navigation Menu", () => {
 
     // Click on Skills link and verify navigation
     await page.locator('nav[aria-label="Main navigation"] a[href="#skills"]').click();
-    await page.waitForTimeout(1000); // Wait for smooth scroll
-    await expect(page).toHaveURL(/\/en#skills/);
+    await page.waitForURL(/\/en#skills/);
 
     // Click on Projects link and verify navigation
     await page.locator('nav[aria-label="Main navigation"] a[href="#projects"]').click();
-    await page.waitForTimeout(1000);
-    await expect(page).toHaveURL(/\/en#projects/);
+    await page.waitForURL(/\/en#projects/);
 
     // Click on Testimonials link and verify navigation
     await page.locator('nav[aria-label="Main navigation"] a[href="#testimonials"]').click();
-    await page.waitForTimeout(1000);
-    await expect(page).toHaveURL(/\/en#testimonials/);
+    await page.waitForURL(/\/en#testimonials/);
 
     // Click on Contact link and verify navigation
     await page.locator('nav[aria-label="Main navigation"] a[href="#contact"]').click();
-    await page.waitForTimeout(1000);
-    await expect(page).toHaveURL(/\/en#contact/);
+    await page.waitForURL(/\/en#contact/);
   });
 
   test("should have working homepage logo link", async ({ page }) => {

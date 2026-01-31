@@ -8,7 +8,9 @@ test.describe("Contact Form", () => {
 
     // Scroll to contact section
     await page.locator('nav[aria-label="Main navigation"] a[href="#contact"]').click();
-    await page.waitForTimeout(1000);
+
+    // Wait for the contact section to be visible
+    await page.locator("#contact").waitFor({ state: "visible" });
   });
 
   test("should display contact form with required fields", async ({ page }) => {
