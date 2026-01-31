@@ -15,6 +15,9 @@
     "build-storybook": "storybook build",
     "lint:fix": "biome check --write",
     "i18n-check": "i18n-check --source en --locales messages -u src/ -f next-intl -i \"Projects.professionalProjects*\" \"Projects.personalProjects*\" \"Testimonials.cards*\" \"Articles.articles*\"",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:report": "playwright show-report",
     "prepare": "husky"
   },
   "dependencies": {
@@ -35,6 +38,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.5.1",
     "@lingual/i18n-check": "^0.9.5",
+    "@playwright/test": "^1.58.1",
     "@storybook/addon-docs": "^10.4.6",
     "@storybook/addon-links": "^10.4.6",
     "@storybook/nextjs": "^10.4.6",
