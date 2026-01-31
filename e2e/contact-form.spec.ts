@@ -7,24 +7,24 @@ test.describe("Contact Form", () => {
 		await page.waitForLoadState("networkidle");
 
 		// Scroll to contact section
-		await page.getByRole("link", { name: "Contact" }).click();
+		await page.locator('nav[aria-label="Main navigation"] a[href="#contact"]').click();
 		await page.waitForTimeout(1000);
 	});
 
 	test("should display contact form with required fields", async ({ page }) => {
-		// Check that form elements are visible
-		await expect(page.getByLabel(/name/i)).toBeVisible();
-		await expect(page.getByLabel(/email/i)).toBeVisible();
-		await expect(page.getByLabel(/message/i)).toBeVisible();
+		// Check that form elements are visible using id selectors
+		await expect(page.locator("#name")).toBeVisible();
+		await expect(page.locator("#email")).toBeVisible();
+		await expect(page.locator("#message")).toBeVisible();
 
 		// Check submit button is visible
-		const submitButton = page.getByRole("button", { name: /send/i });
+		const submitButton = page.locator('button[type="submit"]');
 		await expect(submitButton).toBeVisible();
 	});
 
 	test("should validate required fields", async ({ page }) => {
 		// Try to submit empty form
-		const submitButton = page.getByRole("button", { name: /send/i });
+		const submitButton = page.locator('button[type="submit"]');
 		await submitButton.click();
 
 		// Check HTML5 validation prevents submission
@@ -56,19 +56,16 @@ test.describe("Contact Form", () => {
 			};
 		});
 
-		// Fill out the form
-		await page.getByLabel(/name/i).fill("John Doe");
-		await page.getByLabel(/email/i).fill("john.doe@example.com");
-
-		// Find and fill the message field (textarea)
-		const messageField = page.locator('textarea[name="message"]');
-		await messageField.fill("This is a test message from E2E testing.");
+		// Fill out the form using id selectors
+		await page.locator("#name").fill("John Doe");
+		await page.locator("#email").fill("john.doe@example.com");
+		await page.locator("#message").fill("This is a test message from E2E testing.");
 
 		// Wait for reCAPTCHA to load
 		await page.waitForTimeout(1000);
 
 		// Submit the form
-		const submitButton = page.getByRole("button", { name: /send/i });
+		const submitButton = page.locator('button[type="submit"]');
 		await submitButton.click();
 
 		// Wait for success message/toast
@@ -105,22 +102,21 @@ test.describe("Contact Form", () => {
 		});
 
 		// Fill out the form
-		await page.getByLabel(/name/i).fill("John Doe");
-		await page.getByLabel(/email/i).fill("john.doe@example.com");
-		const messageField = page.locator('textarea[name="message"]');
-		await messageField.fill("This should trigger an error.");
+		await page.locator("#name").fill("John Doe");
+		await page.locator("#email").fill("john.doe@example.com");
+		await page.locator("#message").fill("This should trigger an error.");
 
 		// Wait for reCAPTCHA
 		await page.waitForTimeout(1000);
 
 		// Submit the form
-		const submitButton = page.getByRole("button", { name: /send/i });
+		const submitButton = page.locator('button[type="submit"]');
 		await submitButton.click();
 
 		// Wait for error handling
 		await page.waitForTimeout(2000);
 
 		// Form should still be visible (not replaced by success message)
-		await expect(page.getByLabel(/name/i)).toBeVisible();
+		await expect(page.locator("#name")).toBeVisible();
 	});
 });

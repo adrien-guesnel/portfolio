@@ -11,8 +11,8 @@ test.describe("Language Switching", () => {
 		// Verify we're on English page by checking URL
 		await expect(page).toHaveURL(/\/en/);
 
-		// Find and click French language button
-		const frButton = page.getByRole("button", { name: "FR" });
+		// Find and click French language button - use more specific selector
+		const frButton = page.locator('.join button:has-text("FR")');
 		await expect(frButton).toBeVisible();
 		await frButton.click();
 
@@ -23,7 +23,7 @@ test.describe("Language Switching", () => {
 		await expect(page).toHaveURL(/\/fr/);
 
 		// Switch back to English
-		const enButton = page.getByRole("button", { name: "EN" });
+		const enButton = page.locator('.join button:has-text("EN")');
 		await expect(enButton).toBeVisible();
 		await enButton.click();
 

@@ -13,8 +13,8 @@ test.describe("Theme Switching", () => {
 		const initialTheme = await htmlElement.getAttribute("data-theme");
 		expect(["light", "dark"]).toContain(initialTheme);
 
-		// Find the theme toggle button
-		const themeToggle = page.getByLabel("Toggle theme");
+		// Find the theme toggle button - use the label element specifically
+		const themeToggle = page.locator('label[aria-label="Toggle theme"]');
 		await expect(themeToggle).toBeVisible();
 
 		// Click to toggle theme
@@ -45,8 +45,8 @@ test.describe("Theme Switching", () => {
 		// Get the html element
 		const htmlElement = page.locator("html");
 
-		// Toggle to dark theme
-		const themeToggle = page.getByLabel("Toggle theme");
+		// Toggle to dark theme - use the label element specifically
+		const themeToggle = page.locator('label[aria-label="Toggle theme"]');
 		await themeToggle.click();
 		await page.waitForTimeout(500);
 
