@@ -67,6 +67,43 @@ Builds the optimized production bundle and starts the Next.js server.
 - `pnpm lint`: runs Biome to catch formatting and static analysis issues.
 - `pnpm lint:fix`: lets Biome rewrite formatting and import order automatically.
 - `pnpm i18n-check`: validates the localized message files used by `next-intl`.
+- `pnpm test:e2e`: runs end-to-end tests with Playwright to ensure core functionality remains intact.
+
+## E2E Testing
+
+The project uses Playwright for end-to-end testing to ensure the portfolio maintains baseline functionality, especially after package updates.
+
+### Test Coverage
+
+The E2E tests cover the following critical functionalities:
+
+- **Language Switching**: Verify switching between English and French works correctly
+- **Theme Toggle**: Test light/dark mode switching and persistence
+- **Contact Form**: Validate form submission and error handling
+- **Navigation**: Ensure menu links navigate to correct sections
+
+### Running E2E Tests
+
+```bash
+# Run all E2E tests (headless mode)
+pnpm test:e2e
+
+# Run tests with UI mode for debugging
+pnpm test:e2e:ui
+
+# View test report after running tests
+pnpm test:e2e:report
+```
+
+### Running Tests in CI
+
+E2E tests automatically run in the CI pipeline after the build step. Test artifacts and reports are uploaded for review if tests fail.
+
+### Requirements
+
+- Playwright browsers are automatically installed when running tests locally for the first time
+- Tests run against `http://localhost:3055` (the dev server is automatically started)
+- Environment variables from `.env` are used for API keys (test keys are provided as fallbacks)
 
 ## Key Directories
 

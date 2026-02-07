@@ -43,3 +43,17 @@ jobs:
 
       - name: 🕵️‍♂️ Verify next.js build
         run: pnpm build
+
+      - name: 📦 Install Playwright Browsers
+        run: pnpx playwright install --with-deps chromium
+
+      - name: 🧪 Run E2E tests
+        run: pnpm test:e2e
+
+      - name: 📊 Upload Playwright Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

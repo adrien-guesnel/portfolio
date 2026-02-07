@@ -15,6 +15,9 @@
     "lint:fix": "biome lint --write .",
     "check:write": "biome check --write",
     "i18n-check": "i18n-check --source en --locales messages -u src/ -f next-intl -i \"Projects.professionalProjects*\" \"Projects.personalProjects*\" \"Testimonials.cards*\"",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:report": "playwright show-report",
     "prepare": "husky"
   },
   "dependencies": {
@@ -38,6 +41,7 @@
     "@storybook/addon-links": "10.2.7",
     "@storybook/nextjs": "10.2.7",
     "@storybook/react": "10.2.7",
+    "@playwright/test": "1.58.1",
     "@tailwindcss/postcss": "4.1.18",
     "@types/node": "24.10.9",
     "@types/react": "19.2.13",
