@@ -1,31 +1,36 @@
-# dependencies
+# Dependencies
 node_modules
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
 .pnp.*
-.npm
 web_modules/
 
-# misc
+# Build output (rebuilt inside Docker)
+.next
+out
+
+# Version control
+.git
+.gitignore
+
+# IDE / OS
 .DS_Store
+.vscode
+.vscode-test
+.idea
 
-# local env files
-.env.local
-.env.*.local
-.envrc
+# Environment files
+.env
+.env.*
+!.env.example
 
-# Logs
+# Logs and runtime data
 logs
 *.log
-
-# Runtime data
 pids
 *.pid
 *.seed
 *.pid.lock
 
-# Testing
+# Testing and coverage
 .coverage
 *.lcov
 .nyc_output
@@ -33,14 +38,20 @@ lib-cov
 
 # Caches
 *.tsbuildinfo
-.eslintcache
 .node_repl_history
-.yarn-integrity
 
-# Serverless directories
-.serverless/
-
-# Stores VSCode versions used for testing VSCode extensions
-.vscode-test
-
+# Docker files (prevent recursive inclusion)
 Dockerfile*
+docker-compose*
+.dockerignore
+
+# CI/CD and documentation
+.github
+.husky
+CLAUDE.md
+README.md
+LICENSE
+
+# Storybook (not needed in production)
+.storybook
+storybook-static

@@ -5,6 +5,7 @@ on:
     branches:
       - main
   pull_request:
+  workflow_call:
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
@@ -18,14 +19,10 @@ jobs:
       - name: ⬇ Checkout code
         uses: actions/checkout@v6
 
-      - name: 📖 Read .nvmrc
-        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
-        id: nvm
-
-      - name: ⚙️ Use Node.js ${{ steps.nvm.outputs.NODE_VERSION }}
+      - name: ⚙️ Use Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
+          node-version-file: .nvmrc
 
       - uses: pnpm/action-setup@v4
         with:
