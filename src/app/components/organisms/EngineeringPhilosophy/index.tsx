@@ -31,9 +31,9 @@ export default function EngineeringPhilosophy({ className }: { className?: strin
           </div>
 
           <div className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {translatedPillars.map((pillar, index) => (
+            {translatedPillars.map((pillar) => (
               <PhilosophyCard
-                key={`${pillar.title}-${index}`}
+                key={pillar.title}
                 title={pillar.title}
                 description={pillar.description}
                 icon={pillar.icon}

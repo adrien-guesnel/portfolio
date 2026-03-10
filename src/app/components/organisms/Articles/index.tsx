@@ -68,8 +68,8 @@ export default function Articles({ className }: { className?: string }) {
         </div>
 
         <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
-          {articles.map((article, index) => (
-            <article key={`${article.title}-${index}`}>
+          {articles.map((article) => (
+            <article key={article.title}>
               <MediumArticleCard {...article} />
             </article>
           ))}
