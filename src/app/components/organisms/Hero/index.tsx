@@ -9,6 +9,7 @@ import AppMockup from "@components/molecules/AppMockup";
 import RichText from "@components/RichText";
 import HeroImg from "@public/img/hero.webp";
 import { BOOKING_DISCOVERY_CALL_URL } from "@/src/app/lib/constants";
+import { trackEvent } from "@/src/app/lib/plausible";
 import { SECTION_IDS, SECTION_ROUTES } from "@/src/app/lib/Routes";
 
 interface HeroProps {
@@ -38,7 +39,11 @@ export default function Hero({ className }: HeroProps) {
           <p className="body-large mt-6 text-gray">{t("description")}</p>
 
           <div className="flex-row mt-6 flex gap-3">
-            <Link href={BOOKING_DISCOVERY_CALL_URL} className="btn btn-primary">
+            <Link
+              href={BOOKING_DISCOVERY_CALL_URL}
+              className="btn btn-primary"
+              onClick={() => trackEvent("Book Discovery Call Clicked", { source: "hero" })}
+            >
               {t("bookingDiscoveryCall")}
             </Link>
 
