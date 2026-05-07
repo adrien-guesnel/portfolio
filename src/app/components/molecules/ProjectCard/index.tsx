@@ -1,9 +1,12 @@
+"use client";
+
 import { ArrowUpRight } from "iconoir-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import Card from "@components/atoms/Card";
 import SkillBadge from "@components/atoms/SkillBadge";
+import { trackEvent } from "@/src/app/lib/plausible";
 
 export interface ProjectCardProps {
   title: string;
@@ -66,12 +69,28 @@ export default function ProjectCard({
               <h3 className="flex-1 min-w-0 text-2xl font-semibold text-base-content">{title}</h3>
               <div className="flex flex-wrap items-center justify-end gap-2">
                 {projectUrl ? (
-                  <a href={projectUrl} target="_blank" rel="noreferrer" className={primaryAction}>
+                  <a
+                    href={projectUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={primaryAction}
+                    onClick={() =>
+                      trackEvent("Project Card Clicked", { project: title, link: "project" })
+                    }
+                  >
                     {t("visitProject")} <ArrowUpRight className="h-4 w-4" aria-hidden />
                   </a>
                 ) : null}
                 {githubUrl ? (
-                  <a href={githubUrl} target="_blank" rel="noreferrer" className={secondaryAction}>
+                  <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={secondaryAction}
+                    onClick={() =>
+                      trackEvent("Project Card Clicked", { project: title, link: "github" })
+                    }
+                  >
                     {t("visitGitHub")} <ArrowUpRight className="h-4 w-4" aria-hidden />
                   </a>
                 ) : null}

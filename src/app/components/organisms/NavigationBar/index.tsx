@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import Logo from "@components/Logo";
 import { BOOKING_DISCOVERY_CALL_URL } from "@/src/app/lib/constants";
+import { trackEvent } from "@/src/app/lib/plausible";
 import { SECTION_ROUTES } from "@/src/app/lib/Routes";
 import { Link, usePathname, useRouter } from "@/src/i18n/routing";
 
@@ -26,6 +27,7 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
   const [theme, setTheme] = useState<DaisyTheme>("light");
 
   const switchLanguage = async (newLocale: "en" | "fr") => {
+    trackEvent("Language Switched", { lang: newLocale });
     await router.replace(pathname, { locale: newLocale });
   };
 
@@ -47,6 +49,7 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
     document.documentElement.dataset.theme = nextTheme;
     localStorage.setItem(THEME_KEY, nextTheme);
     setTheme(nextTheme);
+    trackEvent("Theme Toggled", { theme: nextTheme });
   };
 
   return (
@@ -138,6 +141,7 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
             className="hidden md:flex btn btn-primary btn-sm rounded-full px-5"
             href={BOOKING_DISCOVERY_CALL_URL}
             title={t("bookDiscoveryCall")}
+            onClick={() => trackEvent("Book Discovery Call Clicked", { source: "navbar" })}
           >
             {t("bookDiscoveryCall")}
           </a>

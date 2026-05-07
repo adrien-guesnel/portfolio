@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 
 import Logo from "@components/Logo";
 import { GITHUB_URL, HIRE_ME_URL, LIKEDIN_URL } from "@/src/app/lib/constants";
+import { trackOutbound } from "@/src/app/lib/plausible";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -23,13 +24,28 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-row text-[#93A1B7] gap-5 mt-6 lg:mt-0">
-        <a href={LIKEDIN_URL} target="_blank" rel="noreferrer">
+        <a
+          href={LIKEDIN_URL}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => trackOutbound("LinkedIn")}
+        >
           LinkedIn
         </a>
-        <a href={GITHUB_URL} target="_blank" rel="noreferrer">
+        <a
+          href={GITHUB_URL}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => trackOutbound("GitHub")}
+        >
           GitHub
         </a>
-        <a href={HIRE_ME_URL} target="_blank" rel="noreferrer">
+        <a
+          href={HIRE_ME_URL}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => trackOutbound("Malt")}
+        >
           Malt
         </a>
       </div>
