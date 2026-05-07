@@ -4,7 +4,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .corepackrc.json ./
 RUN corepack enable pnpm \
     && pnpm i --frozen-lockfile
 
