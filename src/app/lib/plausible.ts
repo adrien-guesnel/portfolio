@@ -1,19 +1,16 @@
-type PlausibleEventName =
-  | "Contact Form Submitted"
-  | "Outbound: LinkedIn"
-  | "Outbound: Malt"
-  | "Outbound: GitHub"
-  | "Project Card Clicked"
-  | "Language Switched"
-  | "Theme Toggled"
-  | "Book Discovery Call Clicked";
+import { usePlausible } from "next-plausible";
 
-type PlausibleProps = Record<string, string>;
+type PlausibleEvents = {
+  "Contact Form Submitted": never;
+  "Outbound: LinkedIn": never;
+  "Outbound: Malt": never;
+  "Outbound: GitHub": never;
+  "Project Card Clicked": { project: string; link: string };
+  "Language Switched": { lang: string };
+  "Theme Toggled": { theme: string };
+  "Book Discovery Call Clicked": { source: string };
+};
 
-export function trackEvent(name: PlausibleEventName, props?: PlausibleProps): void {
-  window.plausible?.(name, { props });
-}
-
-export function trackOutbound(destination: "LinkedIn" | "Malt" | "GitHub"): void {
-  trackEvent(`Outbound: ${destination}`);
+export function usePlausibleEvents() {
+  return usePlausible<PlausibleEvents>();
 }

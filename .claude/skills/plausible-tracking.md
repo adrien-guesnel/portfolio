@@ -2,44 +2,63 @@
 
 Use this skill when asked how to track a new event with Plausible on this portfolio.
 
-## Pattern
+## Setup
 
-All tracking goes through `src/app/lib/plausible.ts`. No external package — calls `window.plausible?.()` directly (already injected by the Plausible script in the HTML).
+- Script loaded in `src/app/[locale]/layout.tsx` via Next.js `<Script>` with `data-domain` set dynamically from the request `host` header (works in prod, staging, and dev)
+- Script source: `https://analytics.aguesnel.fr/js/script.hash.outbound-links.pageview-props.tagged-events.js`
+- Event types and props are centrally typed in `src/app/lib/plausible.ts`
 
 ## Adding a new event
 
-1. Add the event name to the `PlausibleEventName` union in `src/app/lib/plausible.ts`
-2. Call `trackEvent()` in the component
+1. Add the event name and its props type to the `PlausibleEvents` map in `src/app/lib/plausible.ts`
+2. Call the hook in the component and fire the event
 
 ```ts
-import { trackEvent } from "@/src/app/lib/plausible";
+// src/app/lib/plausible.ts
+type PlausibleEvents = {
+  // events with no props
+  "My New Event": never;
+  // events with props
+  "My Event With Props": { key: string };
+};
+```
 
-// Simple event
-trackEvent("Contact Form Submitted");
+```tsx
+import { usePlausibleEvents } from "@/src/app/lib/plausible";
 
-// With props
-trackEvent("Project Card Clicked", { project: "my-project" });
+export default function MyComponent() {
+  const plausible = usePlausibleEvents();
 
-// Outbound link shorthand
-import { trackOutbound } from "@/src/app/lib/plausible";
-trackOutbound("LinkedIn");
+  // Simple event
+  plausible("My New Event");
+
+  // With props
+  plausible("My Event With Props", { props: { key: "value" } });
+
+  // With callback (use when navigation happens immediately after — prevents XHR cancellation)
+  plausible("Language Switched", {
+    props: { lang: "en" },
+    callback: () => router.replace(pathname, { locale: "en" }),
+  });
+}
 ```
 
 ## Existing events
 
 | Event | Props | Where |
 |---|---|---|
-| `Language Switched` | `{ lang: "en" \| "fr" }` | NavigationBar |
+| `Language Switched` | `{ lang: string }` | NavigationBar |
+| `Theme Toggled` | `{ theme: string }` | NavigationBar |
+| `Book Discovery Call Clicked` | `{ source: string }` | NavigationBar, Hero |
 | `Contact Form Submitted` | — | Contact form |
-| `Outbound: LinkedIn` | — | Footer / CTA |
-| `Outbound: Malt` | — | Footer / CTA |
-| `Outbound: GitHub` | — | Footer / CTA |
-| `Project Card Clicked` | `{ project: string }` | ProjectCard |
-| `Theme Toggled` | — | NavigationBar |
-| `Book Discovery Call Clicked` | — | NavigationBar / CTA |
+| `Project Card Clicked` | `{ project: string; link: string }` | ProjectCard |
+| `Outbound: LinkedIn` | — | Footer |
+| `Outbound: Malt` | — | Footer |
+| `Outbound: GitHub` | — | Footer |
 
 ## Notes
 
-- `window.plausible?.()` — optional chaining handles when Plausible isn't loaded (dev, adblocker)
-- `interactive: false` is only needed for non-click events (e.g. programmatic navigation)
+- `usePlausibleEvents()` returns `usePlausible<PlausibleEvents>()` from `next-plausible` — TypeScript enforces valid event names and props at compile time
+- When Plausible isn't loaded (adblocker, dev), `window.plausible` is still queued by the inline init script so events are buffered harmlessly
+- Use `callback` when the event fires just before a page navigation to avoid the XHR being cancelled mid-flight
 - Props values must be strings

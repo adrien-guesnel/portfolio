@@ -1,6 +1,7 @@
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { headers } from "next/headers";
 import Script from "next/script";
 import { getMessages } from "next-intl/server";
 import { Toaster } from "sonner";
@@ -36,6 +37,8 @@ export default async function RootLayout({
   params: Params;
 }) {
   const { locale } = await params;
+  const host = (await headers()).get("host") ?? "";
+  const domain = host.split(":")[0];
 
   const messages = await getMessages();
 
@@ -52,6 +55,12 @@ export default async function RootLayout({
             document.documentElement.dataset.theme = theme;
           })()`}
         </Script>
+        <Script
+          defer
+          data-domain={domain}
+          src="https://analytics.aguesnel.fr/js/script.hash.outbound-links.pageview-props.tagged-events.js"
+        />
+        <Script id="plausible-init">{`window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}`}</Script>
         <NextIntlProvider
           locale={locale}
           messages={messages}
