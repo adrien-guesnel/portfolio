@@ -4,10 +4,11 @@ import { useTranslations } from "next-intl";
 
 import Logo from "@components/Logo";
 import { GITHUB_URL, HIRE_ME_URL, LIKEDIN_URL } from "@/src/app/lib/constants";
-import { trackOutbound } from "@/src/app/lib/plausible";
+import { usePlausibleEvents } from "@/src/app/lib/plausible";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const plausible = usePlausibleEvents();
 
   const currentYear = new Date().getFullYear().toString();
 
@@ -28,7 +29,7 @@ export default function Footer() {
           href={LIKEDIN_URL}
           target="_blank"
           rel="noreferrer"
-          onClick={() => trackOutbound("LinkedIn")}
+          onClick={() => plausible("Outbound: LinkedIn")}
         >
           LinkedIn
         </a>
@@ -36,7 +37,7 @@ export default function Footer() {
           href={GITHUB_URL}
           target="_blank"
           rel="noreferrer"
-          onClick={() => trackOutbound("GitHub")}
+          onClick={() => plausible("Outbound: GitHub")}
         >
           GitHub
         </a>
@@ -44,7 +45,7 @@ export default function Footer() {
           href={HIRE_ME_URL}
           target="_blank"
           rel="noreferrer"
-          onClick={() => trackOutbound("Malt")}
+          onClick={() => plausible("Outbound: Malt")}
         >
           Malt
         </a>

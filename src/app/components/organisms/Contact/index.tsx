@@ -13,7 +13,7 @@ import RichText from "@components/RichText";
 import { Button } from "@/src/app/components/Button";
 import Input from "@/src/app/components/Input";
 import Textarea from "@/src/app/components/Textarea";
-import { trackEvent } from "@/src/app/lib/plausible";
+import { usePlausibleEvents } from "@/src/app/lib/plausible";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
 
 interface HeroProps {
@@ -22,6 +22,7 @@ interface HeroProps {
 
 export default function Contact({ className }: HeroProps) {
   const t = useTranslations("Contact");
+  const plausible = usePlausibleEvents();
   const [emailSent, setEmailSent] = useState(false);
   const [email, setEmail] = useState<string | undefined>();
   const [currentParisTime, setCurrentParisTime] = useState(() => new Date());
@@ -48,7 +49,7 @@ export default function Contact({ className }: HeroProps) {
       if (response.ok) {
         setEmail(data?.email as string);
         setEmailSent(true);
-        trackEvent("Contact Form Submitted");
+        plausible("Contact Form Submitted");
       } else {
         console.error("Failed to send email");
         toast.error(t("emailFailed"));

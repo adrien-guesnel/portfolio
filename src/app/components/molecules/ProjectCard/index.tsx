@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 
 import Card from "@components/atoms/Card";
 import SkillBadge from "@components/atoms/SkillBadge";
-import { trackEvent } from "@/src/app/lib/plausible";
+import { usePlausibleEvents } from "@/src/app/lib/plausible";
 
 export interface ProjectCardProps {
   title: string;
@@ -36,6 +36,7 @@ export default function ProjectCard({
   imageAlt,
 }: ProjectCardProps) {
   const t = useTranslations("ProjectCard");
+  const plausible = usePlausibleEvents();
 
   const actionBase =
     "inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold transition";
@@ -75,7 +76,9 @@ export default function ProjectCard({
                     rel="noreferrer"
                     className={primaryAction}
                     onClick={() =>
-                      trackEvent("Project Card Clicked", { project: title, link: "project" })
+                      plausible("Project Card Clicked", {
+                        props: { project: title, link: "project" },
+                      })
                     }
                   >
                     {t("visitProject")} <ArrowUpRight className="h-4 w-4" aria-hidden />
@@ -88,7 +91,9 @@ export default function ProjectCard({
                     rel="noreferrer"
                     className={secondaryAction}
                     onClick={() =>
-                      trackEvent("Project Card Clicked", { project: title, link: "github" })
+                      plausible("Project Card Clicked", {
+                        props: { project: title, link: "github" },
+                      })
                     }
                   >
                     {t("visitGitHub")} <ArrowUpRight className="h-4 w-4" aria-hidden />

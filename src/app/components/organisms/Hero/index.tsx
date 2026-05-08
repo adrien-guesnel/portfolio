@@ -9,7 +9,7 @@ import AppMockup from "@components/molecules/AppMockup";
 import RichText from "@components/RichText";
 import HeroImg from "@public/img/hero.webp";
 import { BOOKING_DISCOVERY_CALL_URL } from "@/src/app/lib/constants";
-import { trackEvent } from "@/src/app/lib/plausible";
+import { usePlausibleEvents } from "@/src/app/lib/plausible";
 import { SECTION_IDS, SECTION_ROUTES } from "@/src/app/lib/Routes";
 
 interface HeroProps {
@@ -18,6 +18,7 @@ interface HeroProps {
 
 export default function Hero({ className }: HeroProps) {
   const t = useTranslations("Hero");
+  const plausible = usePlausibleEvents();
 
   const homeSectionId = SECTION_IDS.home;
   const EXPERIENCE_START_YEAR = 2017;
@@ -42,7 +43,9 @@ export default function Hero({ className }: HeroProps) {
             <Link
               href={BOOKING_DISCOVERY_CALL_URL}
               className="btn btn-primary"
-              onClick={() => trackEvent("Book Discovery Call Clicked", { source: "hero" })}
+              onClick={() =>
+                plausible("Book Discovery Call Clicked", { props: { source: "hero" } })
+              }
             >
               {t("bookingDiscoveryCall")}
             </Link>
