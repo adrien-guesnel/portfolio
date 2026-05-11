@@ -76,7 +76,6 @@
   },
   "Hero": {
     "ViewMySkills": "Voir mes compétences",
-    "ViewMyWork": "Voir mes réalisations",
     "availableForNewProjects": "Disponible pour de nouveaux projets",
     "bookingDiscoveryCall": "Réserver un appel découverte",
     "description": "Lead dev fullstack React / Node.js. Je prends en charge le périmètre complet d’un produit SaaS (front, back, infra, backoffice), j’arbitre les priorités avec l’équipe produit, et je livre.",
@@ -84,8 +83,6 @@
     "experienceValue": "{years}+ ans",
     "missionsLabel": "Missions",
     "missionsValue": "{missions}+ missions",
-    "discoverMyProjects": "Découvrez mes projets",
-    "discoverMySkills": "Découvrez mes compétences",
     "title": "Je construis des produits SaaS de l'architecture jusqu'à la <lightGradient>mise en prod</lightGradient>"
   },
   "Home": {
@@ -147,7 +144,7 @@
         "title": "Refonte Auth & expérience utilisateur - Linkup"
       },
       {
-        "challenge": "Piloté la création d'une plateforme de réservation de jets privés de A à Z avec React.js, Next.js et NestJS.",
+        "challenge": "Piloter la création d'une plateforme de réservation de jets privés de A à Z avec React.js, Next.js et NestJS.",
         "imageLabel": "Capture d'écran de la page d'accueil du site loop aero",
         "imageSrc": "/img/projects/loop-aero.png",
         "impact": [
