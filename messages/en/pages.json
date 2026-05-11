@@ -1,11 +1,38 @@
 {
   "Articles": {
+    "articles": [
+      {
+        "readTime": "3 min",
+        "snippet": "Zeta 2.1 runs entirely on your machine. Here's how to enable it in Zed for AI-powered autocompletion without sending a single line of code to the cloud.",
+        "tag": "Tooling",
+        "title": "100% local AI autocomplete in Zed is now possible with Zeta 2.1",
+        "url": "https://medium.com/@adrienguesnel/lautocompl%C3%A9tion-ia-100-locale-dans-zed-c-est-maintenant-possible-avec-zeta-2-1-d597fc27a47a"
+      },
+      {
+        "readTime": "3 min",
+        "snippet": "ESLint and Prettier felt like the default, but Biome brought everything into a single, faster toolchain. Here is what the migration looked like.",
+        "tag": "Tooling",
+        "title": "How I dump eslint/prettier for biome, and you should do the same!",
+        "url": "https://medium.com/@adrienguesnel/how-i-dump-eslint-prettier-for-biome-and-you-should-do-the-same-8bcdf05fefff"
+      },
+      {
+        "readTime": "4 min",
+        "snippet": "It's always complicated to manually update and deploy changes on Kubernetes infrastructure, let's simplify that with OpenTofu!",
+        "tag": "DevOps",
+        "tagColor": "secondary",
+        "title": "Deploy your first app on Kubernetes with OpenTofu",
+        "url": "https://medium.com/@adrienguesnel/deploy-your-first-app-on-kubernetes-with-opentofu-ae7286dece49"
+      },
+      {
+        "readTime": "2 min",
+        "snippet": "Install Oh My Zsh to give your black-and-white terminal a fresh new look.",
+        "tag": "Tooling",
+        "title": "Customize your terminal with Oh My Zsh - Mac OS Tutorial",
+        "url": "https://medium.com/@adrienguesnel/personnaliser-votre-terminal-avec-oh-my-zsh-tutorial-mac-os-da962449f9c7"
+      }
+    ],
     "description": "Stay up to date with my latest thoughts, analyses, and experiences on web development. I share technical articles, case studies, and practical tips to help you design and maintain efficient and scalable applications.",
     "readMoreOnMedium": "Read more on Medium",
-    "tags": {
-      "devops": "Devops",
-      "tooling": "Tooling"
-    },
     "title": "Latest blog articles"
   },
   "Contact": {
@@ -50,12 +77,12 @@
     "ViewMySkills": "See my skills",
     "availableForNewProjects": "Available for new projects",
     "bookingDiscoveryCall": "Book a discovery call",
-    "description": "Freelance Tech Lead (React.js/Node.js, 8+ years). I help product teams design and evolve high-performance web applications—remotely from France.",
+    "description": "Fullstack Lead Dev (React / Node.js). I own the full product scope (front, back, infra, backoffice), align priorities with the product team, and ship.",
     "experienceLabel": "Experience",
     "experienceValue": "{years}+ years",
     "missionsLabel": "Missions",
     "missionsValue": "{missions}+ missions",
-    "title": "Empowering Businesses with scalable <lightGradient>Node.js & React Solutions</lightGradient>"
+    "title": "I build SaaS products from architecture to <lightGradient>production</lightGradient>"
   },
   "Home": {
     "seo": {
@@ -70,6 +97,19 @@
     "heading": "Selected projects",
     "personalLabel": "Personal projects",
     "personalProjects": [
+      {
+        "challenge": "Centralise useful information and tools for the west coast swing dance community, often scattered across forums, Facebook groups, and word of mouth.",
+        "imageLabel": "Westie Babies community platform",
+        "impact": [
+          "Dedicated information and tooling platform for the west coast swing community",
+          "Regularly updated blog sharing news and tips",
+          "Community reference accessible to dancers of all levels"
+        ],
+        "role": "Creator",
+        "solution": "Built a full website alongside a blog to gather all useful resources for the west coast swing community in one place.",
+        "tags": ["Next.js", "Tailwind", "Storybook", "DaisyUI", "NestJS"],
+        "title": "Westie Babies"
+      },
       {
         "challenge": "Clearly convey my freelance React/Node.js positioning.",
         "githubUrl": "https://github.com/adrien-guesnel/portfolio",
@@ -88,6 +128,19 @@
     "professionalLabel": "Professional work",
     "professionalProjects": [
       {
+        "challenge": "Rebuild the authentication system with a new framework and improve the user interface - team management, whitelist setup, and budget limits on API keys.",
+        "imageLabel": "Auth & API Key Management Overhaul - Linkup",
+        "impact": [
+          "Delivered a complete API key system: creation, revocation, budget limits, and consumption quotas",
+          "Strengthened overall platform security through a full authentication flow overhaul",
+          "Contributed to the existing Python codebase for script creation and bug fixes"
+        ],
+        "role": "Senior Full-Stack React / NestJS",
+        "solution": "Full rewrite of the auth system (sessions, token rotation) and design of the API key management system (quotas, budgets, teams), with React interfaces and NestJS backend, plus Python contributions on existing services.",
+        "tags": ["React", "NestJS", "TypeScript", "Python", "Playwright", "React Router"],
+        "title": "Auth & User Experience Overhaul - Linkup"
+      },
+      {
         "challenge": "Led the end-to-end development of the Loop Aero private jet reservation platform using React.js, Next.js, and NestJS.",
         "imageLabel": "Loop Aero homepage screenshot",
         "imageSrc": "/img/projects/loop-aero.png",
@@ -101,6 +154,46 @@
         "solution": "Built the design system, orchestrated API integrations and backend architecture, and led the technical direction with regular alignment syncs.",
         "tags": ["React", "Next.js", "Nest.js", "Prisma", "Tailwind"],
         "title": "Private jet booking platform - Loop Aero"
+      },
+      {
+        "challenge": "Build the complete backend for a social network MVP in 3 months, with a moderation system operational from day one.",
+        "imageLabel": "Social Network MVP - TellDem",
+        "impact": [
+          "Backend with full REST API endpoint list and Swagger documentation for integration",
+          "Moderation backoffice (users, reports, dashboards) operational at launch",
+          "Test coverage integrated into the dev cycle to maintain MVP pace without sacrificing stability"
+        ],
+        "role": "Senior Backend NestJS / Node.js",
+        "solution": "Developed all REST endpoints with NestJS, implemented automated tests, and delivered a turnkey moderation backoffice with Retool.",
+        "tags": ["NestJS", "Node.js", "TypeScript", "Retool"],
+        "title": "Social Network MVP - TellDem"
+      },
+      {
+        "challenge": "Contribute to the overhaul of a skills assessment platform (CPF) while reducing the production support load.",
+        "imageLabel": "EdTech Platform - Chance",
+        "impact": [
+          "Proactively reduced production issues through Retool dashboards",
+          "Improved support team velocity via delivered tooling and documentation",
+          "Public and internal features shipped in close collaboration with product"
+        ],
+        "projectUrl": "https://chance.co",
+        "role": "Senior Full-Stack React / NestJS",
+        "solution": "Fullstack development of new features, creation of internal Retool tools for support, and documentation rollout for the Customer Success team.",
+        "tags": ["React", "NestJS", "TypeScript", "Retool"],
+        "title": "Fullstack Development & Internal Tooling - Chance"
+      },
+      {
+        "challenge": "Maintain and evolve critical microservices at a scale of one billion requests per month in an international environment (17+ countries).",
+        "imageLabel": "International AdTech Platform - Ogury",
+        "impact": [
+          "Stable and scalable microservices under high-volume conditions",
+          "Quality assured through a unit and visual testing strategy",
+          "New ad formats delivered to meet advertiser needs"
+        ],
+        "role": "Fullstack React / Node.js",
+        "solution": "Development and maintenance of microservices, creation of new ad formats, monitoring via Datadog / Sentry / Grafana, and automated test implementation (Jest, Puppeteer, Storybook).",
+        "tags": ["React", "Node.js", "TypeScript", "Jest", "Datadog"],
+        "title": "AdExperience Team - Ad Formats & Visibility - Ogury"
       }
     ]
   },
@@ -115,14 +208,14 @@
         "company": "Jedha",
         "companyUrl": "https://jedha.co",
         "person": "Antoine K.",
-        "quote": "We hired Adrien to build a feature for our LMS (NextJS, Python etc.). He grasped the stakes and needs very quickly, then delivered the work at pace. No complaints— it was a superb experience.",
+        "quote": "We hired Adrien to build a feature for our LMS (NextJS, Python etc.). He grasped the stakes and needs very quickly, then delivered the work at pace. No complaints - it was a superb experience.",
         "role": "CEO"
       },
       {
         "company": "Chance",
         "companyUrl": "https://chance.co",
         "person": "Vincent B.",
-        "quote": "Adrien is without a doubt the developer I’ve enjoyed working with most as a product designer. He listens, challenges, and supports the product thinking while bringing his engineering mindset—always with kindness and intelligence.",
+        "quote": "Adrien is without a doubt the developer I’ve enjoyed working with most as a product designer. He listens, challenges, and supports the product thinking while bringing his engineering mindset - always with kindness and intelligence.",
         "role": "Product Designer"
       }
     ],

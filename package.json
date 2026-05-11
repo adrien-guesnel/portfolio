@@ -14,7 +14,7 @@
     "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build",
     "lint:fix": "biome check --write",
-    "i18n-check": "i18n-check --source en --locales messages -u src/ -f next-intl -i \"Projects.professionalProjects*\" \"Projects.personalProjects*\" \"Testimonials.cards*\"",
+    "i18n-check": "i18n-check --source en --locales messages -u src/ -f next-intl -i \"Projects.professionalProjects*\" \"Projects.personalProjects*\" \"Testimonials.cards*\" \"Articles.articles*\"",
     "prepare": "husky"
   },
   "dependencies": {

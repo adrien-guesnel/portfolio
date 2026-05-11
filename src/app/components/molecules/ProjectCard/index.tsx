@@ -118,7 +118,10 @@ export default function ProjectCard({
             <ul className="flex flex-col gap-1">
               {impact.map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <span className="mt-0.5 h-1 w-1 rounded-full bg-primary" aria-hidden />
+                  <span
+                    className="mt-[0.4em] h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                    aria-hidden
+                  />
                   <span>{item}</span>
                 </li>
               ))}

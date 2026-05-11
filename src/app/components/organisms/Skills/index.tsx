@@ -16,15 +16,24 @@ export default function Skills({ className }: SkillsProps) {
   const skillsSectionId = SECTION_IDS.skills;
 
   const backendSkills = [
+    "NestJS",
     "Node.js",
-    "Nest.js",
+    "TypeScript",
     "PostgreSQL",
-    "Prisma",
-    "Docker",
-    "CI/CD",
-    "MongoDB",
+    "MongoDB Atlas",
     "GraphQL",
-    "Rest API",
+    "REST API",
+    "Prisma ORM",
+    "Docker",
+    "Auth / JWT",
+    "Stripe",
+    "Firebase",
+    "Jest",
+    "CI/CD",
+    "Python",
+    "Datadog",
+    "Sentry",
+    "Grafana",
   ];
 
   const frontendSkills = [
@@ -34,10 +43,13 @@ export default function Skills({ className }: SkillsProps) {
     "TailwindCSS",
     "React Router",
     "Vite",
+    "Playwright",
+    "Retool",
+    "Design System",
+    "Component Library",
     "Figma",
     "Storybook",
-    "Playwright",
-    "Jest",
+    "Chromatic",
   ];
 
   return (
