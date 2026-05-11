@@ -56,22 +56,22 @@
     "timezoneValue": "GMT+1 (Paris time)"
   },
   "EngineeringPhilosophy": {
-    "description": "Durable systems, accessible interfaces, and performance-calibrated tooling let the teams I partner with ship features with confidence. These three pillars describe how I think about every project I touch.",
+    "description": "Freelance does not mean order-taker. On every engagement, I invest in the project as much as in the code, because good software cannot be built without understanding what it needs to solve.",
     "pillars": [
       {
-        "description": "Modular boundaries keep the codebase durable and predictable, so every iteration stays composable and testable.",
-        "title": "Clean Architecture"
+        "description": "I step into a project as if it were my own. Business context, product constraints, team history: I look to understand before I propose.",
+        "title": "Real ownership"
       },
       {
-        "description": "Interfaces are tuned to real needs, ensuring complexity lives under the hood while experiences stay intuitive.",
-        "title": "User-Centered Design"
+        "description": "My experience across diverse frameworks, libraries, and business domains lets me get up to speed quickly and be fully productive in little time.",
+        "title": "Versatility in practice"
       },
       {
-        "description": "Every choice balances speed and clarity, from release automation to interactions that feel responsive.",
-        "title": "Performance First"
+        "description": "I deliver solid, maintainable code. And I always keep in mind that the best technical solution is the one that serves the product.",
+        "title": "Code in service of the product"
       }
     ],
-    "title": "My engineering <primary>philosophy</primary>"
+    "title": "My <primary>approach</primary>"
   },
   "Hero": {
     "ViewMySkills": "See my skills",
@@ -100,6 +100,7 @@
       {
         "challenge": "Centralise useful information and tools for the west coast swing dance community, often scattered across forums, Facebook groups, and word of mouth.",
         "imageLabel": "Westie Babies community platform",
+        "imageSrc": "/img/projects/westie-babies.png",
         "impact": [
           "Dedicated information and tooling platform for the west coast swing community",
           "Regularly updated blog sharing news and tips",
@@ -130,6 +131,7 @@
       {
         "challenge": "Rebuild the authentication system with a new framework and improve the user interface - team management, whitelist setup, and budget limits on API keys.",
         "imageLabel": "Auth & API Key Management Overhaul - Linkup",
+        "imageSrc": "/img/projects/linkup.webp",
         "impact": [
           "Delivered a complete API key system: creation, revocation, budget limits, and consumption quotas",
           "Strengthened overall platform security through a full authentication flow overhaul",
@@ -158,6 +160,7 @@
       {
         "challenge": "Build the complete backend for a social network MVP in 3 months, with a moderation system operational from day one.",
         "imageLabel": "Social Network MVP - TellDem",
+        "imageSrc": "/img/projects/telldem.png",
         "impact": [
           "Backend with full REST API endpoint list and Swagger documentation for integration",
           "Moderation backoffice (users, reports, dashboards) operational at launch",
@@ -171,6 +174,7 @@
       {
         "challenge": "Contribute to the overhaul of a skills assessment platform (CPF) while reducing the production support load.",
         "imageLabel": "EdTech Platform - Chance",
+        "imageSrc": "/img/projects/chance.webp",
         "impact": [
           "Proactively reduced production issues through Retool dashboards",
           "Improved support team velocity via delivered tooling and documentation",
@@ -185,6 +189,7 @@
       {
         "challenge": "Maintain and evolve critical microservices at a scale of one billion requests per month in an international environment (17+ countries).",
         "imageLabel": "International AdTech Platform - Ogury",
+        "imageSrc": "/img/projects/ogury.png",
         "impact": [
           "Stable and scalable microservices under high-volume conditions",
           "Quality assured through a unit and visual testing strategy",

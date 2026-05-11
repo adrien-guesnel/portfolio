@@ -57,22 +57,22 @@
     "timezoneValue": "GMT+1 (heure de Paris)"
   },
   "EngineeringPhilosophy": {
-    "description": "Systèmes durables, interfaces accessibles et outils calibrés sur la performance permettent aux équipes avec lesquelles je collabore de déployer des fonctionnalités sereinement. Ces trois piliers décrivent mon approche de chaque projet.",
+    "description": "Freelance ne veut pas dire exécutant. Sur chaque mission, je m'investis dans le projet autant que dans le code, parce qu'un bon logiciel ne se construit pas sans comprendre ce qu'il doit résoudre.",
     "pillars": [
       {
-        "description": "Des frontières modulaires gardent le code durable et prévisible, pour que chaque itération reste composable et testable.",
-        "title": "Architecture propre"
+        "description": "Je rentre dans un projet comme si c'était le mien. Contexte métier, contraintes produit, historique de l'équipe : je cherche à comprendre avant de proposer.",
+        "title": "Investissement réel"
       },
       {
-        "description": "Les interfaces sont alignées sur les vrais besoins pour laisser la complexité sous le capot et offrir des expériences intuitives.",
-        "title": "Conception centrée utilisateur"
+        "description": "Mon expérience sur des frameworks, librairies et domaines métiers variés me permet de monter en contexte rapidement et d'être pleinement opérationnel en peu de temps.",
+        "title": "Polyvalence terrain"
       },
       {
-        "description": "Chaque décision équilibre vitesse et clarté, de l'automatisation des releases aux interactions qui répondent instantanément.",
-        "title": "Priorité performance"
+        "description": "Je livre du code solide et maintenable. Et je garde toujours en tête que la meilleure solution technique est celle qui sert le produit.",
+        "title": "Le code au service du produit"
       }
     ],
-    "title": "Ma <primary>philosophie</primary> d'ingénierie"
+    "title": "Mon <primary>approche</primary>"
   },
   "Hero": {
     "ViewMySkills": "Voir mes compétences",
