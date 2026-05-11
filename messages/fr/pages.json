@@ -1,17 +1,44 @@
 {
   "Articles": {
+    "articles": [
+      {
+        "readTime": "3 min",
+        "snippet": "Zeta 2.1 tourne entièrement en local sur votre machine. Voici comment l'activer dans Zed pour obtenir une autocomplétion IA sans envoyer une seule ligne de code dans le cloud.",
+        "tag": "Outils",
+        "title": "L'autocomplétion IA 100% locale dans Zed, c'est maintenant possible avec Zeta 2.1",
+        "url": "https://medium.com/@adrienguesnel/lautocompl%C3%A9tion-ia-100-locale-dans-zed-c-est-maintenant-possible-avec-zeta-2-1-d597fc27a47a"
+      },
+      {
+        "readTime": "3 min",
+        "snippet": "ESLint et Prettier semblaient incontournables, mais Biome a tout réuni dans une chaîne d'outils plus rapide et unifiée. Voici à quoi ressemble la migration.",
+        "tag": "Outils",
+        "title": "Comment j'ai remplacé eslint/prettier par biome - et pourquoi vous devriez faire pareil !",
+        "url": "https://medium.com/@adrienguesnel/how-i-dump-eslint-prettier-for-biome-and-you-should-do-the-same-8bcdf05fefff"
+      },
+      {
+        "readTime": "4 min",
+        "snippet": "Mettre à jour et déployer manuellement des changements sur une infrastructure Kubernetes est toujours complexe. Simplifions cela avec OpenTofu !",
+        "tag": "DevOps",
+        "tagColor": "secondary",
+        "title": "Déployez votre première app sur Kubernetes avec OpenTofu",
+        "url": "https://medium.com/@adrienguesnel/deploy-your-first-app-on-kubernetes-with-opentofu-ae7286dece49"
+      },
+      {
+        "readTime": "2 min",
+        "snippet": "Installer Oh My Zsh pour donner un coup de jeune à votre terminal en noir et blanc.",
+        "tag": "Outils",
+        "title": "Personnaliser votre terminal avec Oh My Zsh - Tutorial Mac OS",
+        "url": "https://medium.com/@adrienguesnel/personnaliser-votre-terminal-avec-oh-my-zsh-tutorial-mac-os-da962449f9c7"
+      }
+    ],
     "description": "Restez à jour avec mes dernières réflexions, analyses et retours d'expérience sur le développement web. Je partage des articles techniques, des études de cas et des conseils pratiques pour vous aider à concevoir et maintenir des applications performantes et évolutives.",
     "readMoreOnMedium": "Lire plus sur Medium",
-    "tags": {
-      "devops": "Devops",
-      "tooling": "Outils"
-    },
     "title": "Derniers articles de blog",
     "viewAllButton": "Voir tous les articles"
   },
   "Contact": {
     "companyName": "Nom de l'entreprise",
-    "contactMe": "Construisons quelque chose de <primary>extraordinaire</primary>",
+    "contactMe": "Construisons quelque chose <primary>d'extraordinaire</primary>",
     "contactMeDescription": "Vous souhaitez en savoir plus sur mon travail ou discuter d’opportunités potentielles ?\nJe suis ouvert aux demandes des recruteurs et des entreprises.\nN'hésitez pas à me contacter en utilisant le formulaire.",
     "email": "Email",
     "emailFailed": "Échec de l'envoi de votre message, veuillez réessayer plus tard",
@@ -30,36 +57,33 @@
     "timezoneValue": "GMT+1 (heure de Paris)"
   },
   "EngineeringPhilosophy": {
-    "description": "Systèmes durables, interfaces accessibles et outils calibrés sur la performance permettent aux équipes avec lesquelles je collabore de déployer des fonctionnalités sereinement. Ces trois piliers décrivent mon approche de chaque projet.",
+    "description": "Freelance ne veut pas dire exécutant. Sur chaque mission, je m'investis dans le projet autant que dans le code, parce qu'un bon logiciel ne se construit pas sans comprendre ce qu'il doit résoudre.",
     "pillars": [
       {
-        "description": "Des frontières modulaires gardent le code durable et prévisible, pour que chaque itération reste composable et testable.",
-        "title": "Architecture propre"
+        "description": "Je rentre dans un projet comme si c'était le mien. Contexte métier, contraintes produit, historique de l'équipe : je cherche à comprendre avant de proposer.",
+        "title": "Investissement réel"
       },
       {
-        "description": "Les interfaces sont alignées sur les vrais besoins pour laisser la complexité sous le capot et offrir des expériences intuitives.",
-        "title": "Conception centrée utilisateur"
+        "description": "Mon expérience sur des frameworks, librairies et domaines métiers variés me permet de monter en contexte rapidement et d'être pleinement opérationnel en peu de temps.",
+        "title": "Polyvalence terrain"
       },
       {
-        "description": "Chaque décision équilibre vitesse et clarté, de l'automatisation des releases aux interactions qui répondent instantanément.",
-        "title": "Priorité performance"
+        "description": "Je livre du code solide et maintenable. Et je garde toujours en tête que la meilleure solution technique est celle qui sert le produit.",
+        "title": "Le code au service du produit"
       }
     ],
-    "title": "Ma <primary>philosophie</primary> d'ingénierie"
+    "title": "Mon <primary>approche</primary>"
   },
   "Hero": {
     "ViewMySkills": "Voir mes compétences",
-    "ViewMyWork": "Voir mes réalisations",
     "availableForNewProjects": "Disponible pour de nouveaux projets",
     "bookingDiscoveryCall": "Réserver un appel découverte",
-    "description": "Tech Lead freelance React.js/Node.js (8+ ans d’expérience). J’aide les équipes produit à concevoir et faire évoluer des applications web performantes — à distance, depuis la France.",
+    "description": "Lead dev fullstack React / Node.js. Je prends en charge le périmètre complet d’un produit SaaS (front, back, infra, backoffice), j’arbitre les priorités avec l’équipe produit, et je livre.",
     "experienceLabel": "Expérience",
     "experienceValue": "{years}+ ans",
     "missionsLabel": "Missions",
     "missionsValue": "{missions}+ missions",
-    "discoverMyProjects": "Découvrez mes projets",
-    "discoverMySkills": "Découvrez mes compétences",
-    "title": "Concevez des produits scalables avec <lightGradient>Node.js & React</lightGradient>"
+    "title": "Je construis des produits SaaS de l'architecture jusqu'à la <lightGradient>mise en prod</lightGradient>"
   },
   "Home": {
     "seo": {
@@ -74,6 +98,20 @@
     "heading": "Mes projets",
     "personalLabel": "Projets personnels",
     "personalProjects": [
+      {
+        "challenge": "Centraliser les informations et les outils utiles pour la communauté de danseurs west coast swing, souvent éparpillés entre forums, groupes Facebook et bouche-à-oreille.",
+        "imageLabel": "Plateforme communautaire Westie Babies",
+        "imageSrc": "/img/projects/westie-babies.png",
+        "impact": [
+          "Plateforme d'informations et d'outils dédiée à la communauté west coast swing",
+          "Blog régulièrement mis à jour pour partager actualités et conseils",
+          "Référence communautaire accessible à tous les niveaux de danseurs"
+        ],
+        "role": "Créateur",
+        "solution": "Développement d'un site internet complet accompagné d'un blog, pour regrouper en un seul endroit toutes les ressources utiles à la communauté west coast swing.",
+        "tags": ["Next.js", "Tailwind", "Storybook", "DaisyUI", "NestJS"],
+        "title": "Westie Babies"
+      },
       {
         "challenge": "Présenter clairement mon positionnement freelance React/Node.js.",
         "githubUrl": "https://github.com/adrien-guesnel/portfolio",
@@ -92,7 +130,21 @@
     "professionalLabel": "Travaux professionnels",
     "professionalProjects": [
       {
-        "challenge": "Piloté la création d'une plateforme de réservation de jets privés de A à Z avec React.js, Next.js et NestJS.",
+        "challenge": "Refondre le système d'authentification avec un nouveau framework et améliorer l'interface utilisateur - gestion des équipes, mise en place d'une whitelist et d'une limite de budget sur les clés API.",
+        "imageLabel": "Refonte Auth & API Key Management - Linkup",
+        "imageSrc": "/img/projects/linkup.webp",
+        "impact": [
+          "Livré un système de clés API complet : création, révocation, limites de budget et quotas de consommation",
+          "Renforcé la sécurité globale de la plateforme via une refonte des flux d'authentification",
+          "Contribué à une codebase Python existante pour la création de scripts et fix de bugs"
+        ],
+        "role": "Senior Full-Stack React / NestJS",
+        "solution": "Refonte complète du système d'auth (sessions, rotation de tokens) et conception du système de gestion des clés API (quotas, budgets, teams), avec interfaces React et backend NestJS, plus des contributions Python sur les services existants.",
+        "tags": ["React", "NestJS", "TypeScript", "Python", "Playwright", "React Router"],
+        "title": "Refonte Auth & expérience utilisateur - Linkup"
+      },
+      {
+        "challenge": "Piloter la création d'une plateforme de réservation de jets privés de A à Z avec React.js, Next.js et NestJS.",
         "imageLabel": "Capture d'écran de la page d'accueil du site loop aero",
         "imageSrc": "/img/projects/loop-aero.png",
         "impact": [
@@ -105,6 +157,49 @@
         "solution": "Mis en place un design system, orchestré les intégrations API et l'architecture backend, tout en animant la direction technique avec des synchronisations régulières.",
         "tags": ["React", "Next.js", "Nest.js", "Prisma", "Tailwind"],
         "title": "Création d'une plateforme de réservation de jets privés - Loop Aero"
+      },
+      {
+        "challenge": "Construire le backend complet d'un MVP de réseau social en 3 mois, avec un système de modération opérationnel dès le lancement.",
+        "imageLabel": "MVP Réseau Social - TellDem",
+        "imageSrc": "/img/projects/telldem.png",
+        "impact": [
+          "Backend avec liste des endpoints API REST et documentation Swagger pour intégration",
+          "Backoffice de modération (utilisateurs, signalements, dashboards) opérationnel au lancement",
+          "Couverture de tests intégrée au cycle de dev pour tenir le rythme d'un MVP sans sacrifier la stabilité"
+        ],
+        "role": "Senior Backend NestJS / Node.js",
+        "solution": "Développé l'ensemble des endpoints REST avec NestJS, mis en place les tests automatisés, et livré un backoffice de modération clé en main avec Retool.",
+        "tags": ["NestJS", "Node.js", "TypeScript", "Retool"],
+        "title": "MVP Réseau Social - TellDem"
+      },
+      {
+        "challenge": "Contribuer à la refonte d'une plateforme de bilan de compétences (CPF) tout en réduisant la charge de support en production.",
+        "imageLabel": "Plateforme EdTech - Chance",
+        "imageSrc": "/img/projects/chance.webp",
+        "impact": [
+          "Réduction proactive des problèmes en production grâce aux dashboards Retool",
+          "Amélioration de la vélocité de l'équipe support via les outils et documentations livrés",
+          "Fonctionnalités publiques et internes livrées en collaboration étroite avec le produit"
+        ],
+        "projectUrl": "https://chance.co",
+        "role": "Senior Full-Stack React / NestJS",
+        "solution": "Développement fullstack de nouvelles fonctionnalités, création d'outils internes Retool pour le support, et mise en place de documentations pour l'équipe Customer Success.",
+        "tags": ["React", "NestJS", "TypeScript", "Retool"],
+        "title": "Développement fullstack & outils internes - Chance"
+      },
+      {
+        "challenge": "Maintenir et faire évoluer des microservices critiques à l'échelle du milliard de requêtes par mois dans un environnement international (17+ pays).",
+        "imageLabel": "Plateforme AdTech internationale - Ogury",
+        "imageSrc": "/img/projects/ogury.png",
+        "impact": [
+          "Microservices stables et évolutifs dans un contexte de fort volume",
+          "Qualité garantie par une stratégie de tests unitaires et visuels",
+          "Nouveaux formats publicitaires livrés pour répondre aux besoins annonceurs"
+        ],
+        "role": "Fullstack React / Node.js",
+        "solution": "Développement et maintenance de microservices, création de nouveaux formats publicitaires, monitoring via Datadog / Sentry / Grafana, et mise en place de tests automatisés (Jest, Puppeteer, Storybook).",
+        "tags": ["React", "Node.js", "TypeScript", "Jest", "Datadog"],
+        "title": "Team AdExperience - Formats & visibilité publicitaire - Ogury"
       }
     ]
   },

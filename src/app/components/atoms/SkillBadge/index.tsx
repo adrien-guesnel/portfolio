@@ -11,7 +11,7 @@ export default function SkillBadge({
   return (
     <span
       className={clsx(
-        "rounded-full border border-base-300 bg-base-100/50 px-4 py-2 text-sm font-semibold text-gray",
+        "rounded-full border border-base-content/20 bg-base-200 px-4 py-2 text-sm font-semibold text-base-content",
         className,
       )}
       {...props}

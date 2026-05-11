@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import { LightBulbOn, Rocket, Strategy } from "iconoir-react";
+import { Puzzle, Rocket, Strategy } from "iconoir-react";
 import { useTranslations } from "next-intl";
 
 import PhilosophyCard from "@components/molecules/PhilosophyCard";
 import RichText from "@components/RichText";
 
-const pillarIcons = [Strategy, LightBulbOn, Rocket] as const;
+const pillarIcons = [Strategy, Puzzle, Rocket] as const;
 
 export default function EngineeringPhilosophy({ className }: { className?: string }) {
   const t = useTranslations("EngineeringPhilosophy");

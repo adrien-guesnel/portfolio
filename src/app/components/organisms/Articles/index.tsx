@@ -12,36 +12,12 @@ import { MEDIUM_URL } from "@/src/app/lib/constants";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
 import { Link } from "@/src/i18n/routing";
 
+type ArticleData = Omit<MediumArticleCardProps, "className">;
+
 export default function Articles({ className }: { className?: string }) {
   const t = useTranslations("Articles");
 
-  const articles: MediumArticleCardProps[] = [
-    {
-      title: "How I dump eslint/prettier for biome, and you should do the same!",
-      snippet:
-        "ESLint and Prettier felt like the default, but Biome brought everything into a single, faster toolchain. Here is what the migration looked like.",
-      url: `${MEDIUM_URL}/how-i-dump-eslint-prettier-for-biome-and-you-should-do-the-same-8bcdf05fefff`,
-      readTime: "3 min",
-      tag: t("tags.tooling"),
-    },
-    {
-      title: "Deploy your first app on Kubernetes with OpenTofu",
-      snippet:
-        "It’s always complicated to manually update and deploy changes on Kubernetes infrastructure, let’s simplify that with OpenTofu!",
-      url: `${MEDIUM_URL}/deploy-your-first-app-on-kubernetes-with-opentofu-ae7286dece49`,
-      readTime: "4 min",
-      tag: t("tags.devops"),
-      tagColor: "secondary",
-    },
-    {
-      title: "Personnaliser votre terminal avec Oh My Zsh — Tutorial Mac OS",
-      snippet:
-        "Installer Oh My Zsh pour donner un coup de jeune à votre terminal en noir et blanc.",
-      url: `${MEDIUM_URL}/personnaliser-votre-terminal-avec-oh-my-zsh-tutorial-mac-os-da962449f9c7`,
-      readTime: "2 min",
-      tag: t("tags.tooling"),
-    },
-  ];
+  const articles = t.raw("articles") as ArticleData[];
 
   const articlesSectionId = SECTION_IDS.articles;
 

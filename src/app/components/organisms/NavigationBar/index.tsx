@@ -106,14 +106,14 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
           <div className="join">
             <button
               type="button"
-              className={clsx("btn btn-sm join-item", locale === "en" ? "btn-active" : "")}
+              className={clsx("btn btn-sm join-item", locale === "en" ? "btn-primary" : "")}
               onClick={() => switchLanguage("en")}
             >
               EN
             </button>
             <button
               type="button"
-              className={clsx("btn btn-sm join-item", locale === "fr" ? "btn-active" : "")}
+              className={clsx("btn btn-sm join-item", locale === "fr" ? "btn-primary" : "")}
               onClick={() => switchLanguage("fr")}
             >
               FR

@@ -21,7 +21,7 @@ export default function Hero({ className }: HeroProps) {
   const plausible = usePlausibleEvents();
 
   const homeSectionId = SECTION_IDS.home;
-  const EXPERIENCE_START_YEAR = 2017;
+  const EXPERIENCE_START_YEAR = 2016;
   const MIN_MISSIONS_DONE = 5;
 
   const yearsOfExperience = Math.max(1, new Date().getFullYear() - EXPERIENCE_START_YEAR);
