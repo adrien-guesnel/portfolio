@@ -6,11 +6,11 @@ on:
       - main
 
 concurrency:
-  group: staging-${{ github.sha }}
+  group: staging-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  docker-push:
+  build-docker-staging-image:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -34,3 +34,21 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:staging
+
+  rollout-staging:
+    runs-on: ubuntu-latest
+    needs: build-docker-staging-image
+    timeout-minutes: 5
+
+    steps:
+      - name: 🔧 Install kubectl
+        uses: azure/setup-kubectl@v4
+
+      - name: 🔑 Set Kubernetes context
+        uses: azure/k8s-set-context@v4
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBECONFIG_STAGING }}
+
+      - name: 🚀 Rollout frontend on staging
+        run: kubectl rollout restart deployment/portfolio -n staging-portfolio
