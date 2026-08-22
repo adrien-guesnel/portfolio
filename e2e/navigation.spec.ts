@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 test.describe("Navigation Menu", () => {
   test("should have working menu links", async ({ page }) => {
