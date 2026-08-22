@@ -1,6 +1,9 @@
-# Plausible Tracking
+---
+name: plausible-tracking
+description: Track a new analytics event with Plausible on this portfolio. Use when adding, renaming, or debugging a Plausible event, wiring `usePlausibleEvents()` into a component, or looking up which events the site already fires.
+---
 
-Use this skill when asked how to track a new event with Plausible on this portfolio.
+# Plausible Tracking
 
 ## Setup
 
