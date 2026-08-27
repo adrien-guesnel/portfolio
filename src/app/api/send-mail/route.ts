@@ -1,39 +1,86 @@
 import { type NextRequest, NextResponse } from "next/server";
 import Mailjet from "node-mailjet";
 
+const MAX_NAME_LENGTH = 100;
+const MAX_EMAIL_LENGTH = 254;
+const MAX_COMPANY_LENGTH = 100;
+const MAX_MESSAGE_LENGTH = 5000;
+const MAX_TOKEN_LENGTH = 4096;
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const RECAPTCHA_TOKEN_PATTERN = /^[A-Za-z0-9._~+/=-]+$/;
+
+const DELETE_CHAR_CODE = 0x7f;
+const LAST_CONTROL_CHAR_CODE = 0x1f;
+
+function stripControlChars(value: string, keepNewlines: boolean) {
+  let result = "";
+
+  for (const char of value) {
+    const code = char.codePointAt(0) ?? 0;
+    const isControl = code <= LAST_CONTROL_CHAR_CODE || code === DELETE_CHAR_CODE;
+
+    if (!isControl || (keepNewlines && char === "\n")) {
+      result += char;
+    }
+  }
+
+  return result;
+}
+
+function sanitizeText(value: unknown, maxLength: number, keepNewlines = false) {
+  if (typeof value !== "string" || value.length > maxLength) {
+    return null;
+  }
+
+  const normalized = keepNewlines ? value.replace(/\r\n?/g, "\n") : value;
+
+  return stripControlChars(normalized, keepNewlines).trim();
+}
+
+function parsePayload(body: unknown) {
+  if (typeof body !== "object" || body === null) {
+    return null;
+  }
+
+  const raw = body as Record<string, unknown>;
+
+  const name = sanitizeText(raw.name, MAX_NAME_LENGTH);
+  const email = sanitizeText(raw.email, MAX_EMAIL_LENGTH);
+  const message = sanitizeText(raw.message, MAX_MESSAGE_LENGTH, true);
+  const companyName = sanitizeText(raw.companyName, MAX_COMPANY_LENGTH) ?? "";
+  const token = sanitizeText(raw["g-recaptcha-response"], MAX_TOKEN_LENGTH);
+
+  if (!name || !email || !message || !token) {
+    return null;
+  }
+
+  if (!EMAIL_PATTERN.test(email) || !RECAPTCHA_TOKEN_PATTERN.test(token)) {
+    return null;
+  }
+
+  return { name, email, message, companyName, token };
+}
+
 export async function POST(req: NextRequest) {
+  const mjApiKeyPublic = process.env.MJ_APIKEY_PUBLIC;
+  const mjApiKeyPrivate = process.env.MJ_APIKEY_PRIVATE;
+  const googleRecaptchaSecret = process.env.GOOGLE_RECAPTCHA_SECRET;
+  const contactEmail = process.env.CONTACT_EMAIL;
+
   try {
-    const formData = await req.json();
-
-    const { name, email, message, companyName } = formData;
-    const token = formData[`g-recaptcha-response`];
-
-    console.info("Received a new message:");
-    console.info("Name:", name);
-    console.info("Email:", email);
-    console.info("Company Name:", companyName);
-    console.info("Message:", message);
-    console.info("Token:", token);
-
-    const mjApiKeyPublic = process.env.MJ_APIKEY_PUBLIC;
-    const mjApiKeyPrivate = process.env.MJ_APIKEY_PRIVATE;
-    const googleRecaptchaSecret = process.env.GOOGLE_RECAPTCHA_SECRET;
-
-    const contactEmail = process.env.CONTACT_EMAIL;
-
-    if (!mjApiKeyPublic || !mjApiKeyPrivate || !googleRecaptchaSecret) {
-      throw new Error("API keys are missing");
+    if (!mjApiKeyPublic || !mjApiKeyPrivate || !googleRecaptchaSecret || !contactEmail) {
+      throw new Error("Missing mail configuration");
     }
 
-    if (!contactEmail) {
-      throw new Error("Missing contact email");
+    const payload = parsePayload(await req.json());
+
+    if (!payload) {
+      return NextResponse.json({ error: "Invalid form submission" }, { status: 400 });
     }
 
-    if (!name || !email || !message || !token) {
-      throw new Error("Missing required fields");
-    }
+    const { name, email, message, companyName, token } = payload;
 
-    // Verify Google reCAPTCHA token
     const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
       method: "POST",
       headers: {
@@ -48,12 +95,12 @@ export async function POST(req: NextRequest) {
     const data = await response.json();
 
     if (!data.success) {
-      throw new Error("Invalid reCAPTCHA token");
+      return NextResponse.json({ error: "Invalid reCAPTCHA token" }, { status: 400 });
     }
 
     const mailjet = Mailjet.apiConnect(mjApiKeyPublic, mjApiKeyPrivate);
 
-    void mailjet.post("send", { version: "v3.1" }).request({
+    await mailjet.post("send", { version: "v3.1" }).request({
       Messages: [
         {
           From: {
