@@ -95,9 +95,6 @@ not come back clean. Notes from past passes:
 - **TypeScript 7** needs `tsconfig.json` edits: `target: es5` is removed (use `ES2017`),
   `baseUrl` is removed (make every `paths` entry relative — `"./src/app/components/*"`).
   Next 16 and Storybook 10 both build fine with it.
-- **`lottie-react`** is listed in `package.json` and in `CLAUDE.md`'s tech stack but is
-  **imported nowhere**. Upgrading it is risk-free for that reason; mention the dead dependency
-  in the report rather than removing it unasked.
 
 ## 5. Verify — all of it
 

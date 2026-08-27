@@ -18,12 +18,11 @@ pnpm i18n-check   # validate i18n message keys
 ## Tech stack
 
 - **Framework**: Next.js 16 (App Router)
-- **Language**: TypeScript 5 (strict mode)
+- **Language**: TypeScript 7 (strict mode)
 - **Styling**: Tailwind CSS 4 + DaisyUI 5
 - **i18n**: next-intl (default locale: `fr`, also `en`)
 - **Linter/Formatter**: Biome (replaces ESLint + Prettier)
 - **Icons**: iconoir-react
-- **Animations**: lottie-react
 - **Email**: node-mailjet
 - **Notifications**: sonner
 - **Visual testing**: Storybook

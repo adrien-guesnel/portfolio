@@ -27,9 +27,6 @@ importers:
       iconoir-react:
         specifier: ^7.12.1
         version: 7.12.1(react@19.2.8)
-      lottie-react:
-        specifier: ^3.1.0
-        version: 3.1.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       next:
         specifier: ^16.3.2
         version: 16.3.2(@babel/core@7.29.7)(@playwright/test@1.62.1)(@types/node@24.13.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -3442,15 +3439,6 @@ packages:
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
-
-  lottie-react@3.1.0:
-    resolution: {integrity: sha512-1iEQnS0UlCIHk5ogctWOPmGagxnxGv+XmIDLlztHS8Eohcmm8Jw/vNKMYMo/CkKtKdeUotyjGyd4ue+wZ5rZqg==}
-    peerDependencies:
-      react: ^18.2.0 || ^19.0.0
-      react-dom: ^18.2.0 || ^19.0.0
-
-  lottie-web@5.13.0:
-    resolution: {integrity: sha512-+gfBXl6sxXMPe8tKQm7qzLnUy5DUPJPKIyRHwtpCpyUEYjHYRJC/5gjUvdkuO2c3JllrPtHXH5UJJK8LRYl5yQ==}
 
   loud-rejection@2.2.0:
     resolution: {integrity: sha512-S0FayMXku80toa5sZ6Ro4C+s+EtFDCsyJNG/AzFMfX3AxD5Si4dZsgzm/kKnbOxHl5Cv8jBlno8+3XYIh2pNjQ==}
@@ -7841,14 +7829,6 @@ snapshots:
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
-
-  lottie-react@3.1.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
-    dependencies:
-      lottie-web: 5.13.0
-      react: 19.2.8
-      react-dom: 19.2.8(react@19.2.8)
-
-  lottie-web@5.13.0: {}
 
   loud-rejection@2.2.0:
     dependencies:
