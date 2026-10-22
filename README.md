@@ -29,7 +29,7 @@ The site is a localized (English + French) Next.js application with a lightweigh
 ### Prerequisites
 
 - Node >= 24 (matches the `.nvmrc`/workflow tooling)
-- `pnpm` >= 10 (required by the `engines` field)
+- `pnpm` >= 12 (required by the `engines` field)
 
 ### Install dependencies
 
