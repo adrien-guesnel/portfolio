@@ -2,17 +2,20 @@ FROM node:26-alpine AS base
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 
-FROM base AS deps
+FROM base AS pnpm
+# Node >= 25 no longer bundles corepack.
+RUN npm install -g corepack@0.36.0 \
+    && corepack enable pnpm
+
+FROM pnpm AS deps
 RUN apk add --no-cache libc6-compat
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-RUN corepack enable pnpm \
-    && pnpm i --frozen-lockfile
+RUN pnpm i --frozen-lockfile
 
-FROM base AS builder
+FROM pnpm AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN corepack enable pnpm \
-    && pnpm run build
+RUN pnpm run build
 
 FROM base AS runner
 ENV NODE_ENV="production"
