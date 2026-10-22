@@ -10,13 +10,14 @@ Ship a single commit that bumps versions, closes audit findings, and keeps CI gr
 
 ## 0. Rules that are easy to get wrong
 
-- **pnpm only** (`>= 10`). Never npm or yarn.
+- **pnpm only** (`>= 12`). Never npm or yarn.
 - `pnpm-workspace.yaml` sets `minimumReleaseAge: 5760` (4 days). Packages published more
   recently are invisible to the resolver. **Always take target versions from
   `pnpm outdated`**, never from `pnpm view <pkg> version` — the latter reports releases the
   resolver will refuse, and `pnpm install` will silently keep the old version.
   Seeing `+ daisyui 5.7.18 (5.7.20 is available)` in the install output is expected.
-- `.npmrc` has `save-exact=true`, but `package.json` is maintained with **caret ranges**.
+- `pnpm-workspace.yaml` has `saveExact: true`, but `package.json` is maintained with
+  **caret ranges**.
   Edit `package.json` by hand (or with a script) instead of `pnpm add`/`pnpm update --latest`,
   which would rewrite every range to an exact version.
 - Keep the two deliberate pins:
@@ -51,19 +52,17 @@ Majors get their own evaluation in step 4 — one at a time.
 pnpm audit
 ```
 
-Anything left is a **transitive** dependency. Pin it through `pnpm.overrides` in `package.json`,
-using a major-scoped selector so the override cannot silently jump a major:
+Anything left is a **transitive** dependency. Pin it through `overrides` in
+`pnpm-workspace.yaml` (pnpm >= 11 silently ignores `pnpm.overrides` in `package.json`), using a
+major-scoped selector so the override cannot silently jump a major:
 
-```json
-"pnpm": {
-  "overrides": {
-    "brace-expansion@1": "^1.1.18",
-    "brace-expansion@>=4": "^5.0.9",
-    "fast-uri@3": "^3.1.5",
-    "js-yaml@4": "^4.3.1",
-    "svgo@3": "^3.3.4"
-  }
-}
+```yaml
+overrides:
+  brace-expansion@1: ^1.1.18
+  brace-expansion@>=4: ^5.0.9
+  fast-uri@3: ^3.1.5
+  js-yaml@4: ^4.3.1
+  svgo@3: ^3.3.4
 ```
 
 Pick the lowest patched version inside the installed major — check what exists with
@@ -74,7 +73,7 @@ pnpm install
 grep -nE "^  (brace-expansion|js-yaml|fast-uri|svgo)@" pnpm-lock.yaml
 ```
 
-An advisory whose `patched_versions` is `<0.0.0` has **no upstream fix** — no override can
+An advisory whose `patched_versions` is `null` (`<0.0.0` before pnpm 11) has **no upstream fix** — no override can
 resolve it. Check whether the path is dev-only (it is never shipped by `next build`) and say so
 in the report rather than leaving it unexplained. Currently unfixable and dev-only:
 

@@ -2,7 +2,9 @@
 
 ## Package manager
 
-Always use **pnpm** (>= 10). Never use npm or yarn.
+Always use **pnpm** (>= 12). Never use npm or yarn. pnpm settings (overrides, `allowBuilds`,
+`saveExact`, `minimumReleaseAge`) live in `pnpm-workspace.yaml`: pnpm >= 11 ignores the `pnpm`
+field of `package.json` and every non-auth setting in `.npmrc`.
 
 ```bash
 pnpm install
