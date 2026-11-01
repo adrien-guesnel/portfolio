@@ -119,6 +119,10 @@
     --menu: 0 16px 40px rgb(0 0 0 / 0.55);
   }
 
+  :root {
+    --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
   html {
     scroll-padding-top: 16px;
   }
@@ -140,6 +144,54 @@
 
   main:focus {
     outline: none;
+  }
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+/* Unlayered so the reveal wins over the transition and translate utilities of the cards. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  [data-reveal-pending] {
+    opacity: 0;
+    translate: 0 18px;
+  }
+
+  [data-reveal-pending]:focus-within {
+    opacity: 1;
+    translate: none;
+  }
+
+  [data-reveal-active] {
+    transition:
+      opacity 700ms var(--ease-out-soft) var(--reveal-delay, 0ms),
+      translate 700ms var(--ease-out-soft) var(--reveal-delay, 0ms);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+}
+
+@keyframes settle-in {
+  from {
+    opacity: 0;
+    scale: 1.03;
+  }
+}
+
+@keyframes halo {
+  from {
+    box-shadow: 0 0 0 0 var(--ok-dot);
+  }
+  to {
+    box-shadow: 0 0 0 6px transparent;
   }
 }
 
@@ -196,6 +248,49 @@
   font-size: 13px;
   letter-spacing: 0.04em;
   color: var(--muted);
+}
+
+@utility rise-children {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    & > * {
+      --rise-step: 0;
+      animation: rise 800ms var(--ease-out-soft) both;
+      animation-delay: calc(var(--rise-start, 0ms) + var(--rise-step) * 70ms);
+    }
+    & > :nth-child(2) {
+      --rise-step: 1;
+    }
+    & > :nth-child(3) {
+      --rise-step: 2;
+    }
+    & > :nth-child(4) {
+      --rise-step: 3;
+    }
+    & > :nth-child(5) {
+      --rise-step: 4;
+    }
+    & > :nth-child(n + 6) {
+      --rise-step: 5;
+    }
+  }
+}
+
+@utility rise {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    animation: rise 800ms var(--ease-out-soft) var(--rise-start, 0ms) both;
+  }
+}
+
+@utility settle-in {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    animation: settle-in 1200ms var(--ease-out-soft) var(--rise-start, 0ms) both;
+  }
+}
+
+@utility halo {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    animation: halo 1600ms ease-out 900ms 3;
+  }
 }
 
 @utility theme-only-light {

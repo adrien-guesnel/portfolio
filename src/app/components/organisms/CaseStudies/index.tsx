@@ -14,6 +14,7 @@ import LoopAeroScreenshot from "@public/img/projects/loop-aero.png";
 import TellDemScreenshot from "@public/img/projects/telldem.png";
 import { usePlausibleEvents } from "@/src/app/lib/plausible";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
+import { useReveal } from "@/src/app/lib/useReveal";
 
 interface CaseMeta {
   company: string;
@@ -57,9 +58,11 @@ export default function CaseStudies() {
   const plausible = usePlausibleEvents();
   const featured = t.raw("featured") as FeaturedCase;
   const cards = t.raw("cards") as CaseCard[];
+  const sectionRef = useReveal<HTMLElement>();
 
   return (
     <section
+      ref={sectionRef}
       id={SECTION_IDS.caseStudies}
       aria-labelledby="case-studies-title"
       className="page-wrap section-y"
@@ -71,7 +74,10 @@ export default function CaseStudies() {
         aside={<p className="m-0 max-w-105 text-[17px] text-fg-2">{t("description")}</p>}
       />
 
-      <article className="mb-4 grid overflow-hidden rounded-3xl border border-line bg-surface desk:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)]">
+      <article
+        data-reveal
+        className="mb-4 grid overflow-hidden rounded-3xl border border-line bg-surface desk:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)]"
+      >
         <div className="relative aspect-video bg-media desk:aspect-auto desk:min-h-95">
           <Image
             src={LoopAeroScreenshot}
@@ -122,6 +128,7 @@ export default function CaseStudies() {
           const media = CARD_MEDIA[card.key];
           return (
             <article
+              data-reveal
               key={card.key}
               className="flex min-w-0 flex-col overflow-hidden rounded-[20px] border border-line bg-surface"
             >

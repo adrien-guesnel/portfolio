@@ -1,15 +1,20 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 
 import SectionHeading from "@components/molecules/SectionHeading";
 import TestimonialCard, { type TestimonialCardProps } from "@components/molecules/TestimonialCard";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
+import { useReveal } from "@/src/app/lib/useReveal";
 
 export default function Testimonials() {
   const t = useTranslations("Testimonials");
   const testimonials = t.raw("cards") as TestimonialCardProps[];
+  const sectionRef = useReveal<HTMLElement>();
 
   return (
     <section
+      ref={sectionRef}
       id={SECTION_IDS.testimonials}
       aria-labelledby="testimonials-title"
       className="border-y border-line-soft bg-band"

@@ -148,7 +148,7 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
             <li key={key}>
               <a
                 href={href}
-                className="inline-flex min-h-11 items-center rounded-lg px-3 text-fg hover:bg-hover"
+                className="inline-flex min-h-11 items-center rounded-lg px-3 text-fg transition-[color,background-color,border-color] duration-200 hover:bg-hover"
               >
                 {t(key)}
               </a>
@@ -164,7 +164,7 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
             aria-label={t("darkTheme")}
             aria-pressed={theme === "dark"}
             onClick={toggleTheme}
-            className="inline-flex size-11 cursor-pointer items-center justify-center rounded-[10px] border border-line text-fg hover:bg-hover"
+            className="inline-flex size-11 cursor-pointer items-center justify-center rounded-[10px] border border-line text-fg transition-[color,background-color,border-color] duration-200 hover:bg-hover"
           >
             {theme === "dark" ? (
               <SunLight className="size-5" aria-hidden />
@@ -202,7 +202,7 @@ export default function NavigationBar({ className, locale }: NavigationBarProps)
                   key={key}
                   href={href}
                   onClick={closeMenu}
-                  className="flex min-h-12 items-center rounded-[10px] px-3.5 font-medium text-fg hover:bg-hover"
+                  className="flex min-h-12 items-center rounded-[10px] px-3.5 font-medium text-fg transition-[color,background-color,border-color] duration-200 hover:bg-hover"
                 >
                   {t(key)}
                 </a>

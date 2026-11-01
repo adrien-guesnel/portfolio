@@ -1,9 +1,12 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 
 import { ChipList } from "@components/atoms/Chip";
 import Period from "@components/atoms/Period";
 import SectionHeading from "@components/molecules/SectionHeading";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
+import { useReveal } from "@/src/app/lib/useReveal";
 
 interface Mission {
   period: string;
@@ -31,9 +34,11 @@ export default function Experience() {
   const jobs = t.raw("jobs") as Job[];
   const education = t.raw("education") as Degree[];
   const domains = t.raw("domains") as string[];
+  const sectionRef = useReveal<HTMLElement>();
 
   return (
     <section
+      ref={sectionRef}
       id={SECTION_IDS.experience}
       aria-labelledby="experience-title"
       className="border-y border-line-soft bg-band"
@@ -43,7 +48,11 @@ export default function Experience() {
 
         <div className="grid items-start gap-8 desk:grid-cols-[minmax(0,1.8fr)_minmax(0,1fr)]">
           <div className="flex min-w-0 flex-col gap-4">
-            <article aria-labelledby="freelance-title" className={`${PANEL} overflow-hidden`}>
+            <article
+              data-reveal
+              aria-labelledby="freelance-title"
+              className={`${PANEL} overflow-hidden`}
+            >
               <div className={`${ROW} border-b border-line-soft py-5 sm:py-6`}>
                 <Period
                   value={t("freelance.period")}
@@ -75,7 +84,7 @@ export default function Experience() {
               </ol>
             </article>
 
-            <ol className={`${PANEL} m-0 list-none overflow-hidden p-0`}>
+            <ol data-reveal className={`${PANEL} m-0 list-none overflow-hidden p-0`}>
               {jobs.map((job) => (
                 <li
                   key={job.period}
@@ -92,7 +101,7 @@ export default function Experience() {
           </div>
 
           <aside aria-label={t("asideLabel")} className="flex min-w-0 flex-col gap-4">
-            <div className={`${PANEL} flex flex-col gap-4 p-[clamp(22px,2.4vw,28px)]`}>
+            <div data-reveal className={`${PANEL} flex flex-col gap-4 p-[clamp(22px,2.4vw,28px)]`}>
               <h3 className="kicker m-0 font-normal">{t("educationTitle")}</h3>
               {education.map((item) => (
                 <div key={item.degree} className="flex flex-col gap-0.5">
@@ -101,11 +110,17 @@ export default function Experience() {
                 </div>
               ))}
             </div>
-            <div className={`${PANEL} flex flex-col gap-3.5 p-[clamp(22px,2.4vw,28px)]`}>
+            <div
+              data-reveal
+              className={`${PANEL} flex flex-col gap-3.5 p-[clamp(22px,2.4vw,28px)]`}
+            >
               <h3 className="kicker m-0 font-normal">{t("domainsTitle")}</h3>
               <ChipList items={domains} />
             </div>
-            <div className={`${PANEL} flex flex-col gap-1.5 p-[clamp(22px,2.4vw,28px)]`}>
+            <div
+              data-reveal
+              className={`${PANEL} flex flex-col gap-1.5 p-[clamp(22px,2.4vw,28px)]`}
+            >
               <h3 className="kicker m-0 font-normal">{t("languagesTitle")}</h3>
               <span className="text-[15px]">{t("languages")}</span>
             </div>

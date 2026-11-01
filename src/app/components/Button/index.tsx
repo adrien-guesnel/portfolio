@@ -12,7 +12,7 @@ export function buttonClass({
   size?: ButtonSize;
 } = {}) {
   return clsx(
-    "inline-flex items-center justify-center gap-2.5 text-center font-semibold",
+    "group inline-flex items-center justify-center gap-2.5 text-center font-semibold transition-[color,background-color,border-color] duration-200",
     size === "md" && "min-h-13 rounded-xl px-5.5 text-base",
     size === "sm" && "min-h-11 whitespace-nowrap rounded-[10px] px-4.5 text-[15px]",
     variant === "primary" && "bg-primary text-primary-content hover:text-primary-content",
