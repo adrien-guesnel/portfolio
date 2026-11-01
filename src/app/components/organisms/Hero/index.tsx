@@ -35,10 +35,10 @@ export default function Hero({ className }: { className?: string }) {
         aria-labelledby="hero-title"
         className="page-wrap grid items-center gap-[clamp(40px,5vw,64px)] pt-[clamp(40px,6vw,64px)] pb-[clamp(48px,6vw,64px)] desk:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]"
       >
-        <div className="flex min-w-0 flex-col gap-7">
+        <div className="rise-children flex min-w-0 flex-col gap-7">
           <div className="flex flex-wrap items-center gap-x-3.5 gap-y-2.5">
             <span className="inline-flex min-h-8 items-center gap-2 rounded-full bg-ok-bg px-3 font-mono text-[13px] text-ok-fg">
-              <span aria-hidden className="size-2 shrink-0 rounded-full bg-ok-dot" />
+              <span aria-hidden className="halo size-2 shrink-0 rounded-full bg-ok-dot" />
               {t("available")}
             </span>
             <span className="font-mono text-[13px] text-muted">{t("location")}</span>
@@ -66,7 +66,10 @@ export default function Hero({ className }: { className?: string }) {
               }
             >
               {t("ctaPrimary")}
-              <ArrowRight className="size-4.5" aria-hidden />
+              <ArrowRight
+                className="size-4.5 transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-0.5"
+                aria-hidden
+              />
             </a>
             <a
               href={SECTION_ROUTES.caseStudies}
@@ -110,16 +113,16 @@ export default function Hero({ className }: { className?: string }) {
         </div>
 
         <div className="flex w-full flex-col sm:max-w-110 desk:max-w-none">
-          <div className="relative aspect-[4/4.7] overflow-hidden rounded-3xl bg-media">
+          <div className="rise relative aspect-[4/4.7] overflow-hidden rounded-3xl bg-media [--rise-start:120ms]">
             <Portrait
               alt={t("photoAlt")}
               fill
               fetchPriority="high"
               sizes="(min-width: 1081px) 480px, (min-width: 641px) 440px, 100vw"
-              className="object-cover object-[50%_15%]"
+              className="settle-in object-cover object-[50%_15%] [--rise-start:120ms]"
             />
           </div>
-          <dl className="relative mx-3 -mt-12 grid grid-cols-[72px_minmax(0,1fr)] gap-x-3 gap-y-2 rounded-[14px] border border-line bg-surface px-4 py-3.5 font-mono text-[13px] shadow-float sm:mx-5 sm:-mt-15 sm:grid-cols-[88px_minmax(0,1fr)] sm:px-4.5 sm:py-4">
+          <dl className="rise relative mx-3 -mt-12 grid grid-cols-[72px_minmax(0,1fr)] gap-x-3 gap-y-2 rounded-[14px] border border-line bg-surface px-4 py-3.5 font-mono text-[13px] shadow-float [--rise-start:420ms] sm:mx-5 sm:-mt-15 sm:grid-cols-[88px_minmax(0,1fr)] sm:px-4.5 sm:py-4">
             {card.map((row) => (
               <div key={row.label} className="contents">
                 <dt className="text-muted">{row.label}</dt>
@@ -132,7 +135,7 @@ export default function Hero({ className }: { className?: string }) {
 
       <section
         aria-labelledby="clients-title"
-        className="page-wrap flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-line-soft py-8"
+        className="rise page-wrap flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-line-soft py-8 [--rise-start:480ms]"
       >
         <h2 id="clients-title" className="kicker m-0 font-normal">
           {t("clientsTitle")}

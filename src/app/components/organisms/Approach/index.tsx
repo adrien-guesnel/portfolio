@@ -1,8 +1,11 @@
+"use client";
+
 import { Cube, Group, ShieldCheck, TaskList } from "iconoir-react";
 import { useTranslations } from "next-intl";
 
 import SectionHeading from "@components/molecules/SectionHeading";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
+import { useReveal } from "@/src/app/lib/useReveal";
 
 interface ApproachCard {
   title: string;
@@ -16,9 +19,11 @@ const ICONS = [Cube, TaskList, Group, ShieldCheck];
 export default function Approach() {
   const t = useTranslations("Approach");
   const cards = t.raw("cards") as ApproachCard[];
+  const sectionRef = useReveal<HTMLElement>();
 
   return (
     <section
+      ref={sectionRef}
       id={SECTION_IDS.approach}
       aria-labelledby="approach-title"
       className="border-y border-line-soft bg-band"
@@ -30,6 +35,7 @@ export default function Approach() {
             const Icon = ICONS[index % ICONS.length];
             return (
               <article
+                data-reveal
                 key={card.title}
                 className="flex min-w-0 flex-col gap-4 rounded-[18px] border border-line bg-surface p-[clamp(22px,2.4vw,28px)]"
               >

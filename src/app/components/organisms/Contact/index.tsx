@@ -12,6 +12,7 @@ import Textarea from "@/src/app/components/Textarea";
 import { BOOKING_DISCOVERY_CALL_URL } from "@/src/app/lib/constants";
 import { usePlausibleEvents } from "@/src/app/lib/plausible";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
+import { useReveal } from "@/src/app/lib/useReveal";
 
 type FieldName = "name" | "email" | "message";
 type FieldErrors = Partial<Record<FieldName, string>>;
@@ -44,6 +45,7 @@ export default function Contact() {
   const recaptcha = useRef<ReCAPTCHA>(null);
   const statusRef = useRef<HTMLParagraphElement>(null);
   const siteKey = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE;
+  const sectionRef = useReveal<HTMLElement>();
 
   useEffect(() => {
     setRecaptchaTheme(readTheme());
@@ -126,12 +128,13 @@ export default function Contact() {
 
   return (
     <section
+      ref={sectionRef}
       id={SECTION_IDS.contact}
       aria-labelledby="contact-title"
       className="page-wrap pb-[clamp(56px,9vw,96px)]"
     >
       <div className="grid gap-[clamp(32px,4vw,48px)] rounded-[20px] border border-line bg-band p-[clamp(22px,5vw,56px)] sm:rounded-[28px] desk:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
-        <div className="flex min-w-0 flex-col gap-6">
+        <div data-reveal className="flex min-w-0 flex-col gap-6">
           <div className="flex items-center gap-3.5">
             <span className="relative block size-14 shrink-0 overflow-hidden rounded-full border-2 border-surface">
               <Portrait alt="" fill sizes="56px" className="object-cover object-[48%_22%]" />
@@ -160,12 +163,18 @@ export default function Contact() {
               }
             >
               {t("cta")}
-              <ArrowRight className="size-4.5" aria-hidden />
+              <ArrowRight
+                className="size-4.5 transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-0.5"
+                aria-hidden
+              />
             </a>
           </div>
         </div>
 
-        <div className="flex min-w-0 flex-col gap-4.5 rounded-[20px] border border-line bg-surface p-[clamp(20px,3vw,28px)]">
+        <div
+          data-reveal
+          className="flex min-w-0 flex-col gap-4.5 rounded-[20px] border border-line bg-surface p-[clamp(20px,3vw,28px)]"
+        >
           {emailSent ? null : (
             <form
               aria-labelledby="contact-form-title"

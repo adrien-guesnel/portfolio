@@ -21,11 +21,12 @@ export function MediumArticleCard({
 }: MediumArticleCardProps) {
   return (
     <a
+      data-reveal
       href={url}
       target="_blank"
       rel="noreferrer"
       className={clsx(
-        "flex h-full min-w-0 flex-col gap-4 rounded-[18px] border border-line bg-surface p-[clamp(22px,2.4vw,28px)] text-fg hover:border-line-strong",
+        "group flex h-full min-w-0 flex-col gap-4 rounded-[18px] border border-line bg-surface p-[clamp(22px,2.4vw,28px)] text-fg transition-[border-color,translate] duration-300 ease-out hover:border-line-strong motion-safe:hover:-translate-y-0.5",
         className,
       )}
     >
@@ -34,7 +35,10 @@ export function MediumArticleCard({
       </span>
       <span className="text-lg font-semibold leading-snug">{title}</span>
       <span aria-hidden className="mt-auto text-link">
-        {readLabel} ↗
+        {readLabel}{" "}
+        <span className="inline-block transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5">
+          ↗
+        </span>
       </span>
       <NewTabHint />
     </a>

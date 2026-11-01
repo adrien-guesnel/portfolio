@@ -29,7 +29,14 @@ export const Small: Story = {
 };
 
 export const WithIcon: Story = {
-  args: { icon: <ArrowRight className="size-4.5" aria-hidden /> },
+  args: {
+    icon: (
+      <ArrowRight
+        className="size-4.5 transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-0.5"
+        aria-hidden
+      />
+    ),
+  },
 };
 
 export const Loading: Story = {

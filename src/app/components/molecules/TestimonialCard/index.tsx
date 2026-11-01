@@ -16,7 +16,10 @@ export default function TestimonialCard({
   company,
 }: TestimonialCardProps) {
   return (
-    <figure className="m-0 flex min-w-0 flex-col gap-6 rounded-[20px] border border-line bg-surface p-[clamp(24px,3vw,36px)]">
+    <figure
+      data-reveal
+      className="m-0 flex min-w-0 flex-col gap-6 rounded-[20px] border border-line bg-surface p-[clamp(24px,3vw,36px)]"
+    >
       <Quote className="size-8 text-link" aria-hidden />
       <blockquote className="m-0 text-[17px] leading-relaxed tracking-[-0.005em] text-fg">
         {quote}

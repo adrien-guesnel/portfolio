@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 
 import NewTabHint from "@components/atoms/NewTabHint";
@@ -8,15 +10,18 @@ import {
 import SectionHeading from "@components/molecules/SectionHeading";
 import { MEDIUM_URL } from "@/src/app/lib/constants";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
+import { useReveal } from "@/src/app/lib/useReveal";
 
 type ArticleData = Omit<MediumArticleCardProps, "className" | "readLabel">;
 
 export default function Articles() {
   const t = useTranslations("Articles");
   const articles = t.raw("articles") as ArticleData[];
+  const sectionRef = useReveal<HTMLElement>();
 
   return (
     <section
+      ref={sectionRef}
       id={SECTION_IDS.articles}
       aria-labelledby="articles-title"
       className="page-wrap section-y"

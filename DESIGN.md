@@ -92,7 +92,18 @@ The dark theme is a palette of its own, not an inversion: `link` is lighter than
 
 - Focus: `outline: 2px solid link; outline-offset: 3px` on every interactive element (`:focus-visible`). Fields also switch their border to `link`.
 - Hover: nav links and icon buttons get a `band`-like hover fill (`#F3F4F6` / `#1A2230`); links switch to `link`.
-- No animation. If one is added, respect `prefers-reduced-motion`.
+- Hover transitions: colors 200ms; the arrow of a button nudges 2px right; article cards lift 2px and their `↗` moves up and right.
+
+### Motion
+
+Light and short, only on first display. All of it sits behind `prefers-reduced-motion: no-preference` (and `screen`, so print shows everything); with reduced motion the page is static.
+
+- Easing `--ease-out-soft` (`cubic-bezier(0.22, 1, 0.36, 1)`).
+- Hero on load: `rise-children` fades the text column in from 14px below, one child every 70ms; the portrait frame rises at 120ms while the photo settles from a 1.03 scale (`settle-in`); the role card rises at 420ms and the clients line at 480ms.
+- Availability dot: a green halo pulses 3 times (under 5s, WCAG 2.2.2), then stops.
+- Sections on scroll: elements marked `data-reveal` (kicker, `h2`, heading aside, cards, panels, expertise rows) fade in from 18px below over 700ms, 80ms apart within a batch (capped at 400ms). The section wires them with `useReveal()` (`src/app/lib/useReveal.ts`). Only elements still below the fold after hydration are hidden, so the server HTML, a visit without JavaScript and a section already on screen render visible.
+- Anchor links scroll smoothly.
+- Never animate layout properties, never loop, never delay content by more than ~0.5s.
 
 ### Imagery
 
