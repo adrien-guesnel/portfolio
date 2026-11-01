@@ -7,7 +7,9 @@
   },
   "footer": {
     "copyright": "© {currentYear} Adrien Guesnel · Tech Lead freelance",
-    "social": "Réseaux"
+    "social": "Réseaux",
+    "release": "v{version}",
+    "build": "{channel} · build du {date} UTC"
   },
   "navigationBar": {
     "approach": "Approche",
