@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import Contact from "./index";
 
 const meta = {
-  title: "Components/Contact",
+  title: "organisms/Contact",
   component: Contact,
   parameters: {
     layout: "fullscreen",

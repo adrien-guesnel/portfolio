@@ -2,8 +2,8 @@
 
 import { useTranslations } from "next-intl";
 
-import Logo from "@components/Logo";
-import { GITHUB_URL, HIRE_ME_URL, LIKEDIN_URL } from "@/src/app/lib/constants";
+import NewTabHint from "@components/atoms/NewTabHint";
+import { SOCIAL_LINKS } from "@/src/app/lib/constants";
 import { usePlausibleEvents } from "@/src/app/lib/plausible";
 
 export default function Footer() {
@@ -13,42 +13,27 @@ export default function Footer() {
   const currentYear = new Date().getFullYear().toString();
 
   return (
-    <footer className="flex flex-col items-center justify-between bg-white p-12  lg:flex-row lg:gap-0 dark:bg-[#0E172A] border-t dark:border-[#1A2539] border-[#DFE5EE] ">
-      <div className="flex flex-col lg:flex-row items-center">
-        <div className="flex items-center gap-2">
-          <Logo className="h-5" />
-          <span className="text-base font-semibold text-base-content">Adrien Guesnel</span>
-        </div>
-        <p className="text-center lg:text-left text-xs text-[#93A1B7] mt-4 lg:mt-0 ml-0 lg:ml-6">
-          {t("copyright", { currentYear })}
-        </p>
-      </div>
-
-      <div className="flex flex-row text-[#93A1B7] gap-5 mt-6 lg:mt-0">
-        <a
-          href={LIKEDIN_URL}
-          target="_blank"
-          rel="noreferrer"
-          onClick={() => plausible("Outbound: LinkedIn")}
-        >
-          LinkedIn
-        </a>
-        <a
-          href={GITHUB_URL}
-          target="_blank"
-          rel="noreferrer"
-          onClick={() => plausible("Outbound: GitHub")}
-        >
-          GitHub
-        </a>
-        <a
-          href={HIRE_ME_URL}
-          target="_blank"
-          rel="noreferrer"
-          onClick={() => plausible("Outbound: Malt")}
-        >
-          Malt
-        </a>
+    <footer className="border-t border-line-soft">
+      <div className="page-wrap flex flex-wrap items-center justify-between gap-x-8 gap-y-2 py-5 font-mono text-[13px] text-muted">
+        <p className="m-0 py-3">{t("copyright", { currentYear })}</p>
+        <nav aria-label={t("social")} className="-ml-2.5">
+          <ul className="flex flex-wrap gap-x-2">
+            {SOCIAL_LINKS.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center px-2.5 text-muted"
+                  onClick={() => link.event && plausible(link.event)}
+                >
+                  {link.label}
+                  <NewTabHint />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </footer>
   );

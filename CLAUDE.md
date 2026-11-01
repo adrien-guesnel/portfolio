@@ -26,7 +26,6 @@ pnpm i18n-check   # validate i18n message keys
 - **Linter/Formatter**: Biome (replaces ESLint + Prettier)
 - **Icons**: iconoir-react
 - **Email**: node-mailjet
-- **Notifications**: sonner
 - **Visual testing**: Storybook
 
 ## Project structure
@@ -41,9 +40,9 @@ src/
 │   ├── api/
 │   │   └── send-mail/route.ts # Contact form endpoint (Mailjet)
 │   ├── components/
-│   │   ├── atoms/             # Base primitives (GlassCard, Card, SkillBadge)
-│   │   ├── molecules/         # Compositions (ProjectCard, TestimonialCard…)
-│   │   └── organisms/         # Page sections (Hero, Contact, Footer…)
+│   │   ├── atoms/             # Base primitives (Chip, Period, ThemeImage)
+│   │   ├── molecules/         # Compositions (SectionHeading, TestimonialCard…)
+│   │   └── organisms/         # Page sections (Hero, CaseStudies, Contact…)
 │   └── lib/
 │       ├── Routes.ts          # Section routing constants
 │       └── constants.ts       # External URLs (Malt, LinkedIn…)
@@ -72,12 +71,25 @@ Each component lives in its own directory with:
 
 Path alias: `@components/*` maps to `src/app/components/*`.
 
+## Design
+
+`DESIGN.md` is the design reference (tokens, typography, layout, components, content rules), kept
+in sync with the private design artifact it links to. Read it before any visual change, and update
+it in the same change when the design moves.
+
 ## Styling conventions
 
-- Use **DaisyUI semantic tokens** for colors (`base-100`, `primary`, `secondary`, etc.), not raw Tailwind colors.
-- Glassmorphism pattern: `backdrop-blur-xl bg-base-100/60 border border-base-200/70`
-- Hover animations: `hover:-translate-y-1 transition-transform duration-300`
-- Dark/light theme is driven by `data-theme` attribute on `<html>` (DaisyUI).
+- Colors come from the theme tokens in `globals.css` only: DaisyUI semantic tokens (`base-100`,
+  `base-200`, `base-content`, `primary`, `neutral`) and the custom ones exposed to Tailwind
+  (`surface`, `line`, `line-soft`, `fg-2`, `muted`, `faint`, `link`, `link-soft`…). Never a raw hex
+  or a raw Tailwind palette color in a component.
+- Every token has a light and a dark value; a new pair must reach WCAG AA contrast in both themes.
+- Dark/light theme is driven by the `data-theme` attribute on `<html>`; use the `dark:` variant or
+  the `theme-only-light` / `theme-only-dark` utilities for theme-specific images.
+- Layout helpers: `page-wrap` (1200px container), `section-y` (section padding), `h2-section`,
+  `kicker`. Breakpoints: `sm` (640px), `desk` (1081px), `xs` (381px).
+- Buttons and button-looking links use `buttonClass()` from `@/src/app/components/Button`.
+- Run the `accessibility-reviewer` agent (`.claude/agents/`) after any visual or component change.
 - Line width: **100 characters max**.
 - Indent: **2 spaces**.
 

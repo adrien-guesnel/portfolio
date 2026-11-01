@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import NavigationBar from "./index";
 
 const meta = {
-  title: "Components/NavigationBar",
+  title: "organisms/NavigationBar",
   component: NavigationBar,
   parameters: {
     layout: "fullscreen",

@@ -1,55 +1,47 @@
-"use client";
-
-import clsx from "clsx";
-import { ArrowUpRight } from "iconoir-react";
 import { useTranslations } from "next-intl";
 
+import NewTabHint from "@components/atoms/NewTabHint";
 import {
   MediumArticleCard,
   type MediumArticleCardProps,
 } from "@components/molecules/MediumArticleCard";
+import SectionHeading from "@components/molecules/SectionHeading";
 import { MEDIUM_URL } from "@/src/app/lib/constants";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
-import { Link } from "@/src/i18n/routing";
 
-type ArticleData = Omit<MediumArticleCardProps, "className">;
+type ArticleData = Omit<MediumArticleCardProps, "className" | "readLabel">;
 
-export default function Articles({ className }: { className?: string }) {
+export default function Articles() {
   const t = useTranslations("Articles");
-
   const articles = t.raw("articles") as ArticleData[];
-
-  const articlesSectionId = SECTION_IDS.articles;
 
   return (
     <section
-      id={articlesSectionId}
-      className={clsx("bg-beige dark:bg-dark-brown py-12", className)}
-      aria-labelledby="articles-heading"
+      id={SECTION_IDS.articles}
+      aria-labelledby="articles-title"
+      className="page-wrap section-y"
     >
-      <div className="container mx-auto flex flex-col gap-10 px-6 lg:px-0">
-        <div>
-          <h2
-            id="articles-heading"
-            className="mt-4 text-3xl font-semibold leading-tight  dark:text-light-brown"
+      <SectionHeading
+        id="articles-title"
+        kicker={t("kicker")}
+        title={t("title")}
+        aside={
+          <a
+            href={MEDIUM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-11 items-center font-semibold text-link"
           >
-            {t("title")}
-          </h2>
-          <div className="flex flex-col lg:flex-row justify-between gap-4 lg:items-end">
-            <p className="body-large mt-3 text-gray max-w-3xl">{t("description")}</p>
-            <Link className="flex gap-2 text-gray items-center" href={MEDIUM_URL} target="_blank">
-              {t("readMoreOnMedium")} <ArrowUpRight className="h-4 w-4" aria-hidden />
-            </Link>
-          </div>
-        </div>
-
-        <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
-          {articles.map((article) => (
-            <article key={article.title}>
-              <MediumArticleCard {...article} />
-            </article>
-          ))}
-        </div>
+            {t("allArticles")}
+            <span aria-hidden>&nbsp;↗</span>
+            <NewTabHint />
+          </a>
+        }
+      />
+      <div className="grid gap-4 sm:grid-cols-2 sm:[&>:last-child:nth-child(odd)]:col-span-full desk:grid-cols-3 desk:[&>:last-child:nth-child(odd)]:col-span-1">
+        {articles.map((article) => (
+          <MediumArticleCard key={article.url} {...article} readLabel={t("read")} />
+        ))}
       </div>
     </section>
   );

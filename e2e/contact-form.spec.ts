@@ -7,7 +7,10 @@ test.describe("Contact Form", () => {
     await page.waitForLoadState("networkidle");
 
     // Scroll to contact section
-    await page.locator('nav[aria-label="Main navigation"] a[href="#contact"]').click();
+    await page
+      .getByRole("navigation", { name: "Main navigation" })
+      .getByRole("link", { name: "Contact" })
+      .click();
 
     // Wait for the contact section to be visible
     await page.locator("#contact").waitFor({ state: "visible" });

@@ -1,44 +1,40 @@
-import clsx from "clsx";
-
-import Card from "@components/atoms/Card";
+import { Quote } from "iconoir-react";
 
 export interface TestimonialCardProps {
   quote: string;
   person: string;
+  initials: string;
   role: string;
   company: string;
-  companyUrl?: string;
 }
 
 export default function TestimonialCard({
   quote,
   person,
+  initials,
   role,
   company,
-  companyUrl,
 }: TestimonialCardProps) {
-  const companyClass = companyUrl ? "text-primary hover:text-primary-focus" : "text-base-content";
-
   return (
-    <Card>
-      <p className="body-large text-gray">“{quote}”</p>
-
-      <div className="mt-6 flex flex-col gap-1">
-        <h3 className="text-base font-semibold text-base-content">{person}</h3>
-        <p className="text-sm uppercase tracking-[0.3em] text-gray">{role}</p>
-        {companyUrl ? (
-          <a
-            className={clsx("text-sm font-semibold", companyClass)}
-            href={companyUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {company}
-          </a>
-        ) : (
-          <span className={clsx("text-sm font-semibold", companyClass)}>{company}</span>
-        )}
-      </div>
-    </Card>
+    <figure className="m-0 flex min-w-0 flex-col gap-6 rounded-[20px] border border-line bg-surface p-[clamp(24px,3vw,36px)]">
+      <Quote className="size-8 text-link" aria-hidden />
+      <blockquote className="m-0 text-[17px] leading-relaxed tracking-[-0.005em] text-fg">
+        {quote}
+      </blockquote>
+      <figcaption className="mt-auto flex items-center gap-3.5">
+        <span
+          aria-hidden
+          className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-link-soft font-semibold text-link"
+        >
+          {initials}
+        </span>
+        <span className="flex min-w-0 flex-col leading-snug">
+          <span className="font-semibold">{person}</span>
+          <span className="font-mono text-[13px] text-muted">
+            {role} · {company}
+          </span>
+        </span>
+      </figcaption>
+    </figure>
   );
 }

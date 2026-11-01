@@ -2,63 +2,84 @@ import { expect, test } from "./fixtures";
 
 test.describe("Theme Switching", () => {
   test("should toggle between light and dark themes", async ({ page }) => {
-    // Navigate to the page
     await page.goto("/en");
     await page.waitForLoadState("networkidle");
 
-    // Get the html element to check theme
     const htmlElement = page.locator("html");
-
-    // Check initial theme (should be light by default or based on system preference)
     const initialTheme = await htmlElement.getAttribute("data-theme");
     expect(["light", "dark"]).toContain(initialTheme);
 
-    // Find the theme toggle button - use the label element specifically
-    const themeToggle = page.locator('label[aria-label="Toggle theme"]');
+    const themeToggle = page.getByRole("button", { name: "Dark theme" });
     await expect(themeToggle).toBeVisible();
+    await expect(themeToggle).toHaveAttribute(
+      "aria-pressed",
+      initialTheme === "dark" ? "true" : "false",
+    );
 
-    // Click to toggle theme
     await themeToggle.click();
-
-    // Wait for theme change
-    await page.waitForTimeout(500);
-
-    // Check that theme has changed
+    await expect(htmlElement).not.toHaveAttribute("data-theme", initialTheme ?? "");
     const newTheme = await htmlElement.getAttribute("data-theme");
-    expect(newTheme).not.toBe(initialTheme);
     expect(["light", "dark"]).toContain(newTheme);
+    await expect(themeToggle).toHaveAttribute(
+      "aria-pressed",
+      newTheme === "dark" ? "true" : "false",
+    );
 
-    // Toggle back
     await themeToggle.click();
-    await page.waitForTimeout(500);
-
-    // Verify theme is back to initial
-    const finalTheme = await htmlElement.getAttribute("data-theme");
-    expect(finalTheme).toBe(initialTheme);
+    await expect(htmlElement).toHaveAttribute("data-theme", initialTheme ?? "");
   });
 
   test("should persist theme preference after reload", async ({ page }) => {
-    // Navigate to the page
     await page.goto("/en");
     await page.waitForLoadState("networkidle");
 
-    // Get the html element
     const htmlElement = page.locator("html");
-
-    // Toggle to dark theme - use the label element specifically
-    const themeToggle = page.locator('label[aria-label="Toggle theme"]');
-    await themeToggle.click();
-    await page.waitForTimeout(500);
-
-    // Get the theme after toggle
+    await page.getByRole("button", { name: "Dark theme" }).click();
     const themeBeforeReload = await htmlElement.getAttribute("data-theme");
 
-    // Reload the page
     await page.reload();
     await page.waitForLoadState("networkidle");
 
-    // Check that theme persisted after reload
-    const themeAfterReload = await htmlElement.getAttribute("data-theme");
-    expect(themeAfterReload).toBe(themeBeforeReload);
+    await expect(htmlElement).toHaveAttribute("data-theme", themeBeforeReload ?? "");
+  });
+
+  test("should show the portrait matching the theme", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.goto("/en");
+    await page.waitForLoadState("networkidle");
+
+    const portraits = page.getByAltText(/^Portrait of Adrien Guesnel/);
+    await expect(portraits.nth(0)).toBeVisible();
+    await expect(portraits.nth(1)).toBeHidden();
+
+    await page.getByRole("button", { name: "Dark theme" }).click();
+    await expect(portraits.nth(0)).toBeHidden();
+    await expect(portraits.nth(1)).toBeVisible();
+  });
+
+  test("should keep the theme-color meta in sync with the chosen theme", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.goto("/en");
+    await page.waitForLoadState("networkidle");
+
+    await page.getByRole("button", { name: "Dark theme" }).click();
+    const metas = page.locator('meta[name="theme-color"]');
+    for (const meta of await metas.all()) {
+      await expect(meta).toHaveAttribute("content", "#0B0F17");
+    }
+  });
+});
+
+test.describe("Theme without JavaScript", () => {
+  test.use({ javaScriptEnabled: false, colorScheme: "dark" });
+
+  test("should render a consistent light theme on a dark system", async ({ page }) => {
+    await page.goto("/en");
+
+    await expect(page.locator("body")).toHaveCSS("background-color", "rgb(255, 255, 255)");
+    await expect(page.getByText(/^Tech Lead with 10\+ years/)).toHaveCSS(
+      "color",
+      "rgb(58, 65, 80)",
+    );
   });
 });
