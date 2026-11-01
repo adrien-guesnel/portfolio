@@ -22,6 +22,11 @@ const COMPACT_RECAPTCHA_QUERY = "(max-width: 400px)";
 
 type RecaptchaTheme = "light" | "dark";
 
+interface FailureResponse {
+  error?: string;
+  code?: string;
+}
+
 function readTheme(): RecaptchaTheme {
   return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
 }
@@ -107,7 +112,8 @@ export default function Contact() {
         requestAnimationFrame(() => statusRef.current?.focus());
         plausible("Contact Form Submitted");
       } else {
-        console.error("Failed to send email");
+        const failure = (await response.json().catch(() => null)) as FailureResponse | null;
+        console.error("Failed to send email", response.status, failure);
         setStatus(t("emailFailed"));
       }
     } catch (error) {

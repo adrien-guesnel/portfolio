@@ -13,6 +13,10 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm i --frozen-lockfile
 
 FROM pnpm AS builder
+# NEXT_PUBLIC_* values are inlined into the client bundle at build time, so the
+# reCAPTCHA site key has to reach `next build` here; setting it at runtime is a no-op.
+ARG NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE
+ENV NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE=$NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN pnpm run build

@@ -3,6 +3,13 @@ import path from "node:path";
 
 const withNextIntl = createNextIntlPlugin();
 
+if (!process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE) {
+	console.warn(
+		"NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE is not set: the contact form will render without " +
+			"reCAPTCHA and every submission will be rejected by /api/send-mail",
+	);
+}
+
 const nextConfig = {
 	output: "standalone",
 	// @swc/helpers >= 0.5.16 exposes its helpers through the `module-sync` export

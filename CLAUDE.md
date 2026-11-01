@@ -129,6 +129,12 @@ GOOGLE_RECAPTCHA_SECRET=
 NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE=
 ```
 
+`NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE` is inlined into the client bundle by `next build`, so in
+Docker it is a build arg (passed from the GitHub Actions variable of the same name), not a
+runtime env var. Without it the widget never renders and `/api/send-mail` answers 400
+`recaptcha_missing`. The route logs every failure as a JSON line with `scope: "send-mail"`,
+readable with `kubectl logs`.
+
 ## Deployment
 
 - Docker multi-stage build, output: `standalone`
