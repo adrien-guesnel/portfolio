@@ -135,6 +135,11 @@ runtime env var. Without it the widget never renders and `/api/send-mail` answer
 `recaptcha_missing`. The route logs every failure as a JSON line with `scope: "send-mail"`,
 readable with `kubectl logs`.
 
+The footer shows the build version from the `APP_VERSION`, `BUILD_DATE` and `GIT_SHA` Docker
+build args (set by the release and staging workflows), inlined by `next.config.mjs`. A semver
+`APP_VERSION` renders as `v1.4.0`; anything else (`staging`, or `dev` when unset) renders the
+channel, the UTC build date and the short commit SHA.
+
 ## Deployment
 
 - Docker multi-stage build, output: `standalone`

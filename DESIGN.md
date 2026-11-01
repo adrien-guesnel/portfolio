@@ -143,7 +143,7 @@ WCAG 2.2 AA in both themes is a release criterion. Run the project agent `.claud
 | 6 | Témoignages | `testimonials` | `band` | Laurent G. (Bloom Care), Vincent B. (Chance), Antoine K. (Jedha) |
 | 7 | Articles | `articles` | `bg` | 3 Medium articles with direct links |
 | 8 | Contact | `contact` | `band` block | Avatar, title, base and timezone, cal.com button; form card |
-| 9 | Footer | | `bg` | Copyright, social links |
+| 9 | Footer | | `bg` | Copyright and build version (`v1.4.0` on a release, `staging · build du <date> UTC · <sha>` otherwise), social links |
 
 ## Components
 

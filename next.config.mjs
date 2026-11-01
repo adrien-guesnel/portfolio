@@ -12,6 +12,11 @@ if (!process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE) {
 
 const nextConfig = {
 	output: "standalone",
+	env: {
+		NEXT_PUBLIC_APP_VERSION: process.env.APP_VERSION || "dev",
+		NEXT_PUBLIC_BUILD_DATE: process.env.BUILD_DATE || new Date().toISOString(),
+		NEXT_PUBLIC_GIT_SHA: (process.env.GIT_SHA || "").slice(0, 7),
+	},
 	// @swc/helpers >= 0.5.16 exposes its helpers through the `module-sync` export
 	// condition, which Node 22+ honours for require() but @vercel/nft does not, so
 	// the tracer only copies cjs/ and the standalone server crashes on boot.

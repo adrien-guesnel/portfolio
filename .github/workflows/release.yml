@@ -35,6 +35,10 @@ jobs:
           tags: |
             type=semver,pattern={{version}}
 
+      - name: 🕒 Record build date
+        id: build-info
+        run: echo "date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+
       - name: 🔑 Log in to registry
         uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
         with:
@@ -50,5 +54,8 @@ jobs:
           platforms: linux/amd64
           build-args: |
             NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE=${{ vars.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE }}
+            APP_VERSION=${{ steps.meta.outputs.version }}
+            BUILD_DATE=${{ steps.build-info.outputs.date }}
+            GIT_SHA=${{ github.sha }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
