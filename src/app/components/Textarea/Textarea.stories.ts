@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import Textarea from "./index";
 
 const meta = {
-  title: "Atoms/Textarea",
+  title: "atoms/Textarea",
   component: Textarea,
   parameters: {
     layout: "fullscreen",

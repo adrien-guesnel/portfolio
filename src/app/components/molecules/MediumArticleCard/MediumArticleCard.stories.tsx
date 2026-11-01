@@ -10,15 +10,12 @@ export default meta;
 
 type Story = StoryObj<typeof MediumArticleCard>;
 
-const baseArgs = {
-  title: "Microservices: When Monoliths Break",
-  snippet:
-    "Exploring the transition from monolithic architectures to microservices. Key challenges, patterns, and strategies for reliable migration.",
-  url: "https://medium.com/",
-  tag: "Architecture",
-  readTime: "5 min read",
-};
-
 export const Default: Story = {
-  args: baseArgs,
+  args: {
+    title: "Deploy your first app on Kubernetes with OpenTofu",
+    url: "https://medium.com/@adrienguesnel",
+    tag: "DevOps",
+    readTime: "4 min",
+    readLabel: "Read",
+  },
 };

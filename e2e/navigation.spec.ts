@@ -1,71 +1,67 @@
 import { expect, test } from "./fixtures";
 
+const SECTIONS = [
+  { name: "Approach", hash: "#approach" },
+  { name: "Work", hash: "#case-studies" },
+  { name: "Experience", hash: "#experience" },
+  { name: "Expertise", hash: "#expertise" },
+  { name: "Contact", hash: "#contact" },
+];
+
 test.describe("Navigation Menu", () => {
   test("should have working menu links", async ({ page }) => {
-    // Navigate to the page
     await page.goto("/en");
     await page.waitForLoadState("networkidle");
 
-    // Check Skills link in the navigation menu
-    const skillsLink = page.locator('nav[aria-label="Main navigation"] a[href="#skills"]');
-    await expect(skillsLink).toBeVisible();
-    await expect(skillsLink).toHaveAttribute("href", "#skills");
-
-    // Check Projects link
-    const projectsLink = page.locator('nav[aria-label="Main navigation"] a[href="#projects"]');
-    await expect(projectsLink).toBeVisible();
-    await expect(projectsLink).toHaveAttribute("href", "#projects");
-
-    // Check Testimonials link
-    const testimonialsLink = page.locator(
-      'nav[aria-label="Main navigation"] a[href="#testimonials"]',
-    );
-    await expect(testimonialsLink).toBeVisible();
-    await expect(testimonialsLink).toHaveAttribute("href", "#testimonials");
-
-    // Check Contact link
-    const contactLink = page.locator('nav[aria-label="Main navigation"] a[href="#contact"]');
-    await expect(contactLink).toBeVisible();
-    await expect(contactLink).toHaveAttribute("href", "#contact");
+    const nav = page.getByRole("navigation", { name: "Main navigation" });
+    for (const section of SECTIONS) {
+      const link = nav.getByRole("link", { name: section.name });
+      await expect(link).toBeVisible();
+      await expect(link).toHaveAttribute("href", section.hash);
+    }
   });
 
   test("should navigate to sections when clicking menu links", async ({ page }) => {
-    // Navigate to the page
     await page.goto("/en");
     await page.waitForLoadState("networkidle");
 
-    // Click on Skills link and verify navigation
-    await page.locator('nav[aria-label="Main navigation"] a[href="#skills"]').click();
-    await page.waitForURL(/\/en#skills/);
+    const nav = page.getByRole("navigation", { name: "Main navigation" });
+    for (const section of SECTIONS) {
+      await nav.getByRole("link", { name: section.name }).click();
+      await page.waitForURL(new RegExp(`/en${section.hash}$`));
+    }
+  });
 
-    // Click on Projects link and verify navigation
-    await page.locator('nav[aria-label="Main navigation"] a[href="#projects"]').click();
-    await page.waitForURL(/\/en#projects/);
+  test("should open the mobile menu and reach a section", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/en");
+    await page.waitForLoadState("networkidle");
 
-    // Click on Testimonials link and verify navigation
-    await page.locator('nav[aria-label="Main navigation"] a[href="#testimonials"]').click();
-    await page.waitForURL(/\/en#testimonials/);
-
-    // Click on Contact link and verify navigation
-    await page.locator('nav[aria-label="Main navigation"] a[href="#contact"]').click();
-    await page.waitForURL(/\/en#contact/);
+    await page.locator('summary[aria-label="Menu"]').click();
+    await page.getByRole("link", { name: "Experience" }).click();
+    await page.waitForURL(/\/en#experience$/);
   });
 
   test("should have working homepage logo link", async ({ page }) => {
-    // Navigate to a section
-    await page.goto("/en#skills");
+    await page.goto("/en#expertise");
     await page.waitForLoadState("networkidle");
 
-    // Click on logo to go back to homepage - target the logo button in the navbar
-    // The logo is a button with btn-circle class containing the Logo SVG
-    const logoLink = page.locator("header a.btn-circle").first();
+    const logoLink = page.getByRole("link", { name: "Adrien Guesnel, home" });
     await expect(logoLink).toBeVisible();
     await logoLink.click();
 
-    // Wait for navigation - allow time for the page to update
     await page.waitForURL(/\/en\/?$/);
-
-    // Verify we're on homepage (no hash in URL)
     expect(page.url()).toMatch(/\/en\/?$/);
+  });
+
+  test("should move focus to the main content from the skip link", async ({ page }) => {
+    await page.goto("/en");
+    await page.waitForLoadState("networkidle");
+
+    await page.keyboard.press("Tab");
+    const skipLink = page.getByRole("link", { name: "Skip to main content" });
+    await expect(skipLink).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(page.locator("main#main-content")).toBeFocused();
   });
 });

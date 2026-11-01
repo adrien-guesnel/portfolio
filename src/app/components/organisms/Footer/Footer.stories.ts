@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import Footer from "./index";
 
 const meta = {
-  title: "Components/Footer",
+  title: "organisms/Footer",
   component: Footer,
   parameters: {
     layout: "fullscreen",

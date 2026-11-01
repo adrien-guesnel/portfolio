@@ -3,14 +3,16 @@
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 
-import EngineeringPhilosophy from "@components/organisms/EngineeringPhilosophy";
+import Approach from "@components/organisms/Approach";
 import Footer from "@components/organisms/Footer";
 import Hero from "@components/organisms/Hero";
 import NavigationBar from "@components/organisms/NavigationBar";
-import Skills from "@components/organisms/Skills";
+import { SECTION_IDS, SECTION_ROUTES } from "@/src/app/lib/Routes";
 
 // Lazy load below-the-fold components
-const Projects = dynamic(() => import("@components/organisms/Projects"));
+const CaseStudies = dynamic(() => import("@components/organisms/CaseStudies"));
+const Experience = dynamic(() => import("@components/organisms/Experience"));
+const Expertise = dynamic(() => import("@components/organisms/Expertise"));
 const Testimonials = dynamic(() => import("@components/organisms/Testimonials"));
 const Articles = dynamic(() => import("@components/organisms/Articles"));
 const Contact = dynamic(() => import("@components/organisms/Contact"));
@@ -21,17 +23,18 @@ export default function Home({ locale }: { locale: string }) {
   return (
     <>
       <a
-        href="#main-content"
-        className="sr-only focus-visible:not-sr-only focus-visible:absolute focus-visible:top-4 focus-visible:left-4 focus-visible:z-60 focus-visible:rounded-lg focus-visible:bg-primary focus-visible:px-4 focus-visible:py-2 focus-visible:text-white focus-visible:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        href={SECTION_ROUTES.main}
+        className="absolute top-[-80px] left-4 z-50 rounded-[10px] bg-neutral px-4 py-3 font-semibold text-neutral-content focus:top-3"
       >
         {t("skipToMainContent")}
       </a>
       <NavigationBar locale={locale} />
-      <main id="main-content">
+      <main id={SECTION_IDS.main} tabIndex={-1}>
         <Hero />
-        <EngineeringPhilosophy />
-        <Skills />
-        <Projects />
+        <Approach />
+        <CaseStudies />
+        <Experience />
+        <Expertise />
         <Testimonials />
         <Articles />
         <Contact />

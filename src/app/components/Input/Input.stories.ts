@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import Input from "./index";
 
 const meta = {
-  title: "Atoms/Input",
+  title: "atoms/Input",
   component: Input,
   parameters: {
     layout: "fullscreen",

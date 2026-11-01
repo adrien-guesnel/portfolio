@@ -1,231 +1,354 @@
 {
+  "Approach": {
+    "cards": [
+      {
+        "proof": "Migration de MongoDB Atlas vers PostgreSQL proposée au client, arbitrée et réalisée.",
+        "proofSource": "Loopaero",
+        "text": "Choisir une architecture qui tient dans la durée, et la faire évoluer quand le produit l'exige.",
+        "title": "Architecture & choix techniques"
+      },
+      {
+        "proof": "Analyse du référentiel Ségur : écarts identifiés, développements estimés et priorisés.",
+        "proofSource": "Bloom Care",
+        "text": "Traduire les besoins métier en périmètre réaliste : analyser, estimer, prioriser, montrer tôt.",
+        "title": "Cadrage & priorisation"
+      },
+      {
+        "proof": "Onboarding et encadrement d'un développeur ; coordination de l'équipe face aux interlocuteurs institutionnels.",
+        "proofSource": "Loopaero · Bloom Care",
+        "text": "Revues de code, bonnes pratiques, montée en autonomie, et le lien entre l'équipe, le produit et les interlocuteurs externes.",
+        "title": "Équipe & coordination"
+      },
+      {
+        "proof": "Monitoring Sentry, outillage et documentation : -70 % de tickets support.",
+        "proofSource": "Chance",
+        "text": "Tests automatisés, CI/CD et déploiement maîtrisés de bout en bout, pour livrer sans régression.",
+        "title": "Qualité & mise en production"
+      }
+    ],
+    "kicker": "01 / Approche",
+    "title": "Ce que je prends en charge en tant que Tech Lead"
+  },
   "Articles": {
+    "allArticles": "Tous les articles sur Medium",
     "articles": [
       {
         "readTime": "3 min",
-        "snippet": "Zeta 2.1 tourne entièrement en local sur votre machine. Voici comment l'activer dans Zed pour obtenir une autocomplétion IA sans envoyer une seule ligne de code dans le cloud.",
-        "tag": "Outils",
-        "title": "L'autocomplétion IA 100% locale dans Zed, c'est maintenant possible avec Zeta 2.1",
-        "url": "https://medium.com/@adrienguesnel/lautocompl%C3%A9tion-ia-100-locale-dans-zed-c-est-maintenant-possible-avec-zeta-2-1-d597fc27a47a"
-      },
-      {
-        "readTime": "3 min",
-        "snippet": "ESLint et Prettier semblaient incontournables, mais Biome a tout réuni dans une chaîne d'outils plus rapide et unifiée. Voici à quoi ressemble la migration.",
-        "tag": "Outils",
-        "title": "Comment j'ai remplacé eslint/prettier par biome - et pourquoi vous devriez faire pareil !",
+        "tag": "Outillage d'équipe",
+        "title": "Comment j'ai remplacé eslint/prettier par biome, et pourquoi vous devriez faire pareil",
         "url": "https://medium.com/@adrienguesnel/how-i-dump-eslint-prettier-for-biome-and-you-should-do-the-same-8bcdf05fefff"
       },
       {
         "readTime": "4 min",
-        "snippet": "Mettre à jour et déployer manuellement des changements sur une infrastructure Kubernetes est toujours complexe. Simplifions cela avec OpenTofu !",
         "tag": "DevOps",
-        "tagColor": "secondary",
         "title": "Déployez votre première app sur Kubernetes avec OpenTofu",
         "url": "https://medium.com/@adrienguesnel/deploy-your-first-app-on-kubernetes-with-opentofu-ae7286dece49"
       },
       {
-        "readTime": "2 min",
-        "snippet": "Installer Oh My Zsh pour donner un coup de jeune à votre terminal en noir et blanc.",
-        "tag": "Outils",
-        "title": "Personnaliser votre terminal avec Oh My Zsh - Tutorial Mac OS",
-        "url": "https://medium.com/@adrienguesnel/personnaliser-votre-terminal-avec-oh-my-zsh-tutorial-mac-os-da962449f9c7"
+        "readTime": "3 min",
+        "tag": "IA",
+        "title": "L'autocomplétion IA 100% locale dans Zed, c'est maintenant possible avec Zeta 2.1",
+        "url": "https://medium.com/@adrienguesnel/lautocompl%C3%A9tion-ia-100-locale-dans-zed-c-est-maintenant-possible-avec-zeta-2-1-d597fc27a47a"
       }
     ],
-    "description": "Restez à jour avec mes dernières réflexions, analyses et retours d'expérience sur le développement web. Je partage des articles techniques, des études de cas et des conseils pratiques pour vous aider à concevoir et maintenir des applications performantes et évolutives.",
-    "readMoreOnMedium": "Lire plus sur Medium",
-    "title": "Derniers articles de blog",
-    "viewAllButton": "Voir tous les articles"
+    "kicker": "06 / Partage",
+    "read": "Lire",
+    "title": "Articles techniques"
+  },
+  "CaseStudies": {
+    "cards": [
+      {
+        "company": "Bloom Care",
+        "imageAlt": "Logo Bloom Care",
+        "items": [
+          "Suivi des exigences, coordination de l'équipe, interlocuteurs institutionnels",
+          "Documents de conformité, estimation et priorisation des développements",
+          "Préparation de l'intégration de Pro Santé Connect, MSSanté et INSi : e-proxy et habilitations"
+        ],
+        "key": "bloom-care",
+        "period": "2026",
+        "sector": "E-santé",
+        "tags": ["DDD", "Clean Architecture", "Terraform"],
+        "title": "Pilotage de la mise en conformité Ségur d'un ERP IA-natif"
+      },
+      {
+        "company": "Linkup",
+        "imageAlt": "Logo Linkup",
+        "items": [
+          "Sessions, rotation des tokens et SSO, avec reprise des données",
+          "Gestion des clés API : quotas, limites budgétaires, répartition par équipe",
+          "Tests front automatisés avec Playwright"
+        ],
+        "key": "linkup",
+        "period": "2026",
+        "sector": "IA",
+        "tags": ["NestJS", "React", "Better Auth"],
+        "title": "Refonte de l'authentification livrée en 2 semaines"
+      },
+      {
+        "company": "TellDem",
+        "imageAlt": "Aperçu de l'application TellDem",
+        "items": [
+          "Responsabilité complète, de la conception au déploiement sur AWS",
+          "API REST documentée (OpenAPI / Swagger) et tests Jest",
+          "Back-office de modération livré avec Retool"
+        ],
+        "key": "telldem",
+        "period": "2025",
+        "sector": "Réseau social",
+        "tags": ["NestJS", "Prisma", "PostgreSQL"],
+        "title": "Lead développeur backend d'un MVP de réseau social, livré en 3 mois"
+      }
+    ],
+    "description": "Le contexte, mon rôle, ce qui a été livré.",
+    "featured": {
+      "company": "Loopaero",
+      "imageAlt": "Page d'accueil de la plateforme Loopaero",
+      "linkLabel": "Voir loop-aero.com",
+      "period": "2023 → 2025",
+      "phases": [
+        {
+          "items": [
+            "Choix d'architecture (Next.js, GraphQL, MongoDB Atlas) et cadrage des besoins avec le client",
+            "Démos régulières pour valider chaque fonctionnalité",
+            "Onboarding d'un développeur, revues de code et bonnes pratiques"
+          ],
+          "title": "Phase 1 · MVP livré en 9 mois"
+        },
+        {
+          "items": [
+            "Migration de MongoDB Atlas vers PostgreSQL proposée, arbitrée et réalisée",
+            "Refonte du backend NestJS et de l'authentification (Supabase)",
+            "Déploiement de bout en bout : GitHub Actions, Docker, Heroku"
+          ],
+          "title": "Phase 2 · Consolidation technique"
+        }
+      ],
+      "sector": "Aviation",
+      "tags": ["Next.js", "NestJS", "GraphQL", "MongoDB", "PostgreSQL", "Stripe", "Playwright"],
+      "title": "Un SaaS de réservation de jets privés, construit de zéro",
+      "url": "https://loop-aero.com"
+    },
+    "kicker": "02 / Réalisations",
+    "tagsLabel": "Technologies",
+    "title": "Études de cas"
   },
   "Contact": {
-    "companyName": "Nom de l'entreprise",
-    "contactMe": "Construisons quelque chose <primary>d'extraordinaire</primary>",
-    "contactMeDescription": "Vous souhaitez en savoir plus sur mon travail ou discuter d’opportunités potentielles ?\nJe suis ouvert aux demandes des recruteurs et des entreprises.\nN'hésitez pas à me contacter en utilisant le formulaire.",
+    "baseLabel": "base",
+    "baseValue": "Strasbourg · remote ou sur site",
+    "companyName": "Entreprise",
+    "cta": "Réserver un appel découverte",
     "email": "Email",
     "emailFailed": "Échec de l'envoi de votre message, veuillez réessayer plus tard",
-    "location": "Localisation",
+    "formHint": "Tous les champs sont obligatoires, sauf mention contraire.",
+    "formTitle": "Écrire un message",
+    "invalidEmail": "Saisissez une adresse email valide, par exemple nom@domaine.com",
+    "kicker": "07 / Contact",
+    "lead": "Parlons du contexte, des enjeux techniques et du rôle attendu.",
     "message": "Message",
-    "messageSent": "Votre message a été envoyé !\nJe vous répondrai dans les plus brefs délais à l'adresse e-mail fournie : {email}",
+    "messageSent": "Votre message a été envoyé !\nJe vous répondrai dans les plus brefs délais à l'adresse e-mail fournie : {email}",
     "name": "Nom",
+    "optional": "(facultatif)",
     "placeholderCompanyName": "Mon entreprise",
     "placeholderEmail": "email@domaine.com",
-    "placeholderMessage": "Bonjour, j'aimerais savoir si vous êtes intéressé pour travailler sur notre produit. \nÊtes-vous disponible pour en parler ?",
+    "placeholderMessage": "Bonjour, nous cherchons un Tech Lead pour notre produit. Êtes-vous disponible pour en parler ?",
     "placeholderName": "Maxime Dupont",
-    "strasbourgFrance": "Strasbourg, France ou à distance",
-    "submit": "Envoyez-moi votre message",
-    "timezoneLabel": "Fuseau horaire",
-    "timezoneLive": "Heure actuelle : {time}",
-    "timezoneValue": "GMT+1 (heure de Paris)"
+    "recaptchaRequired": "Veuillez valider le reCAPTCHA avant d'envoyer votre message",
+    "required": "Ce champ est obligatoire",
+    "submit": "Envoyer le message",
+    "timezoneLabel": "fuseau",
+    "timezoneValue": "GMT+1 (heure de Paris)",
+    "title": "Un produit à cadrer, une équipe à faire avancer ?"
   },
-  "EngineeringPhilosophy": {
-    "description": "Freelance ne veut pas dire exécutant. Sur chaque mission, je m'investis dans le projet autant que dans le code, parce qu'un bon logiciel ne se construit pas sans comprendre ce qu'il doit résoudre.",
-    "pillars": [
+  "Experience": {
+    "asideLabel": "Formation et profil",
+    "domains": ["E-santé réglementée", "Aviation", "IA", "AdTech", "TravelTech", "Banque"],
+    "domainsTitle": "Domaines",
+    "education": [
       {
-        "description": "Je rentre dans un projet comme si c'était le mien. Contexte métier, contraintes produit, historique de l'équipe : je cherche à comprendre avant de proposer.",
-        "title": "Investissement réel"
+        "degree": "Diplôme d'ingénieur informatique",
+        "school": "ENSICAEN · Sécurité des systèmes & monétique"
       },
       {
-        "description": "Mon expérience sur des frameworks, librairies et domaines métiers variés me permet de monter en contexte rapidement et d'être pleinement opérationnel en peu de temps.",
-        "title": "Polyvalence terrain"
-      },
-      {
-        "description": "Je livre du code solide et maintenable. Et je garde toujours en tête que la meilleure solution technique est celle qui sert le produit.",
-        "title": "Le code au service du produit"
+        "degree": "DUT Réseaux & Télécommunications",
+        "school": "IUT d'Ifs"
       }
     ],
-    "title": "Mon <primary>approche</primary>"
+    "educationTitle": "Formation",
+    "freelance": {
+      "missions": [
+        {
+          "company": "Bloom Care",
+          "period": "2026",
+          "text": "Pilotage de la mise en conformité Ségur d'un ERP IA-natif"
+        },
+        {
+          "company": "Linkup",
+          "period": "2026",
+          "text": "Refonte de l'authentification et de la gestion des clés API"
+        },
+        {
+          "company": "TellDem",
+          "period": "2025",
+          "text": "Lead développeur backend d'un MVP de réseau social"
+        },
+        {
+          "company": "Loopaero",
+          "period": "2023 → 2025",
+          "text": "Tech Lead d'un SaaS de réservation de jets privés, construit de zéro"
+        }
+      ],
+      "period": "2023 → 2026",
+      "subtitle": "Startups et scale-ups : SaaS, e-santé, IA, aviation · en remote",
+      "title": "Tech Lead & lead développeur freelance"
+    },
+    "jobs": [
+      {
+        "period": "2022 → 2023",
+        "subtitle": "Chance · Coaching carrière, plus de 7 000 utilisateurs",
+        "title": "Développeur Fullstack Senior"
+      },
+      {
+        "period": "2019 → 2022",
+        "subtitle": "Ogury · AdTech, plus d'un milliard de requêtes par mois, référent OMID de l'équipe",
+        "title": "Développeur Fullstack"
+      },
+      {
+        "period": "2016 → 2019",
+        "subtitle": "Amadeus, puis Sermes · TravelTech, distribution de matériel électrique",
+        "title": "Ingénieur Fullstack"
+      },
+      {
+        "period": "2012 → 2015",
+        "subtitle": "Natixis · Pilotage d'un projet de 50 jours/homme en équipe de 3",
+        "title": "Ingénieur informatique en alternance"
+      }
+    ],
+    "kicker": "03 / Parcours",
+    "languages": "Français, langue maternelle · Anglais courant (TOEIC 930)",
+    "languagesTitle": "Langues",
+    "title": "Dix ans de production, de la banque à l'IA"
+  },
+  "Expertise": {
+    "kicker": "04 / Expertises",
+    "rows": [
+      {
+        "items": [
+          "Cadrage des besoins",
+          "Estimation & priorisation",
+          "Revues de code",
+          "Mentoring & onboarding",
+          "Démos client",
+          "Documentation technique",
+          "Agile / Scrum"
+        ],
+        "label": "Leadership technique"
+      },
+      {
+        "items": ["Clean Architecture", "DDD", "CQRS", "Event-driven (Kafka)", "Microservices"],
+        "label": "Architecture"
+      },
+      {
+        "items": [
+          "TypeScript",
+          "Node.js",
+          "NestJS",
+          "PostgreSQL",
+          "MongoDB",
+          "GraphQL",
+          "Prisma",
+          "Redis",
+          "Python"
+        ],
+        "label": "Backend & données"
+      },
+      {
+        "items": ["React", "Next.js", "Tailwind CSS", "Storybook", "Retool"],
+        "label": "Frontend & back-offices"
+      },
+      {
+        "items": ["OpenID Connect", "SSO", "Better Auth", "Auth0", "RGPD"],
+        "label": "Sécurité & identité"
+      },
+      {
+        "items": ["Docker", "CI/CD", "GitHub Actions", "Terraform", "AWS"],
+        "label": "Livraison"
+      },
+      {
+        "items": ["Jest", "Vitest", "Playwright", "Sentry", "Datadog"],
+        "label": "Qualité"
+      },
+      {
+        "items": ["Claude Code", "GitHub Copilot", "Intégration de LLM"],
+        "label": "IA"
+      }
+    ],
+    "title": "Méthodes et technologies"
   },
   "Hero": {
-    "ViewMySkills": "Voir mes compétences",
-    "availableForNewProjects": "Disponible pour de nouveaux projets",
-    "bookingDiscoveryCall": "Réserver un appel découverte",
-    "description": "Lead dev fullstack React / Node.js. Je prends en charge le périmètre complet d’un produit SaaS (front, back, infra, backoffice), j’arbitre les priorités avec l’équipe produit, et je livre.",
-    "experienceLabel": "Expérience",
-    "experienceValue": "{years}+ ans",
-    "missionsLabel": "Missions",
-    "missionsValue": "{missions}+ missions",
-    "title": "Je construis des produits SaaS de l'architecture jusqu'à la <lightGradient>mise en prod</lightGradient>"
+    "available": "Disponible pour une mission Tech Lead",
+    "card": [
+      { "label": "rôle", "value": "Tech Lead · Lead dev" },
+      { "label": "stack", "value": "TypeScript · NestJS · React" },
+      { "label": "base", "value": "Strasbourg, France" },
+      { "label": "langues", "value": "FR · EN (TOEIC 930)" }
+    ],
+    "clients": [
+      "Bloom Care",
+      "Linkup",
+      "Loopaero",
+      "TellDem",
+      "Chance",
+      "Ogury",
+      "Amadeus",
+      "Natixis"
+    ],
+    "clientsTitle": "Ils m'ont fait confiance",
+    "ctaPrimary": "Réserver un appel découverte",
+    "ctaSecondary": "Voir les études de cas",
+    "lead": "Tech Lead, plus de 10 ans de développement dont 7 en startups et scale-ups. Choix d'architecture, cadrage des besoins avec le client, revues de code et encadrement, mise en production. Stack TypeScript : Node.js, NestJS, React, PostgreSQL.",
+    "location": "Strasbourg · remote ou sur site",
+    "photoAlt": "Portrait d'Adrien Guesnel en veste et chemise blanche, bras croisés, souriant",
+    "socialLabel": "Profils en ligne",
+    "stats": [
+      { "label": "de développement, dont 7 en startups et scale-ups", "value": "10+ ans" },
+      { "label": "de responsabilité technique d'un SaaS construit de zéro", "value": "2+ ans" }
+    ],
+    "statsLabel": "Chiffres clés",
+    "title": "Un Tech Lead qui fait partie de <accent>l'équipe</accent>, l'accompagne et l'aide à grandir."
   },
   "Home": {
     "seo": {
-      "description": "Vous recherchez un Lead Tech React.js / Node.js pour développer votre application ? Je suis là pour vous aider. Découvrez mon travail sur mon portfolio et contactez-moi.",
-      "title": "Adrien Guesnel - Freelance Lead Tech React.js / Node.js"
+      "description": "Tech Lead freelance TypeScript (Node.js, NestJS, React, PostgreSQL) basé à Strasbourg. Architecture, cadrage, revues de code et mise en production de produits SaaS.",
+      "title": "Adrien Guesnel · Tech Lead freelance TypeScript"
     },
     "skipToMainContent": "Aller au contenu principal"
-  },
-  "Projects": {
-    "description": "Défis techniques et résultats mesurables accumulés ces dernières années.",
-    "githubLabel": "Voir mon GitHub complet",
-    "heading": "Mes projets",
-    "personalLabel": "Projets personnels",
-    "personalProjects": [
-      {
-        "challenge": "Centraliser les informations et les outils utiles pour la communauté de danseurs west coast swing, souvent éparpillés entre forums, groupes Facebook et bouche-à-oreille.",
-        "imageLabel": "Plateforme communautaire Westie Babies",
-        "imageSrc": "/img/projects/westie-babies.png",
-        "impact": [
-          "Plateforme d'informations et d'outils dédiée à la communauté west coast swing",
-          "Blog régulièrement mis à jour pour partager actualités et conseils",
-          "Référence communautaire accessible à tous les niveaux de danseurs"
-        ],
-        "role": "Créateur",
-        "solution": "Développement d'un site internet complet accompagné d'un blog, pour regrouper en un seul endroit toutes les ressources utiles à la communauté west coast swing.",
-        "tags": ["Next.js", "Tailwind", "Storybook", "DaisyUI", "NestJS"],
-        "title": "Westie Babies"
-      },
-      {
-        "challenge": "Présenter clairement mon positionnement freelance React/Node.js.",
-        "githubUrl": "https://github.com/adrien-guesnel/portfolio",
-        "imageLabel": "Illustration du portfolio",
-        "imageSrc": "/img/projects/portfolio.png",
-        "impact": [
-          "Démontrer mon expertise technique avec ce projet open-source",
-          "Génération de prospects qualifiés via le formulaire de contact"
-        ],
-        "role": "Créateur",
-        "solution": "Ce site explique ma philosophie technique, des exemples de projets ainsi que des témoignages de mes précédentes expériences.",
-        "tags": ["Next.js", "Tailwind", "Storybook", "DaisyUI"],
-        "title": "Portfolio professionnel"
-      }
-    ],
-    "professionalLabel": "Travaux professionnels",
-    "professionalProjects": [
-      {
-        "challenge": "Refondre le système d'authentification avec un nouveau framework et améliorer l'interface utilisateur - gestion des équipes, mise en place d'une whitelist et d'une limite de budget sur les clés API.",
-        "imageLabel": "Refonte Auth & API Key Management - Linkup",
-        "imageSrc": "/img/projects/linkup.webp",
-        "impact": [
-          "Livré un système de clés API complet : création, révocation, limites de budget et quotas de consommation",
-          "Renforcé la sécurité globale de la plateforme via une refonte des flux d'authentification",
-          "Contribué à une codebase Python existante pour la création de scripts et fix de bugs"
-        ],
-        "role": "Senior Full-Stack React / NestJS",
-        "solution": "Refonte complète du système d'auth (sessions, rotation de tokens) et conception du système de gestion des clés API (quotas, budgets, teams), avec interfaces React et backend NestJS, plus des contributions Python sur les services existants.",
-        "tags": ["React", "NestJS", "TypeScript", "Python", "Playwright", "React Router"],
-        "title": "Refonte Auth & expérience utilisateur - Linkup"
-      },
-      {
-        "challenge": "Piloter la création d'une plateforme de réservation de jets privés de A à Z avec React.js, Next.js et NestJS.",
-        "imageLabel": "Capture d'écran de la page d'accueil du site loop aero",
-        "imageSrc": "/img/projects/loop-aero.png",
-        "impact": [
-          "Aligné les besoins avec le client et le chef de projet grâce à des points réguliers",
-          "Encadré un développeur junior et garanti la qualité des livrables",
-          "Livré une plateforme avec une interface soignée et des écrans de chargement rapides"
-        ],
-        "projectUrl": "https://loop-aero.com",
-        "role": "Lead Full-Stack Node.js / React.js",
-        "solution": "Mis en place un design system, orchestré les intégrations API et l'architecture backend, tout en animant la direction technique avec des synchronisations régulières.",
-        "tags": ["React", "Next.js", "Nest.js", "Prisma", "Tailwind"],
-        "title": "Création d'une plateforme de réservation de jets privés - Loop Aero"
-      },
-      {
-        "challenge": "Construire le backend complet d'un MVP de réseau social en 3 mois, avec un système de modération opérationnel dès le lancement.",
-        "imageLabel": "MVP Réseau Social - TellDem",
-        "imageSrc": "/img/projects/telldem.png",
-        "impact": [
-          "Backend avec liste des endpoints API REST et documentation Swagger pour intégration",
-          "Backoffice de modération (utilisateurs, signalements, dashboards) opérationnel au lancement",
-          "Couverture de tests intégrée au cycle de dev pour tenir le rythme d'un MVP sans sacrifier la stabilité"
-        ],
-        "role": "Senior Backend NestJS / Node.js",
-        "solution": "Développé l'ensemble des endpoints REST avec NestJS, mis en place les tests automatisés, et livré un backoffice de modération clé en main avec Retool.",
-        "tags": ["NestJS", "Node.js", "TypeScript", "Retool"],
-        "title": "MVP Réseau Social - TellDem"
-      },
-      {
-        "challenge": "Contribuer à la refonte d'une plateforme de bilan de compétences (CPF) tout en réduisant la charge de support en production.",
-        "imageLabel": "Plateforme EdTech - Chance",
-        "imageSrc": "/img/projects/chance.webp",
-        "impact": [
-          "Réduction proactive des problèmes en production grâce aux dashboards Retool",
-          "Amélioration de la vélocité de l'équipe support via les outils et documentations livrés",
-          "Fonctionnalités publiques et internes livrées en collaboration étroite avec le produit"
-        ],
-        "projectUrl": "https://chance.co",
-        "role": "Senior Full-Stack React / NestJS",
-        "solution": "Développement fullstack de nouvelles fonctionnalités, création d'outils internes Retool pour le support, et mise en place de documentations pour l'équipe Customer Success.",
-        "tags": ["React", "NestJS", "TypeScript", "Retool"],
-        "title": "Développement fullstack & outils internes - Chance"
-      },
-      {
-        "challenge": "Maintenir et faire évoluer des microservices critiques à l'échelle du milliard de requêtes par mois dans un environnement international (17+ pays).",
-        "imageLabel": "Plateforme AdTech internationale - Ogury",
-        "imageSrc": "/img/projects/ogury.png",
-        "impact": [
-          "Microservices stables et évolutifs dans un contexte de fort volume",
-          "Qualité garantie par une stratégie de tests unitaires et visuels",
-          "Nouveaux formats publicitaires livrés pour répondre aux besoins annonceurs"
-        ],
-        "role": "Fullstack React / Node.js",
-        "solution": "Développement et maintenance de microservices, création de nouveaux formats publicitaires, monitoring via Datadog / Sentry / Grafana, et mise en place de tests automatisés (Jest, Puppeteer, Storybook).",
-        "tags": ["React", "Node.js", "TypeScript", "Jest", "Datadog"],
-        "title": "Team AdExperience - Formats & visibilité publicitaire - Ogury"
-      }
-    ]
-  },
-  "Skills": {
-    "backendTitle": "Back-end & Architecture",
-    "frontendTitle": "Front-end & UI",
-    "heading": "Mes compétences techniques"
   },
   "Testimonials": {
     "cards": [
       {
-        "company": "Jedha",
-        "companyUrl": "https://jedha.co",
-        "person": "Antoine K.",
-        "quote": "Nous avons fait appel à Adrien pour développer une fonctionnalité sur notre LMS (NextJS, Python, etc.). Adrien a très vite compris les enjeux et les besoins, puis a su développer et livrer très rapidement. Rien à redire : c'était une super expérience.",
-        "role": "CEO"
+        "company": "Bloom Care",
+        "initials": "LG",
+        "person": "Laurent G.",
+        "quote": "Adrien a rejoint notre équipe en freelance et l'expérience a été excellente. J'ai particulièrement apprécié son niveau d'autonomie dès le début, sa méticulosité et la facilité de communication. Rien à redire non plus sur son niveau technique. Adrien s'est intégré facilement dans les process de l'équipe.",
+        "role": "Co-founder & CPTO"
       },
       {
         "company": "Chance",
-        "companyUrl": "https://chance.co",
+        "initials": "VB",
         "person": "Vincent B.",
-        "quote": "Adrien est sans nul doute le développeur avec lequel j’ai pris le plus de plaisir à travailler en tant que product designer. Il écoute, questionne et accompagne la réflexion produit en y apportant sa connaissance d’ingénieur, toujours avec bienveillance et intelligence.",
+        "quote": "Adrien est sans nul doute le développeur avec lequel j'ai pris le plus de plaisir à travailler en tant que product designer. Il écoute, questionne et accompagne la réflexion produit en y apportant sa connaissance d'ingénieur, toujours avec bienveillance et intelligence.",
         "role": "Product Designer"
+      },
+      {
+        "company": "Jedha",
+        "initials": "AK",
+        "person": "Antoine K.",
+        "quote": "Nous avons fait appel à Adrien pour développer une fonctionnalité sur notre LMS (NextJS, Python, etc.). Adrien a très vite compris les enjeux et les besoins, puis a su développer et livrer très rapidement. Rien à redire : c'était une super expérience.",
+        "role": "CEO"
       }
     ],
-    "description": "Quelques clients qui ont partagé la manière dont la collaboration s'est déroulée : jalons clairs, retours réactifs et une recherche constante de qualité.",
-    "title": "Mes clients me font confiance"
+    "kicker": "05 / Témoignages",
+    "title": "Ce qu'en disent les équipes"
   }
 }

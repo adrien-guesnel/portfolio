@@ -1,66 +1,41 @@
-// @ts-nocheck
-
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { Star } from "iconoir-react";
+import { ArrowRight } from "iconoir-react";
 
 import { Button } from "./index";
 
 const meta: Meta<typeof Button> = {
   title: "atoms/Button",
   component: Button,
+  args: {
+    children: "Réserver un appel découverte",
+  },
 };
 export default meta;
 
 type Story = StoryObj<typeof Button>;
-const Template = (args: React.ComponentProps<typeof Button>) => (
-  <Button {...args}> My button</Button>
-);
 
-export const AllStates: Story = {
-  render: (args) => (
-    <div className="flex flex-row gap-3">
-      <Disabled {...args} {...Disabled.args} />
-      <WithIcon {...args} {...WithIcon.args} />
-      <Loading {...args} {...Loading.args} />
-      <Styled {...args} />
-    </div>
-  ),
+export const Primary: Story = {};
+
+export const Neutral: Story = {
+  args: { variant: "neutral" },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-};
-Disabled.parameters = {
-  chromatic: { disableSnapshot: true },
+export const Ghost: Story = {
+  args: { variant: "ghost", children: "Voir les études de cas" },
 };
 
-export const WithIcon = Template.bind({});
-WithIcon.args = {
-  icon: <Star className="h-4 w-4" aria-hidden />,
-};
-WithIcon.parameters = {
-  chromatic: { disableSnapshot: true },
+export const Small: Story = {
+  args: { size: "sm", children: "Réserver un appel" },
 };
 
-export const Loading = Template.bind({});
-Loading.args = {
-  loading: true,
-};
-Loading.parameters = {
-  chromatic: { disableSnapshot: true },
+export const WithIcon: Story = {
+  args: { icon: <ArrowRight className="size-4.5" aria-hidden /> },
 };
 
-export const Styled = (args) => (
-  <div className="flex flex-row gap-3">
-    <Button className="button-contained" {...args}>
-      My button
-    </Button>
-    <Button className="button-outlined" {...args}>
-      My button
-    </Button>
-  </div>
-);
-Styled.parameters = {
-  chromatic: { disableSnapshot: true },
+export const Loading: Story = {
+  args: { loading: true },
+};
+
+export const Disabled: Story = {
+  args: { disabled: true },
 };

@@ -1,20 +1,26 @@
 {
-  "ProjectCard": {
-    "challenge": "Défi :",
-    "impact": "Impact :",
-    "solution": "Solution :",
-    "visitGitHub": "GitHub",
-    "visitProject": "Voir le projet"
+  "ExternalLink": {
+    "newTab": "(nouvel onglet)"
+  },
+  "Period": {
+    "to": "à"
   },
   "footer": {
-    "copyright": "© 2023 - {currentYear} - Tous droits réservés"
+    "copyright": "© {currentYear} Adrien Guesnel · Tech Lead freelance",
+    "social": "Réseaux"
   },
   "navigationBar": {
+    "approach": "Approche",
+    "bookDiscoveryCall": "Réserver un appel",
+    "caseStudies": "Réalisations",
     "contact": "Contact",
-    "bookDiscoveryCall": "On en parle ?",
-    "homepage": "Accueil",
-    "skills": "Compétences",
-    "projects": "Projets",
-    "testimonials": "Témoignages"
+    "darkTheme": "Thème sombre",
+    "experience": "Parcours",
+    "expertise": "Expertises",
+    "homepage": "Adrien Guesnel, accueil",
+    "language": "Langue",
+    "mainNavigation": "Navigation principale",
+    "menu": "Menu",
+    "tagline": "tech lead · freelance"
   }
 }

@@ -1,39 +1,93 @@
 "use client";
 
-import clsx from "clsx";
-import { Clock, MapPin, SendMail } from "iconoir-react";
-import { useFormatter, useTranslations } from "next-intl";
+import { ArrowRight } from "iconoir-react";
+import { useLocale, useTranslations } from "next-intl";
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { toast } from "sonner";
 
-import Card from "@components/atoms/Card";
-import { GlassCard } from "@components/atoms/GlassCard";
-import RichText from "@components/RichText";
-import { Button } from "@/src/app/components/Button";
+import Portrait from "@components/atoms/Portrait";
+import { Button, buttonClass } from "@/src/app/components/Button";
 import Input from "@/src/app/components/Input";
 import Textarea from "@/src/app/components/Textarea";
+import { BOOKING_DISCOVERY_CALL_URL } from "@/src/app/lib/constants";
 import { usePlausibleEvents } from "@/src/app/lib/plausible";
 import { SECTION_IDS } from "@/src/app/lib/Routes";
 
-interface HeroProps {
-  className?: string;
+type FieldName = "name" | "email" | "message";
+type FieldErrors = Partial<Record<FieldName, string>>;
+
+const VALIDATED_FIELDS: FieldName[] = ["name", "email", "message"];
+// The normal reCAPTCHA widget is 304px wide and overflows the form card below this width.
+const COMPACT_RECAPTCHA_QUERY = "(max-width: 400px)";
+
+type RecaptchaTheme = "light" | "dark";
+
+function readTheme(): RecaptchaTheme {
+  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
 }
 
-export default function Contact({ className }: HeroProps) {
+export default function Contact() {
   const t = useTranslations("Contact");
+  const locale = useLocale();
   const plausible = usePlausibleEvents();
   const [emailSent, setEmailSent] = useState(false);
-  const [email, setEmail] = useState<string | undefined>();
-  const [currentParisTime, setCurrentParisTime] = useState(() => new Date());
+  const [sending, setSending] = useState(false);
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [status, setStatus] = useState("");
+  const [recaptchaTheme, setRecaptchaTheme] = useState<RecaptchaTheme>("light");
+  const [compactRecaptcha, setCompactRecaptcha] = useState(false);
   const recaptcha = useRef<ReCAPTCHA>(null);
-  const formatter = useFormatter();
+  const statusRef = useRef<HTMLParagraphElement>(null);
   const siteKey = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE;
+
+  useEffect(() => {
+    setRecaptchaTheme(readTheme());
+    const observer = new MutationObserver(() => setRecaptchaTheme(readTheme()));
+    observer.observe(document.documentElement, { attributeFilter: ["data-theme"] });
+
+    const narrow = window.matchMedia(COMPACT_RECAPTCHA_QUERY);
+    const updateSize = () => setCompactRecaptcha(narrow.matches);
+    updateSize();
+    narrow.addEventListener("change", updateSize);
+
+    return () => {
+      observer.disconnect();
+      narrow.removeEventListener("change", updateSize);
+    };
+  }, []);
+
+  function validate(form: HTMLFormElement): FieldErrors {
+    const nextErrors: FieldErrors = {};
+    for (const field of VALIDATED_FIELDS) {
+      const element = form.elements.namedItem(field) as HTMLInputElement | null;
+      if (!element || element.validity.valid) {
+        continue;
+      }
+      nextErrors[field] = element.validity.typeMismatch ? t("invalidEmail") : t("required");
+    }
+    return nextErrors;
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = Object.fromEntries(formData);
+    const form = e.currentTarget;
+    const nextErrors = validate(form);
+    setErrors(nextErrors);
+
+    const firstInvalid = VALIDATED_FIELDS.find((field) => nextErrors[field]);
+    if (firstInvalid) {
+      (form.elements.namedItem(firstInvalid) as HTMLElement | null)?.focus();
+      return;
+    }
+
+    if (siteKey && !recaptcha.current?.getValue()) {
+      setStatus(t("recaptchaRequired"));
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(form));
+    setSending(true);
+    setStatus("");
 
     try {
       const response = await fetch("/api/send-mail", {
@@ -47,131 +101,145 @@ export default function Contact({ className }: HeroProps) {
       recaptcha?.current?.reset();
 
       if (response.ok) {
-        setEmail(data?.email as string);
         setEmailSent(true);
+        setStatus(t("messageSent", { email: String(data.email ?? "") }));
+        // The form, and the submit button holding focus, leave the DOM: move focus to the result.
+        requestAnimationFrame(() => statusRef.current?.focus());
         plausible("Contact Form Submitted");
       } else {
         console.error("Failed to send email");
-        toast.error(t("emailFailed"));
+        setStatus(t("emailFailed"));
       }
     } catch (error) {
       console.error("Error sending email:", error);
-      toast.error(t("emailFailed"));
+      setStatus(t("emailFailed"));
+    } finally {
+      setSending(false);
     }
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => setCurrentParisTime(new Date()), 60_000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const contactSectionId = SECTION_IDS.contact;
-
   return (
     <section
-      id={contactSectionId}
-      className={clsx("py-16 lg:py-24", className)}
-      aria-labelledby="contact-heading"
+      id={SECTION_IDS.contact}
+      aria-labelledby="contact-title"
+      className="page-wrap pb-[clamp(56px,9vw,96px)]"
     >
-      <div className="container mx-auto px-4">
-        <Card className="p-6 lg:p-12">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-stretch">
-            <div className="flex flex-col justify-center gap-6 text-center lg:text-left">
-              <h2
-                id="contact-heading"
-                className="text-4xl mt-4 font-bold lg:text-6xl leading-9 lg:leading-14"
-              >
-                <RichText>{(tags) => t.rich("contactMe", tags)}</RichText>
-              </h2>
-              <p className="body-medium whitespace-pre-line text-gray">
-                {t("contactMeDescription")}
-              </p>
-
-              <div className="flex flex-row gap-5 justify-center lg:justify-start">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
-                  <MapPin className="text-primary h-5 w-5" aria-hidden />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <p className="text-xs uppercase text-gray font-semibold tracking-wide">
-                    {t("location")}
-                  </p>
-                  <p className="font-semibold text-base-content">{t("strasbourgFrance")}</p>
-                </div>
-              </div>
-
-              <div className="flex flex-row gap-5 justify-center lg:justify-start">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-base-200 bg-base-100/70">
-                  <Clock className="h-5 w-5 text-primary" aria-hidden />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <p className="text-xs uppercase text-gray font-semibold tracking-wide">
-                    {t("timezoneLabel")}
-                  </p>
-                  <p className="font-semibold text-base-content">{t("timezoneValue")}</p>
-                  <p className="text-sm text-gray">
-                    {t("timezoneLive", {
-                      time: formatter.dateTime(currentParisTime, {
-                        hour: "numeric",
-                        minute: "numeric",
-                      }),
-                    })}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <GlassCard className={clsx("lg:p-10", emailSent && "flex items-center justify-center")}>
-              {emailSent ? (
-                <div className="flex flex-col items-center gap-5 py-8">
-                  <SendMail className="h-20 w-20 text-primary" aria-hidden />
-                  <p className="body-large text-center">
-                    {t("messageSent", { email: email ?? "" })}
-                  </p>
-                </div>
-              ) : (
-                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-                  <Input
-                    label={t("name")}
-                    name="name"
-                    isRequired
-                    type="text"
-                    placeholder={t("placeholderName")}
-                  />
-                  <Input
-                    label={t("companyName")}
-                    name="companyName"
-                    type="text"
-                    placeholder={t("placeholderCompanyName")}
-                  />
-                  <Input
-                    label={t("email")}
-                    name="email"
-                    isRequired
-                    type="email"
-                    placeholder={t("placeholderEmail")}
-                  />
-                  <Textarea
-                    label={t("message")}
-                    name="message"
-                    isRequired
-                    rows={5}
-                    placeholder={t("placeholderMessage")}
-                  />
-
-                  {siteKey ? (
-                    <div className="mt-2 self-end">
-                      <ReCAPTCHA size="normal" sitekey={siteKey} ref={recaptcha} />
-                    </div>
-                  ) : null}
-
-                  <Button type="submit" className="btn btn-primary btn-outline mt-4 w-full">
-                    {t("submit")}
-                  </Button>
-                </form>
-              )}
-            </GlassCard>
+      <div className="grid gap-[clamp(32px,4vw,48px)] rounded-[20px] border border-line bg-band p-[clamp(22px,5vw,56px)] sm:rounded-[28px] desk:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+        <div className="flex min-w-0 flex-col gap-6">
+          <div className="flex items-center gap-3.5">
+            <span className="relative block size-14 shrink-0 overflow-hidden rounded-full border-2 border-surface">
+              <Portrait alt="" fill sizes="56px" className="object-cover object-[48%_22%]" />
+            </span>
+            <span className="flex flex-col leading-snug">
+              <span className="font-semibold">Adrien Guesnel</span>
+              <span className="font-mono text-[13px] text-muted">{t("kicker")}</span>
+            </span>
           </div>
-        </Card>
+          <h2 id="contact-title" className="h2-section text-[clamp(28px,3.8vw,46px)]">
+            {t("title")}
+          </h2>
+          <p className="m-0 text-[17px] text-fg-2">{t("lead")}</p>
+          <dl className="m-0 grid grid-cols-[80px_minmax(0,1fr)] gap-x-4 gap-y-3 font-mono text-sm">
+            <dt className="text-muted">{t("baseLabel")}</dt>
+            <dd className="m-0">{t("baseValue")}</dd>
+            <dt className="text-muted">{t("timezoneLabel")}</dt>
+            <dd className="m-0">{t("timezoneValue")}</dd>
+          </dl>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={BOOKING_DISCOVERY_CALL_URL}
+              className={`${buttonClass({ variant: "neutral" })} max-sm:flex-1 max-sm:basis-full`}
+              onClick={() =>
+                plausible("Book Discovery Call Clicked", { props: { source: "contact" } })
+              }
+            >
+              {t("cta")}
+              <ArrowRight className="size-4.5" aria-hidden />
+            </a>
+          </div>
+        </div>
+
+        <div className="flex min-w-0 flex-col gap-4.5 rounded-[20px] border border-line bg-surface p-[clamp(20px,3vw,28px)]">
+          {emailSent ? null : (
+            <form
+              aria-labelledby="contact-form-title"
+              className="flex flex-col gap-4.5"
+              onSubmit={handleSubmit}
+              noValidate
+            >
+              <h3 id="contact-form-title" className="m-0 text-lg font-semibold">
+                {t("formTitle")}
+              </h3>
+              <p className="-mt-2 mb-0 text-sm text-muted">{t("formHint")}</p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Input
+                  label={t("name")}
+                  name="name"
+                  isRequired
+                  type="text"
+                  autoComplete="name"
+                  placeholder={t("placeholderName")}
+                  error={errors.name}
+                />
+                <Input
+                  label={t("companyName")}
+                  name="companyName"
+                  optionalLabel={t("optional")}
+                  type="text"
+                  autoComplete="organization"
+                  placeholder={t("placeholderCompanyName")}
+                />
+              </div>
+              <Input
+                label={t("email")}
+                name="email"
+                isRequired
+                type="email"
+                autoComplete="email"
+                placeholder={t("placeholderEmail")}
+                error={errors.email}
+              />
+              <Textarea
+                label={t("message")}
+                name="message"
+                isRequired
+                rows={5}
+                placeholder={t("placeholderMessage")}
+                error={errors.message}
+              />
+
+              {siteKey ? (
+                <div className="self-end">
+                  {/* The widget only reads theme and size when it renders: the key remounts it on
+                      a change, which clears a challenge already solved. */}
+                  <ReCAPTCHA
+                    key={`${recaptchaTheme}-${compactRecaptcha}`}
+                    size={compactRecaptcha ? "compact" : "normal"}
+                    theme={recaptchaTheme}
+                    hl={locale}
+                    sitekey={siteKey}
+                    ref={recaptcha}
+                  />
+                </div>
+              ) : null}
+
+              <Button type="submit" loading={sending} className="w-full">
+                {t("submit")}
+              </Button>
+            </form>
+          )}
+          <p
+            ref={statusRef}
+            tabIndex={-1}
+            role="status"
+            aria-live="polite"
+            className={
+              emailSent ? "m-0 whitespace-pre-line text-[17px]" : "m-0 text-[15px] text-fg-2"
+            }
+          >
+            {status}
+          </p>
+        </div>
       </div>
     </section>
   );
